@@ -29,22 +29,28 @@ const getAgeColor = (age: string) => {
 
 export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
   return (
-    <div className="w-full h-full  shadow-md overflow-x-auto">
+    <div className="w-full h-full  shadow-md overflow-x-auto min-w-[1000px]">
       <table className="w-full border-collapse">
         <thead className="sticky top-0 bg-bg_gray/70 backdrop-blur-sm z-10">
           <tr className="h-[60px] text-center items-center text-sm text-text_dark">
-            <th className="py-3 text-center">Token</th>
-            <th className="py-3 text-center">DEV</th>
-            <th className="py-3 text-center">Age</th>
-            <th className="py-3 text-center">Price, $</th>
-            <th className="py-3 text-center">MC, $</th>
-            <th className="py-3 text-center">FDV, $</th>
-            <th className="py-3 text-center">iS, tokens</th>
-            <th className="py-3 text-center">cS, tokens</th>
-            <th className="py-3 text-center">tS, tokens</th>
-            <th className="py-3 text-center">1h TXs</th>
-            <th className="py-3 text-center">1h Vol</th>
-            <th className="py-3 text-center">Degen Audit</th>
+            <th className="table-header-style">Token</th>
+            <th className="table-header-style">DEV</th>
+            <th className="table-header-style">Age</th>
+            <th className="table-header-style">Price, $</th>
+            <th className="table-header-style">MC, $</th>
+            <th className="table-header-style hidden xl:table-cell">FDV, $</th>
+            <th className="table-header-style hidden xl:table-cell">
+              iS, tokens
+            </th>
+            <th className="table-header-style hidden 2xl:table-cell">
+              cS, tokens
+            </th>
+            <th className="table-header-style hidden 2xl:table-cell">
+              tS, tokens
+            </th>
+            <th className="table-header-style">1h TXs</th>
+            <th className="table-header-style">1h Vol</th>
+            <th className="table-header-style">Degen Audit</th>
           </tr>
         </thead>
         <tbody className="overflow-y-auto h-full">
@@ -54,11 +60,11 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
               className="border-b-[1px] border-bg_gray_light h-[88px] bg-bg_gray"
             >
               {/* TODO fix token name style for response */}
-              <td className="py-2 max-w-[180px]">
+              <td className="py-2 px-4 max-w-[200px]">
                 <div className="flex flex-row items-center justify-start gap-4">
                   <FilledStar />
                   <div className="flex flex-row gap-2 items-center justify-center">
-                    {images[index % 3]}
+                    <div className="hidden xl:block">{images[index % 3]}</div>
                     <div className="flex flex-col justify-start">
                       <p className="text-[#E7E0EC] font-medium text-lg">
                         {token.name}
@@ -76,15 +82,28 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
               <td className={`py-2 px-4 ${getDevColor(token.DEV)}`}>
                 {token.DEV}
               </td>
-              <td className={`py-2 px-4 ${getAgeColor(token.Age)}`}>
+              {/* // TODO fix age style for response */}
+              <td
+                className={`py-2 px-4 hover:font-bold hover:cursor-pointer transition-all duration-300 ease-in-out ${getAgeColor(
+                  token.Age
+                )}`}
+              >
                 {token.Age}
               </td>
               <td className="py-2 px-4">${formatNumber(token.Price)}</td>
               <td className="py-2 px-4">${formatNumber(token.MarketCap)}</td>
-              <td className="py-2 px-4">${formatNumber(token.FDV)}</td>
-              <td className="py-2 px-4">${formatNumber(token.ISToken.size)}</td>
-              <td className="py-2 px-4">${formatNumber(token.CSToken.size)}</td>
-              <td className="py-2 px-4">${formatNumber(token.TSToken)}</td>
+              <td className="hidden xl:table-cell py-2 px-4">
+                ${formatNumber(token.FDV)}
+              </td>
+              <td className="hidden xl:table-cell py-2 px-4">
+                ${formatNumber(token.ISToken.size)}
+              </td>
+              <td className="hidden 2xl:table-cell py-2 px-4">
+                ${formatNumber(token.CSToken.size)}
+              </td>
+              <td className="hidden 2xl:table-cell py-2 px-4">
+                ${formatNumber(token.TSToken)}
+              </td>
               <td className="py-2 px-4">{formatNumber(token.TXsPerHr)}</td>
               <td className="py-2 px-4">${formatNumber(token.VolPerHr)}</td>
               <td className="py-2 px-4  max-w-44">

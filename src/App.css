@@ -81,9 +81,8 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #000;
+  background: #3c3c3c;
   border-radius: 5px;
-  border: 1px solid #fff;
 }
 
 /* Handle on hover */
@@ -91,3 +90,6 @@
   background: #555;
 }
 
+.table-header-style {
+  @apply py-3 text-center hover:text-white hover:cursor-pointer transition-all duration-300 ease-in-out;
+}

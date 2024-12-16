@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <div className="w-full items-center justify-center flex mb-6">
-      <div className="bg-bg_black h-12 w-full justify-between flex px-32">
+      <div className="bg-bg_black h-12 w-full justify-between flex px-96">
         {navigation.map((item) => (
           <Link
             key={item.name}
