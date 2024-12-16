@@ -1,12 +1,19 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import { isMobile } from "react-device-detect";
+
 import "./App.css";
 import { useState, useEffect } from "react";
-import Home from "./page/Home";
 import Loading from "./components/Loading/Loading";
 import { Provider as ReduxProvider } from "react-redux";
 import { store } from "./store";
-const LOADINGTIME = 2000;
+import { Transactions } from "./page/Transactions";
+import { Assets } from "./page/Assets";
+import { Settings } from "./page/Settings";
+import { Dashboard } from "./page/Dashboard";
+import { Signin } from "./page/Signin";
+import Header from "./components/Header";
+
+const LOADINGTIME = 200;
+
 function App() {
   const [loading, setLoading] = useState(false);
 
@@ -22,11 +29,16 @@ function App() {
       {loading ? (
         <Loading />
       ) : (
-        <div className="App w-[750px] flex flex-col relative select-none">
+        <div className="flex flex-col relative select-none w-full px-[26px] mb-6 ">
           <ReduxProvider store={store}>
+            <Header />
             <div className="overflow-y-auto h-full">
               <Routes>
-                <Route index element={<Home />} />
+                <Route index element={<Dashboard />} />
+                <Route path="/txns" element={<Transactions />} />
+                <Route path="/assets" element={<Assets />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/signin" element={<Signin />} />
               </Routes>
             </div>
           </ReduxProvider>
