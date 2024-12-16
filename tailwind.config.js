@@ -20,6 +20,20 @@ export default {
         large: "1.6rem",
         "extra-large": "2rem",
       },
+      colors: {
+        bg_black: "#1D1B20",
+        bg_gray: "#2c2c2c",
+
+        text_deactivate: "#49454F",
+        text_activate: "#E7E0EC",
+        text_normal: "#A09E9E",
+        text_dark: "#929292",
+
+        color_green: "#2DF400",
+        color_red: "#FF2727",
+        color_yellow_dark: "#BA7F00",
+        color_yellow_light: "#F1A500",
+      },
     },
   },
   plugins: [],
