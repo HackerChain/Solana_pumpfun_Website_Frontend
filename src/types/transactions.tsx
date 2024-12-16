@@ -1,6 +1,7 @@
 export interface Transaction {
   id?: number;
   tx?: string;
+  contractAddress?: string;
   time?: number;
   name?: string;
   side?: string;

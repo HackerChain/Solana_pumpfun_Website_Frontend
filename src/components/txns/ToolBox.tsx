@@ -35,7 +35,7 @@ export const ToolBox = () => {
 
   return (
     <>
-      <div className="flex flex-row justify-center items-center gap-5">
+      <div className="flex flex-row justify-center items-center gap-5 my-10">
         <div className="flex flex-row justify-start items-center gap-5">
           <SideDropdown
             options={options}

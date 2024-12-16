@@ -586,6 +586,8 @@ export const TestDataforTXs: Transaction[] = [
   {
     id: 0,
     tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
     time: 1734338802630,
     name: "Token name 0",
     side: "Buy",
@@ -598,6 +600,8 @@ export const TestDataforTXs: Transaction[] = [
   {
     id: 1,
     tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
     time: 1734338802630,
     name: "Token name 1",
     side: "Buy",
@@ -611,6 +615,8 @@ export const TestDataforTXs: Transaction[] = [
   {
     id: 2,
     tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
     time: 1734338802630,
     name: "Token name 2",
     side: "Buy",
@@ -623,6 +629,8 @@ export const TestDataforTXs: Transaction[] = [
   {
     id: 3,
     tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
     time: 1734338802630,
     name: "Token name 3",
     side: "Buy",
@@ -635,6 +643,8 @@ export const TestDataforTXs: Transaction[] = [
   {
     id: 4,
     tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
     time: 1734338802630,
     name: "Token name 4",
     side: "Buy",
@@ -648,6 +658,8 @@ export const TestDataforTXs: Transaction[] = [
   {
     id: 5,
     tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
     time: 1734338802630,
     name: "Token name 5",
     side: "Buy",
@@ -660,6 +672,8 @@ export const TestDataforTXs: Transaction[] = [
   {
     id: 6,
     tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
     time: 1734338802630,
     name: "Token name 6",
     side: "Buy",
@@ -673,6 +687,8 @@ export const TestDataforTXs: Transaction[] = [
   {
     id: 7,
     tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
     time: 1734338802630,
     name: "Token name 7",
     side: "Buy",
@@ -686,6 +702,8 @@ export const TestDataforTXs: Transaction[] = [
   {
     id: 8,
     tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
     time: 1734338802630,
     name: "Token name 8",
     side: "Buy",
@@ -699,6 +717,8 @@ export const TestDataforTXs: Transaction[] = [
   {
     id: 9,
     tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
     time: 1734338802630,
     name: "Token name 9",
     side: "Buy",
@@ -711,6 +731,8 @@ export const TestDataforTXs: Transaction[] = [
   {
     id: 10,
     tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
     time: 1734338802630,
     name: "Token name 10",
     side: "Buy",
@@ -724,6 +746,8 @@ export const TestDataforTXs: Transaction[] = [
   {
     id: 11,
     tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
     time: 1734338802630,
     name: "Token name 11",
     side: "Buy",

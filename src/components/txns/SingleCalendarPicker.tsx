@@ -49,9 +49,10 @@ export const SingleCalendarPicker: React.FC<SingleCalendarPickerProps> = ({
 
   return (
     <div className="relative">
+      {/* TODO fix style */}
       <button
         onClick={toggleCalendar}
-        className="w-full px-4 py-2 text-left bg-color_pink border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="w-full px-4 py-2 text-left bg-color_pink border border-gray-300 rounded-md shadow-sm focus:outline-none "
       >
         <span className="flex items-center">
           {formatDateRange()}
@@ -72,7 +73,7 @@ export const SingleCalendarPicker: React.FC<SingleCalendarPickerProps> = ({
         </span>
       </button>
       {isOpen && (
-        <div className="absolute mt-1 bg-color_pink border border-gray-300 rounded-md shadow-lg z-10 text-sm">
+        <div className="absolute mt-1 bg-color_pink border border-gray-300 rounded-md shadow-lg z-100 text-sm">
           <DayPicker
             mode="range"
             defaultMonth={startDate}

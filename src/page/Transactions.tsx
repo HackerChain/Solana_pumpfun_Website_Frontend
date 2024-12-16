@@ -1,13 +1,13 @@
-import { TokenTable } from "../components/Dashboard/TokenTable";
 import { ToolBox } from "../components/txns/ToolBox";
-import { TestDataforDashboard } from "../store/testData";
+import { TxnTable } from "../components/txns/TxnTable";
+import { TestDataforTXs } from "../store/testData";
 
 export const Transactions = () => {
   return (
     <>
-      <div className="flex flex-col h-full">
+      <div className="flex flex-col h-full mx-72">
         <ToolBox />
-        <TokenTable tokens={TestDataforDashboard} />
+        <TxnTable txns={TestDataforTXs} />
       </div>
     </>
   );
