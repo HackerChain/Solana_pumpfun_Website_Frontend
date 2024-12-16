@@ -6,7 +6,7 @@
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   line-height: 1.5;
   font-weight: 400;
-  background-color: #2c2c2c;
+  background-color: #1D1B20;
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -110,12 +110,4 @@ button:focus-visible {
     opacity: 1;
     transform: translateX(0px);
   }
-}
-
-.hide-scrollbar {
-  scrollbar-width: none; /* For Firefox */
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Edge */
 }

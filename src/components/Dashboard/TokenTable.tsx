@@ -29,29 +29,29 @@ const getAgeColor = (age: string) => {
 
 export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
   return (
-    <div className="w-full rounded-lg shadow-md overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-500">
+    <div className="w-full h-full  shadow-md overflow-x-auto">
       <table className="w-full border-collapse">
-        <thead>
-          <tr className="h-[100px] text-sm text-text_dark border-b-[1px] border-bg_gray_light">
+        <thead className="sticky top-0 bg-bg_gray/70 backdrop-blur-sm z-10">
+          <tr className="h-[60px] text-center items-center text-sm text-text_dark">
             <th className="py-3 text-center">Token</th>
-            <th className="py-3 px-4 text-center">DEV</th>
-            <th className="py-3 px-4 text-center">Age</th>
-            <th className="py-3 px-4 text-center">Price, $</th>
-            <th className="py-3 px-4 text-center">MC, $</th>
-            <th className="py-3 px-4 text-center">FDV, $</th>
-            <th className="py-3 px-4 text-center">iS, tokens</th>
-            <th className="py-3 px-4 text-center">cS, tokens</th>
-            <th className="py-3 px-4 text-center">tS, tokens</th>
-            <th className="py-3 px-4 text-center">1h TXs</th>
-            <th className="py-3 px-4 text-center">1h Vol</th>
-            <th className="py-3 px-4 text-center">Degen Audit</th>
+            <th className="py-3 text-center">DEV</th>
+            <th className="py-3 text-center">Age</th>
+            <th className="py-3 text-center">Price, $</th>
+            <th className="py-3 text-center">MC, $</th>
+            <th className="py-3 text-center">FDV, $</th>
+            <th className="py-3 text-center">iS, tokens</th>
+            <th className="py-3 text-center">cS, tokens</th>
+            <th className="py-3 text-center">tS, tokens</th>
+            <th className="py-3 text-center">1h TXs</th>
+            <th className="py-3 text-center">1h Vol</th>
+            <th className="py-3 text-center">Degen Audit</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="overflow-y-auto h-full">
           {tokens.map((token, index) => (
             <tr
               key={index}
-              className="border-b-[1px] border-bg_gray_light h-[88px]"
+              className="border-b-[1px] border-bg_gray_light h-[88px] bg-bg_gray"
             >
               {/* TODO fix token name style for response */}
               <td className="py-2 max-w-[180px]">

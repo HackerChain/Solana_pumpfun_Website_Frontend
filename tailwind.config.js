@@ -33,6 +33,7 @@ export default {
         color_red: "#FF2727",
         color_yellow_dark: "#BA7F00",
         color_yellow_light: "#F1A500",
+        color_pink: "#6B20A8",
       },
     },
   },
