@@ -29,7 +29,8 @@ const getAgeColor = (age: string) => {
 
 export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
   return (
-    <div className="w-full rounded-lg shadow-md overflow-x-auto">
+    // <div className="w-full rounded-lg shadow-md overflow-x-auto">
+    <div className="w-full rounded-lg shadow-md ">
       <table className="w-full border-collapse">
         <thead>
           <tr className="h-[100px] text-sm text-text_dark border-b-[1px] border-bg_gray_light">
@@ -91,7 +92,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                   {token.Degen?.NoMint !== undefined && (
                     <span
                       className={`px-2 py-0.5 text-xs ${
-                        token.Degen.NoMint ? "text-green-500" : "text-red-500"
+                        token.Degen.NoMint
+                          ? "text-color_green"
+                          : "text-color_red"
                       }`}
                     >
                       NoMint
@@ -101,8 +104,8 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                     <span
                       className={`px-2 py-0.5 text-xs ${
                         token.Degen.Blacklist
-                          ? "text-green-500"
-                          : "text-red-500"
+                          ? "text-color_green"
+                          : "text-color_red"
                       }`}
                     >
                       Blacklist
@@ -111,7 +114,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                   {token.Degen?.Burnt !== undefined && (
                     <span
                       className={`px-2 py-0.5 text-xs ${
-                        token.Degen.Burnt ? "text-green-500" : "text-red-500"
+                        token.Degen.Burnt
+                          ? "text-color_green"
+                          : "text-color_red"
                       }`}
                     >
                       Burnt
@@ -120,7 +125,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                   {token.Degen?.Social !== undefined && (
                     <span
                       className={`px-2 py-0.5 text-xs ${
-                        token.Degen.Social ? "text-green-500" : "text-red-500"
+                        token.Degen.Social
+                          ? "text-color_green"
+                          : "text-color_red"
                       }`}
                     >
                       Social
@@ -130,8 +137,8 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                     <span
                       className={`px-2 py-0.5 text-xs ${
                         token.Degen.Top10 > 30
-                          ? "text-red-500"
-                          : "text-green-500"
+                          ? "text-color_red"
+                          : "text-color_green"
                       }`}
                     >
                       Top10: {token.Degen.Top10}%
@@ -141,8 +148,8 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                     <span
                       className={`px-2 py-0.5 text-xs ${
                         token.Degen.Insiders > 2
-                          ? "text-red-500"
-                          : "text-green-500"
+                          ? "text-color_red"
+                          : "text-color_green"
                       }`}
                     >
                       Insiders: {token.Degen.Insiders}%

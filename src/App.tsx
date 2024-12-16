@@ -29,7 +29,7 @@ function App() {
       {loading ? (
         <Loading />
       ) : (
-        <div className="flex flex-col relative select-none w-full px-[26px]">
+        <div className="flex flex-col relative select-none w-full px-[26px] mb-6 ">
           <ReduxProvider store={store}>
             <Header />
             <div className="overflow-y-auto h-full">

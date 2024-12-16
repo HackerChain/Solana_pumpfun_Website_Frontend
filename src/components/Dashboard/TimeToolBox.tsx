@@ -35,7 +35,7 @@ export const TimeToolBox = () => {
               selected === item.value
                 ? "border-[1px] border-color_yellow_dark bg-color_yellow_dark text-white"
                 : "border-[1px] border-[#79747E] text-[#79747E]"
-            }`}
+            } hover:cursor-pointer hover:bg-slate-300 transition`}
             onClick={() => setSelected(item.value)}
           >
             {item.title}
