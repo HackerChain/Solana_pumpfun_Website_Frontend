@@ -12,12 +12,12 @@ export default function Header() {
 
   return (
     <div className="w-full items-center justify-center flex mb-6">
-      <div className="bg-bg_black h-12 w-[480px] justify-between flex">
+      <div className="bg-bg_black h-12 w-full justify-between flex px-96">
         {navigation.map((item) => (
           <Link
             key={item.name}
             to={item.href}
-            className={`inline-flex w-[120px] px-1 pt-1 text-sm hover:text-white transition-colors text-center items-center justify-center ${
+            className={`inline-flex w-[120px] px-1 pt-1 text-lg hover:text-white transition-all duration-300 ease-in-out text-center items-center justify-center ${
               location.pathname === item.href
                 ? "border-b-[1px] border-white text-text_activate"
                 : "border-b-[1px] border-transparent text-text_deactivate"

@@ -29,13 +29,13 @@ function App() {
       {loading ? (
         <Loading />
       ) : (
-        <div className="flex flex-col relative select-none w-full px-[26px] mb-6 ">
+        <div className="flex flex-col relative select-none w-full mb-6 min-w-[880px]">
           <ReduxProvider store={store}>
             <Header />
             <div className="overflow-y-auto h-full">
               <Routes>
                 <Route index element={<Dashboard />} />
-                <Route path="/txns" element={<Transactions />} />
+                <Route path="/transactions" element={<Transactions />} />
                 <Route path="/assets" element={<Assets />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/signin" element={<Signin />} />

@@ -27,7 +27,7 @@ export const TimeToolBox = () => {
   const [selected, setSelected] = useState(Tools[2].value);
   return (
     <>
-      <div className="flex flex-row gap-1">
+      <div className="flex flex-row gap-1 my-4">
         {Tools.map((item, idx) => (
           <div
             key={idx}

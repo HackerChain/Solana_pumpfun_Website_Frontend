@@ -1,4 +1,5 @@
 import { Token } from "../types/dashboard";
+import { Transaction } from "../types/transactions";
 
 export const TestDataforDashboard: Token[] = [
   {
@@ -581,6 +582,183 @@ export const TestDataforDashboard: Token[] = [
   },
 ];
 
+export const TestDataforTXs: Transaction[] = [
+  {
+    id: 0,
+    tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
+    time: 1734338802630,
+    name: "Token name 0",
+    side: "Buy",
+    Price: 0.000762,
+    MarketCap: 52300,
+    Tokens: 3689000,
+    Fee: 2100000,
+    Total: 37400,
+  },
+  {
+    id: 1,
+    tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
+    time: 1734338802630,
+    name: "Token name 1",
+    side: "Buy",
+    Price: 0.000954,
+    MarketCap: 7700,
+    Tokens: 297600,
+    Fee: 3900000,
+    Total: 30800,
+    profit: 56.02,
+  },
+  {
+    id: 2,
+    tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
+    time: 1734338802630,
+    name: "Token name 2",
+    side: "Buy",
+    Price: 0.00095,
+    MarketCap: 58600,
+    Tokens: 97200,
+    Fee: 3300000,
+    Total: 37400,
+  },
+  {
+    id: 3,
+    tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
+    time: 1734338802630,
+    name: "Token name 3",
+    side: "Buy",
+    Price: 0.000325,
+    MarketCap: 68300,
+    Tokens: 8898500,
+    Fee: 3800000,
+    Total: 15900,
+  },
+  {
+    id: 4,
+    tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
+    time: 1734338802630,
+    name: "Token name 4",
+    side: "Buy",
+    Price: 0.000564,
+    MarketCap: 11200,
+    Tokens: 7036900,
+    Fee: 9100000,
+    Total: 65600,
+    profit: 30.07,
+  },
+  {
+    id: 5,
+    tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
+    time: 1734338802630,
+    name: "Token name 5",
+    side: "Buy",
+    Price: 0.000504,
+    MarketCap: 34200,
+    Tokens: 4482300,
+    Fee: 5700000,
+    Total: 14700,
+  },
+  {
+    id: 6,
+    tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
+    time: 1734338802630,
+    name: "Token name 6",
+    side: "Buy",
+    Price: 0.000337,
+    MarketCap: 67600,
+    Tokens: 1285800,
+    Fee: 8800000,
+    Total: 66500,
+    profit: -76.19,
+  },
+  {
+    id: 7,
+    tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
+    time: 1734338802630,
+    name: "Token name 7",
+    side: "Buy",
+    Price: 0.000076,
+    MarketCap: 73900,
+    Tokens: 1051000,
+    Fee: 3200000,
+    Total: 20600,
+    profit: 77.72,
+  },
+  {
+    id: 8,
+    tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
+    time: 1734338802630,
+    name: "Token name 8",
+    side: "Buy",
+    Price: 0.000019,
+    MarketCap: 46500,
+    Tokens: 2514000,
+    Fee: 9000000,
+    Total: 58600,
+    profit: 13.89,
+  },
+  {
+    id: 9,
+    tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
+    time: 1734338802630,
+    name: "Token name 9",
+    side: "Buy",
+    Price: 0.000692,
+    MarketCap: 18700,
+    Tokens: 855700,
+    Fee: 1500000,
+    Total: 53400,
+  },
+  {
+    id: 10,
+    tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
+    time: 1734338802630,
+    name: "Token name 10",
+    side: "Buy",
+    Price: 0.000428,
+    MarketCap: 39900,
+    Tokens: 1817400,
+    Fee: 5700000,
+    Total: 58100,
+    profit: 58.49,
+  },
+  {
+    id: 11,
+    tx: "3hbt7vcwjW7whJjjgV3oEAZqxJrfApnUfoRLhZcux1RC2o1AqNEnbnaEhbFUVpniSAyqHvi77VMq7ismYSxYVPC3",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+
+    time: 1734338802630,
+    name: "Token name 11",
+    side: "Buy",
+    Price: 0.00095,
+    MarketCap: 95600,
+    Tokens: 1248600,
+    Fee: 9500000,
+    Total: 88100,
+  },
+];
+
 export const Logo1 = () => (
   <svg
     width="30"
@@ -613,10 +791,10 @@ export const Logo2 = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clip-path="url(#clip0_1_15745)">
+    <g clipPath="url(#clip0_1_15745)">
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M30 15C30 23.2843 23.2843 30 15 30C6.71574 30 0 23.2843 0 15C0 6.71574 6.71574 0 15 0C23.2843 0 30 6.71574 30 15ZM9.18077 12.3202C9.18077 8.97898 11.7661 6.27737 14.9999 6.27737C18.2599 6.27737 20.8191 9.00598 20.8191 12.0965C20.8191 15.2407 18.2084 18.1394 14.9999 18.1394C14.3127 18.1394 13.6275 18.2655 12.9805 18.5091L14.0762 13.0302C14.2213 12.3049 13.7509 11.5993 13.0256 11.4543C12.3003 11.3092 11.5947 11.7796 11.4497 12.5049L9.5577 21.9647C9.53027 22.0378 9.50404 22.1119 9.47906 22.1869C9.42321 22.3545 9.40232 22.5253 9.41241 22.6914L9.21268 23.6899C9.06761 24.4153 9.53798 25.1209 10.2633 25.2658C10.9886 25.4109 11.6942 24.9405 11.8392 24.2154L12.1356 22.7334C12.6821 21.4839 13.8506 20.8179 14.9999 20.8179C19.8447 20.8179 23.4977 16.5581 23.4977 12.0965C23.4977 7.58124 19.7932 3.5988 14.9999 3.5988C10.1805 3.5988 6.5022 7.60824 6.5022 12.3202C6.5022 13.0599 7.10181 13.6595 7.84149 13.6595C8.58116 13.6595 9.18077 13.0599 9.18077 12.3202ZM18.6273 23.9526C18.6273 24.8402 17.9078 25.5598 17.0202 25.5598C16.1326 25.5598 15.4131 24.8402 15.4131 23.9526C15.4131 23.0651 16.1326 22.3455 17.0202 22.3455C17.9078 22.3455 18.6273 23.0651 18.6273 23.9526Z"
         fill="#F1A500"
       />
@@ -637,10 +815,10 @@ export const Logo3 = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clip-path="url(#clip0_1_15758)">
+    <g clipPath="url(#clip0_1_15758)">
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M30 15C30 23.2843 23.2843 30 15 30C6.71574 30 0 23.2843 0 15C0 6.71574 6.71574 0 15 0C23.2843 0 30 6.71574 30 15ZM9.18077 12.3202C9.18077 8.97898 11.7661 6.27737 14.9999 6.27737C18.2599 6.27737 20.8191 9.00598 20.8191 12.0965C20.8191 15.2407 18.2084 18.1394 14.9999 18.1394C14.3127 18.1394 13.6275 18.2655 12.9805 18.5091L14.0762 13.0302C14.2213 12.3049 13.7509 11.5993 13.0256 11.4543C12.3003 11.3092 11.5947 11.7796 11.4497 12.5049L9.5577 21.9647C9.53027 22.0378 9.50404 22.1119 9.47906 22.1869C9.42321 22.3545 9.40232 22.5253 9.41241 22.6914L9.21268 23.6899C9.06761 24.4153 9.53798 25.1209 10.2633 25.2658C10.9886 25.4109 11.6942 24.9405 11.8392 24.2154L12.1356 22.7334C12.6821 21.4839 13.8506 20.8179 14.9999 20.8179C19.8447 20.8179 23.4977 16.5581 23.4977 12.0965C23.4977 7.58124 19.7932 3.5988 14.9999 3.5988C10.1805 3.5988 6.5022 7.60824 6.5022 12.3202C6.5022 13.0599 7.10181 13.6595 7.84149 13.6595C8.58116 13.6595 9.18077 13.0599 9.18077 12.3202ZM18.6273 23.9526C18.6273 24.8402 17.9078 25.5598 17.0202 25.5598C16.1326 25.5598 15.4131 24.8402 15.4131 23.9526C15.4131 23.0651 16.1326 22.3455 17.0202 22.3455C17.9078 22.3455 18.6273 23.0651 18.6273 23.9526Z"
         fill="#8D64EC"
       />
