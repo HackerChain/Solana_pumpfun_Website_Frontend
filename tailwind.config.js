@@ -23,7 +23,7 @@ export default {
       colors: {
         bg_black: "#1D1B20",
         bg_gray: "#2c2c2c",
-
+        bg_gray_light: "#3c3c3c",
         text_deactivate: "#49454F",
         text_activate: "#E7E0EC",
         text_normal: "#A09E9E",

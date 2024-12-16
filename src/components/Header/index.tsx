@@ -11,7 +11,7 @@ export default function Header() {
   const location = useLocation();
 
   return (
-    <div className="w-full items-center justify-center flex">
+    <div className="w-full items-center justify-center flex mb-6">
       <div className="bg-bg_black h-12 w-[480px] justify-between flex">
         {navigation.map((item) => (
           <Link
