@@ -29,8 +29,7 @@ const getAgeColor = (age: string) => {
 
 export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
   return (
-    // <div className="w-full rounded-lg shadow-md overflow-x-auto">
-    <div className="w-full rounded-lg shadow-md ">
+    <div className="w-full rounded-lg shadow-md overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-500">
       <table className="w-full border-collapse">
         <thead>
           <tr className="h-[100px] text-sm text-text_dark border-b-[1px] border-bg_gray_light">
@@ -54,7 +53,8 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
               key={index}
               className="border-b-[1px] border-bg_gray_light h-[88px]"
             >
-              <td className="py-2 max-w-[130px]">
+              {/* TODO fix token name style for response */}
+              <td className="py-2 max-w-[180px]">
                 <div className="flex flex-row items-center justify-start gap-4">
                   <FilledStar />
                   <div className="flex flex-row gap-2 items-center justify-center">

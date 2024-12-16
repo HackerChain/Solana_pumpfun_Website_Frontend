@@ -7,7 +7,7 @@ export const Dashboard = () => {
     <>
       <div className="flex flex-col h-full">
         <TimeToolBox />
-        <TokenTable tokens = {TestDataforDashboard}/>
+        <TokenTable tokens={TestDataforDashboard} />
       </div>
     </>
   );
