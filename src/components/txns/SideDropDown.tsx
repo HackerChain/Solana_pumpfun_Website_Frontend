@@ -42,7 +42,7 @@ export const SideDropdown: React.FC<DropdownProps> = ({
       </button>
 
       {isOpen && (
-        <div className="absolute z-10 w-full mt-1 bg-color_pink border border-gray-300 rounded-md shadow-lg transition ">
+        <div className="absolute z-20 w-full mt-1 bg-color_pink border border-gray-300 rounded-md shadow-lg transition ">
           {options.map((option) => (
             <div
               key={option}

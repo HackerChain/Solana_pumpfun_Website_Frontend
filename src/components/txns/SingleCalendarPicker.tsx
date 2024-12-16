@@ -73,7 +73,7 @@ export const SingleCalendarPicker: React.FC<SingleCalendarPickerProps> = ({
         </span>
       </button>
       {isOpen && (
-        <div className="absolute mt-1 bg-color_pink border border-gray-300 rounded-md shadow-lg z-100 text-sm">
+        <div className="absolute mt-1 bg-color_pink border border-gray-300 rounded-md shadow-lg z-[20] text-sm">
           <DayPicker
             mode="range"
             defaultMonth={startDate}
