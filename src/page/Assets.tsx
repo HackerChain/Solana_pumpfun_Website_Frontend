@@ -1,4 +1,7 @@
+import { AssetsTable } from "../components/AssetsPage/AssetsTable";
 import { VariableBox } from "../components/AssetsPage/VariableBox";
+import { AssetsData } from "../store/TestData/assetsData";
+import { TestDataforDashboard } from "../store/TestData/testData";
 
 const Variable = {
   currentBalance: {
@@ -20,11 +23,10 @@ const Variable = {
 
 export const Assets = () => {
   return (
-    <div className="flex flex-col w-full h-full px-[190px]">
+    <div className="flex flex-col w-full h-full px-[30px]">
       <VariableBox {...Variable} />
       <hr className="w-full border-bg_gray_light border-t my-12" />
-
-      <div>table</div>
+      <AssetsTable tokens={AssetsData} />
     </div>
   );
 };
