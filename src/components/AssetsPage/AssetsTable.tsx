@@ -124,7 +124,7 @@ export const AssetsTable: React.FC<TokenTableProps> = ({ tokens }) => {
               <td className="py-2 px-4">
                 {formatNumber(token.sellingStep || 0)}
               </td>
-              <td className="py-2 px-4 max-w-16">
+              <td className="py-2 px-4 w-20">
                 <p
                   className={`w-full text-center text-sm rounded-md px-2 text-white ${getStateColor(
                     token.state || ""
