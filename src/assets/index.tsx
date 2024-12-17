@@ -51,3 +51,39 @@ export const EmptyStar = () => (
     />
   </svg>
 );
+
+export const PreviousIcon = () => (
+  <svg
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.6666 5.99999H1.33331M1.33331 5.99999L5.99998 10.6667M1.33331 5.99999L5.99998 1.33333"
+      stroke="#1E1E1E"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+export const NextIcon = () => (
+  <svg
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M1.33337 5.99999H10.6667M10.6667 5.99999L6.00004 1.33333M10.6667 5.99999L6.00004 10.6667"
+      stroke="#1E1E1E"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);

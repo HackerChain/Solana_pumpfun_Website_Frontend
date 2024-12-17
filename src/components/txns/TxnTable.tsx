@@ -4,7 +4,7 @@ import {
   formatNumber,
   formatTimestamp,
 } from "../../utils/utils";
-import { Logo1, Logo2, Logo3 } from "../../store/testData";
+import { Logo1, Logo2, Logo3 } from "../../store/TestData/testData";
 import { ImgLink } from "../../assets";
 import { Transaction } from "../../types/transactions";
 

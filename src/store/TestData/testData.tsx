@@ -1,5 +1,5 @@
-import { Token } from "../types/dashboard";
-import { Transaction } from "../types/transactions";
+import { Token } from "../../types/dashboard";
+import { Transaction } from "../../types/transactions";
 
 export const TestDataforDashboard: Token[] = [
   {

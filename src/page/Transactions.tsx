@@ -1,6 +1,6 @@
 import { ToolBox } from "../components/txns/ToolBox";
 import { TxnTable } from "../components/txns/TxnTable";
-import { TestDataforTXs } from "../store/testData";
+import { TestDataforTXs } from "../store/TestData/testData";
 
 export const Transactions = () => {
   return (
