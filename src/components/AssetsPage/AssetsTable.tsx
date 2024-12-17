@@ -1,7 +1,7 @@
 import React from "react";
 import { formatAddress, formatNumber } from "../../utils/utils";
 import { Logo1, Logo2, Logo3 } from "../../store/TestData/testData";
-import { FilledStar, ImgLink } from "../../assets";
+import { ImgLink } from "../../assets";
 
 interface TokenTableProps {
   tokens: AssetsToken[];

@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../utils/api";
 
 export const Signin: React.FC = () => {
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate("/");
+    console.log("Form submitted", email, pwd);
+    const body = {
+      email: email,
+      password: pwd,
+    };
+    setEmail("");
+    setPwd("");
+    api.post("/auth/login", body).then((res) => {
+      console.log(res.data);
+      if (res.status === 200) {
+        navigate("/");
+      }
+    });
   };
+
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+
   return (
     <section>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -40,6 +57,8 @@ export const Signin: React.FC = () => {
                   type="email"
                   name="email"
                   id="email"
+                  value={email}
+                  onChange={(e: any) => setEmail(e.target.value)}
                   className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@company.com"
                   required
@@ -57,6 +76,8 @@ export const Signin: React.FC = () => {
                   type="password"
                   name="password"
                   id="password"
+                  value={pwd}
+                  onChange={(e: any) => setPwd(e.target.value)}
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
