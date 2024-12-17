@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
 import "./App.css";
 import { useState, useEffect } from "react";
@@ -11,6 +11,7 @@ import { Settings } from "./page/Settings";
 import { Dashboard } from "./page/Dashboard";
 import { Signin } from "./page/Signin";
 import Header from "./components/Header";
+import { TxHistory } from "./page/TxHistroy";
 
 const LOADINGTIME = 200;
 
@@ -37,8 +38,10 @@ function App() {
                 <Route index element={<Dashboard />} />
                 <Route path="/transactions" element={<Transactions />} />
                 <Route path="/assets" element={<Assets />} />
+                <Route path="/assets/:ca" element={<TxHistory />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/signin" element={<Signin />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </div>
           </ReduxProvider>
