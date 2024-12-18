@@ -47,6 +47,29 @@ function AppRoutes() {
     return <Loading />;
   }
 
+  const ProtectedRouteArray = [
+    {
+      path: "/",
+      element: <Dashboard />,
+    },
+    {
+      path: "/transactions",
+      element: <Transactions />,
+    },
+    {
+      path: "/assets",
+      element: <Assets />,
+    },
+    {
+      path: "/settings",
+      element: <Settings />,
+    },
+    {
+      path: "/assets/:ca",
+      element: <TxHistory />,
+    },
+  ];
+
   return (
     <div className="flex flex-col relative select-none w-full mb-6 min-w-[880px]">
       <ReduxProvider store={store}>
@@ -60,51 +83,13 @@ function AppRoutes() {
               }
             />
 
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/transactions"
-              element={
-                <ProtectedRoute>
-                  <Transactions />
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/assets"
-              element={
-                <ProtectedRoute>
-                  <Assets />
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/assets/:ca"
-              element={
-                <ProtectedRoute>
-                  <TxHistory />
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/settings"
-              element={
-                <ProtectedRoute>
-                  <Settings />
-                </ProtectedRoute>
-              }
-            />
-
+            {ProtectedRouteArray.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<ProtectedRoute>{route.element}</ProtectedRoute>}
+              />
+            ))}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
