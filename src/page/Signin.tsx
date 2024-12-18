@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import api from "../utils/api";
+import { useAuth } from "../context/Auth";
 
 export const Signin: React.FC = () => {
-  const navigate = useNavigate();
+  const { login } = useAuth();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted", email, pwd);
@@ -14,12 +14,12 @@ export const Signin: React.FC = () => {
     setEmail("");
     setPwd("");
     api.post("/auth/login", body).then((res) => {
-      console.log(res.data);
       if (res.status === 200) {
         // Store the token in localStorage
-        localStorage.setItem("token", res.data.token);
+        const { token } = res.data;
 
-        navigate("/");
+        // If login successful, call login with the token
+        login(token);
       }
     });
   };
@@ -52,7 +52,7 @@ export const Signin: React.FC = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start"
                 >
                   Your email
                 </label>
@@ -71,7 +71,7 @@ export const Signin: React.FC = () => {
               <div>
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start"
                 >
                   Password
                 </label>
