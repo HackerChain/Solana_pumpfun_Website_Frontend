@@ -32,6 +32,7 @@ export default {
         text_dark: "#929292",
 
         color_gray_white: "#CECECE",
+        color_green_dark: "#167900",
         color_green: "#2DF400",
         color_red: "#FF2727",
         color_yellow_dark: "#BA7F00",
