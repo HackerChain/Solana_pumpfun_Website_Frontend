@@ -16,10 +16,8 @@ export const Signin: React.FC = () => {
     api.post("/auth/login", body).then((res) => {
       console.log(res.data);
       if (res.status === 200) {
-
-
         // Store the token in localStorage
-        localStorage.setItem('token', res.data.token);
+        localStorage.setItem("token", res.data.token);
 
         navigate("/");
       }

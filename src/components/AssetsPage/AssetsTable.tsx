@@ -2,6 +2,7 @@ import React from "react";
 import { formatAddress, formatNumber } from "../../utils/utils";
 import { Logo1, Logo2, Logo3 } from "../../store/TestData/testData";
 import { ImgLink } from "../../assets";
+import { useNavigate } from "react-router-dom";
 
 interface TokenTableProps {
   tokens: AssetsToken[];
@@ -36,6 +37,10 @@ const getPnLColor = (value: number) => {
 };
 
 export const AssetsTable: React.FC<TokenTableProps> = ({ tokens }) => {
+  const navigate = useNavigate();
+  const handleClick = ({ ca }: { ca: string }) => {
+    navigate(`/assets/${ca}`);
+  };
   return (
     <div className="w-full h-full min-h-[800px] shadow-md overflow-x-auto min-w-[1000px]">
       <table className="w-full border-collapse">
@@ -74,7 +79,12 @@ export const AssetsTable: React.FC<TokenTableProps> = ({ tokens }) => {
                         {token.name}
                       </p>
                       <div className="flex flex-row gap-2 items-center justify-start">
-                        <p className="text-sm text-text_dark">
+                        <p
+                          className="text-sm text-text_dark hover:text-white hover:cursor-pointer"
+                          onClick={() =>
+                            handleClick({ ca: token.contractAddress || "" })
+                          }
+                        >
                           {formatAddress(token.contractAddress || "")}
                         </p>
                         <ImgLink />
