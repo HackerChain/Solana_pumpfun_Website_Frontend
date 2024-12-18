@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { CustomInputInterface } from "../types/setting";
 import { CustomInput } from "../components/Settings/CustomInput";
-import { Switch } from "@material-tailwind/react";
 import { CustomTogglebtn } from "../components/CustomTogglebtn";
+import { DegenAuditBox } from "../components/Settings/DegenAuditBox";
 interface TimeRange {
   from: string;
   to: string;
@@ -94,10 +94,10 @@ export const Settings = () => {
   };
 
   return (
-    <div className="min-h-screen  p-8">
+    <div className="min-h-screen p-8">
       <div className="max-w-2xl mx-auto space-y-12">
         {/* Run the Bot Section */}
-        <div className="space-y-4">
+        <div className="space-y-8">
           <h2 className="text-4xl font-medium text-start">Run the Bot</h2>
           <div className="flex items-center gap-2 relative">
             <CustomTogglebtn label="On / Off" />
@@ -105,7 +105,7 @@ export const Settings = () => {
         </div>
 
         {/* Working Hours Section */}
-        <div className="space-y-4">
+        <div className="space-y-8">
           <h2 className="text-4xl font-medium text-start">Working hours</h2>
           <div className="flex gap-4">
             <div className="space-y-2">
@@ -134,7 +134,7 @@ export const Settings = () => {
         </div>
 
         {/* Buy Section */}
-        <div className="space-y-4">
+        <div className="space-y-8">
           <h2 className="text-4xl font-medium text-start">Buy</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {BuyInputs.map((item, index) => (
@@ -144,8 +144,8 @@ export const Settings = () => {
         </div>
 
         {/* Sell Section */}
-        <div className="space-y-4">
-          <h2 className="text-4xl font-medium text-start">Buy</h2>
+        <div className="space-y-8">
+          <h2 className="text-4xl font-medium text-start">Sell</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {SellInputs.map((item, index) => (
               <CustomInput key={index} {...item} />
@@ -153,6 +153,10 @@ export const Settings = () => {
           </div>
           <CustomInput {...StopsellMC} />
           <CustomInput {...LosslinkitMC} />
+        </div>
+        <DegenAuditBox />
+        <div className="bg-color_green_dark text-color_gray_white rounded-md p-3 text-3xl w-52 hover:bg-green-700 hover:cursor-pointer transition-all duration-300">
+          Save
         </div>
       </div>
     </div>
