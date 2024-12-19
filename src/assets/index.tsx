@@ -354,3 +354,60 @@ export const LogoIcon = () => (
     </defs>
   </svg>
 );
+
+export const WalletIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.66663 6H4.66663"
+      stroke="white"
+      stroke-width="1.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M14.6667 7.31331V8.68668C14.6667 9.05335 14.3734 9.35332 14.0001 9.36666H12.6934C11.9734 9.36666 11.3134 8.83999 11.2534 8.11999C11.2134 7.69999 11.3734 7.30666 11.6534 7.03332C11.9 6.77999 12.24 6.63334 12.6134 6.63334H14.0001C14.3734 6.64667 14.6667 6.94664 14.6667 7.31331Z"
+      stroke="white"
+      stroke-width="1.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M11.6534 7.03333C11.3734 7.30666 11.2134 7.7 11.2534 8.12C11.3134 8.84 11.9734 9.36666 12.6934 9.36666H14V10.3333C14 12.3333 12.6667 13.6667 10.6667 13.6667H4.66671C2.66671 13.6667 1.33337 12.3333 1.33337 10.3333V5.66667C1.33337 3.85334 2.42671 2.58667 4.12671 2.37333C4.30004 2.34667 4.48004 2.33334 4.66671 2.33334H10.6667C10.84 2.33334 11.0067 2.33999 11.1667 2.36666C12.8867 2.56666 14 3.84 14 5.66667V6.63334H12.6134C12.24 6.63334 11.9 6.77999 11.6534 7.03333Z"
+      stroke="white"
+      stroke-width="1.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+export const SearchIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M7.66665 14C11.1644 14 14 11.1645 14 7.66667C14 4.16887 11.1644 1.33334 7.66665 1.33334C4.16884 1.33334 1.33331 4.16887 1.33331 7.66667C1.33331 11.1645 4.16884 14 7.66665 14Z"
+      stroke="white"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M14.6667 14.6667L13.3334 13.3333"
+      stroke="white"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);

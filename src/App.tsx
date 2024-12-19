@@ -74,7 +74,7 @@ function AppRoutes() {
     <div className="flex flex-col relative select-none w-full mb-6 min-w-[880px]">
       <ReduxProvider store={store}>
         {isAuthenticated && <Header />}
-        <div className="overflow-y-auto h-full">
+        <div className="overflow-y-auto h-full bg-bg_gray rounded-2xl mx-[30px] border-[1px] border-bg_gray_light">
           <Routes>
             <Route
               path="/signin"

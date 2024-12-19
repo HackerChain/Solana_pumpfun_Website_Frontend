@@ -38,8 +38,8 @@ export default {
       },
       colors: {
         bg_black: "#0A0A1B",
-        bg_gray: "#2c2c2c",
-        bg_gray_light: "#3c3c3c",
+        bg_gray: "#161618",
+        bg_gray_light: "#2c2c30",
         text_activate_dark: "#1E1E1E",
         text_deactivate: "#49454F",
         text_deactivate_light: "#757575",
