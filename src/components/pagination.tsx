@@ -43,8 +43,9 @@ export const Pagination = ({
   };
 
   const pageUnits = [10, 20, 50, 100];
-  const [selected, setSelected] = useState(pageUnits[0]);
+  const [selected] = useState(pageUnits[0]);
   const [sideSelected, setSideSelected] = useState(10);
+
   return (
     <div className="flex items-center justify-between my-4 px-[30px]">
       <div className="w-[272px] flex items-center justify-center">
