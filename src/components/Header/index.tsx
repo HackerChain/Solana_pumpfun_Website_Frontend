@@ -28,7 +28,7 @@ export default function Header() {
           <Link
             key={item.name}
             to={item.href}
-            className={`w-[123px] inline-flex px-4 text-sm text-secondary_light_300 hover:text-white transition-all duration-300 ease-in-out text-center items-center gap-2 justify-center ${
+            className={`px-4 inline-flex text-sm text-secondary_light_300 hover:text-white transition-all duration-300 ease-in-out text-center items-center gap-2 justify-center ${
               location.pathname === item.href
                 ? "bg-primary_dark_700 shadow-[inset_0_-3px_5px_1px_#F6F7FA33] rounded-md "
                 : ""

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DashboardIcon } from "../assets";
+import { TransactionIcon } from "../assets";
 import { Pagination } from "../components/pagination";
 import { TitleBox } from "../components/TitleBox";
 import { ToolBox } from "../components/txns/ToolBox";
@@ -12,7 +12,7 @@ export const Transactions = () => {
   return (
     <>
       <div className="flex flex-col flex-1 overflow-y-auto h-full bg-bg_gray">
-        <TitleBox title="Transaction" icon={<DashboardIcon />} />
+        <TitleBox title="Transaction" icon={<TransactionIcon />} />
         <ToolBox />
         <TxnTable txns={TestDataforTXs} />
         <Pagination
