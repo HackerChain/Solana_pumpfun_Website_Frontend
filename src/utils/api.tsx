@@ -2,7 +2,7 @@ import axios from "axios";
 import { config } from "../config";
 const api = axios.create({
   // baseURL: `https://solana-pumpfun-website.render.com/api`,
-  baseURL: `${config.SERVER_URL}/api/${config.apiVersion}`,
+  baseURL: `${config.VITE_SERVER_URL}/api/${config.apiVersion}`,
   headers: {
     "Content-Type": "application/json",
   },

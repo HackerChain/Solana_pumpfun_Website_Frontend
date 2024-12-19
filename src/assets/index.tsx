@@ -135,16 +135,16 @@ export const TransactionIcon = () => (
     <path
       d="M4.84408 13.1334C5.39074 12.5467 6.22408 12.5934 6.70408 13.2334L7.37741 14.1334C7.91741 14.8467 8.79075 14.8467 9.33075 14.1334L10.0041 13.2334C10.4841 12.5934 11.3174 12.5467 11.8641 13.1334C13.0507 14.4 14.0174 13.98 14.0174 12.2067V4.69337C14.0174 2.00671 13.3907 1.33337 10.8707 1.33337H5.83075C3.31075 1.33337 2.68408 2.00671 2.68408 4.69337V12.2C2.69075 13.98 3.66408 14.3934 4.84408 13.1334Z"
       stroke="white"
-      stroke-width="1.2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M6.52521 6.66663H10.1919"
       stroke="white"
-      stroke-width="1.2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
