@@ -26,26 +26,46 @@ const getSideColor = (profit: number) => {
 
 export const TxnTable: React.FC<TxnTableProps> = ({ txns }) => {
   return (
-    <div className="w-full h-full  shadow-md overflow-x-auto min-w-[1000px]">
+    <div className="w-full h-full px-[30px] shadow-md overflow-x-auto min-w-[1000px] overflow-y-auto flex flex-1 flex-col">
       <table className="w-full border-collapse">
-        <thead className="sticky top-0 h-20 bg-bg_gray/70 backdrop-blur-sm z-10">
-          <tr className="h-[60px] text-center items-center text-sm text-text_dark">
-            <th className="table-header-style">Transaction Date</th>
-            <th className="table-header-style">Token</th>
-            <th className="table-header-style">Side</th>
-            <th className="table-header-style">MC</th>
-            <th className="table-header-style">Price</th>
-            <th className="table-header-style hidden xl:table-cell">Token</th>
-            <th className="table-header-style hidden xl:table-cell">Fee</th>
-            <th className="table-header-style">Total</th>
-            <th className="table-header-style">Gain/Loss</th>
+        <thead className="sticky top-0 z-20 ">
+          <tr className="h-[40px] text-center items-center text-xs xl:text-sm 2xl:text-base text-text_dark ">
+            <th className="bg-secondary_dark_600 rounded-l-md px-2">
+              <div className="table-header-style">Transaction Date</div>
+            </th>
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">Token</div>
+            </th>
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">Side</div>
+            </th>
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">MC</div>
+            </th>
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">Price</div>
+            </th>
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style hidden xl:table-cell">
+                Token
+              </div>
+            </th>
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style hidden xl:table-cell">Fee</div>
+            </th>
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">Total</div>
+            </th>
+            <th className="bg-secondary_dark_600 rounded-r-md">
+              <div className="table-header-style">Gain/Loss</div>
+            </th>
           </tr>
         </thead>
         <tbody className="overflow-y-auto h-full">
           {txns.map((tx, index) => (
             <tr
               key={index}
-              className="border-b-[1px] border-bg_gray_light h-[88px] bg-bg_gray"
+              className="items-center h-[40px] xl:h-[50px] 2xl:h-[60px] text-xs xl:text-sm 2xl:text-base px-2"
             >
               {/* TODO fix token name style for response */}
               <td className="py-2 px-4">{formatTimestamp(tx.time || 0)}</td>
