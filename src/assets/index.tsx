@@ -411,3 +411,30 @@ export const SearchIcon = () => (
     />
   </svg>
 );
+
+export const FilterIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3.60006 1.39999H12.4001C13.1334 1.39999 13.7334 1.99999 13.7334 2.73333V4.19999C13.7334 4.73333 13.4001 5.39999 13.0667 5.73333L10.2001 8.26666C9.80006 8.59999 9.53339 9.26666 9.53339 9.79999V12.6667C9.53339 13.0667 9.26672 13.6 8.93339 13.8L8.00006 14.4C7.13339 14.9333 5.93339 14.3333 5.93339 13.2667V9.73333C5.93339 9.26666 5.66672 8.66666 5.40006 8.33333L2.86672 5.66666C2.53339 5.33333 2.26672 4.73333 2.26672 4.33333V2.79999C2.26672 1.99999 2.86672 1.39999 3.60006 1.39999Z"
+      stroke="white"
+      stroke-width="1.2"
+      stroke-miterlimit="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M7.28667 1.39999L4 6.66666"
+      stroke="white"
+      stroke-width="1.2"
+      stroke-miterlimit="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);

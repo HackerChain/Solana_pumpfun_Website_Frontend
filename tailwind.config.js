@@ -115,7 +115,7 @@ export default {
         secondary_dark_900: "#04070E",
         secondary_dark_800: "#080B11",
         secondary_dark_700: "#0D1015",
-        secondary_dark_600: "#131619",
+        secondary_dark_600: "#2C2C30",
         secondary_dark_500: "#1A1C1E",
 
         secondary_light__400: "#6C7278",
