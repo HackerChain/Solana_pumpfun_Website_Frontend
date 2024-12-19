@@ -87,3 +87,270 @@ export const NextIcon = () => (
     />
   </svg>
 );
+
+export const DashboardIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3.33331 6.66667H4.66665C5.99998 6.66667 6.66665 6 6.66665 4.66667V3.33333C6.66665 2 5.99998 1.33333 4.66665 1.33333H3.33331C1.99998 1.33333 1.33331 2 1.33331 3.33333V4.66667C1.33331 6 1.99998 6.66667 3.33331 6.66667Z"
+      stroke="white"
+      stroke-width="1.2"
+      stroke-miterlimit="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M11.3333 6.66667H12.6666C14 6.66667 14.6666 6 14.6666 4.66667V3.33333C14.6666 2 14 1.33333 12.6666 1.33333H11.3333C9.99998 1.33333 9.33331 2 9.33331 3.33333V4.66667C9.33331 6 9.99998 6.66667 11.3333 6.66667Z"
+      stroke="white"
+      stroke-width="1.2"
+      stroke-miterlimit="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M11.3333 14.6667H12.6666C14 14.6667 14.6666 14 14.6666 12.6667V11.3333C14.6666 10 14 9.33333 12.6666 9.33333H11.3333C9.99998 9.33333 9.33331 10 9.33331 11.3333V12.6667C9.33331 14 9.99998 14.6667 11.3333 14.6667Z"
+      stroke="white"
+      stroke-width="1.2"
+      stroke-miterlimit="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M3.33331 14.6667H4.66665C5.99998 14.6667 6.66665 14 6.66665 12.6667V11.3333C6.66665 10 5.99998 9.33333 4.66665 9.33333H3.33331C1.99998 9.33333 1.33331 10 1.33331 11.3333V12.6667C1.33331 14 1.99998 14.6667 3.33331 14.6667Z"
+      stroke="white"
+      stroke-width="1.2"
+      stroke-miterlimit="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+export const TransactionIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4.48556 13.1333C5.03222 12.5467 5.86556 12.5933 6.34556 13.2333L7.01889 14.1333C7.55889 14.8467 8.43223 14.8467 8.97223 14.1333L9.64556 13.2333C10.1256 12.5933 10.9589 12.5467 11.5056 13.1333C12.6922 14.4 13.6589 13.98 13.6589 12.2067V4.69333C13.6589 2.00667 13.0322 1.33333 10.5122 1.33333H5.47223C2.95223 1.33333 2.32556 2.00667 2.32556 4.69333V12.2C2.33223 13.98 3.30556 14.3933 4.48556 13.1333Z"
+      stroke="#ACB5BB"
+      stroke-width="1.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M6.16663 6.66667H9.83329"
+      stroke="#ACB5BB"
+      stroke-width="1.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+export const AssetsIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M14.44 6.96L13.7867 9.74667C13.2267 12.1533 12.12 13.1267 10.04 12.9267C9.70671 12.9 9.3467 12.84 8.96004 12.7467L7.84004 12.48C5.06004 11.82 4.20004 10.4467 4.85337 7.66L5.50671 4.86667C5.64004 4.3 5.80004 3.80667 6.00004 3.4C6.78004 1.78667 8.1067 1.35333 10.3334 1.88L11.4467 2.14C14.24 2.79333 15.0934 4.17333 14.44 6.96Z"
+      stroke="#ACB5BB"
+      stroke-width="1.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M10.04 12.9267C9.62665 13.2067 9.10665 13.44 8.47332 13.6467L7.41998 13.9933C4.77332 14.8467 3.37998 14.1333 2.51998 11.4867L1.66665 8.85333C0.813317 6.20667 1.51998 4.80667 4.16665 3.95333L5.21998 3.60667C5.49332 3.52 5.75332 3.44667 5.99998 3.4C5.79998 3.80667 5.63998 4.3 5.50665 4.86667L4.85332 7.66C4.19998 10.4467 5.05998 11.82 7.83998 12.48L8.95998 12.7467C9.34665 12.84 9.70665 12.9 10.04 12.9267Z"
+      stroke="#ACB5BB"
+      stroke-width="1.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+export const SettingsIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8 10C9.10457 10 10 9.10457 10 8C10 6.89543 9.10457 6 8 6C6.89543 6 6 6.89543 6 8C6 9.10457 6.89543 10 8 10Z"
+      stroke="#ACB5BB"
+      stroke-width="1.2"
+      stroke-miterlimit="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M1.33337 8.58667V7.41333C1.33337 6.72 1.90004 6.14667 2.60004 6.14667C3.80671 6.14667 4.30004 5.29333 3.69337 4.24667C3.34671 3.64667 3.55337 2.86667 4.16004 2.52L5.31337 1.86C5.84004 1.54667 6.52004 1.73333 6.83337 2.26L6.90671 2.38667C7.50671 3.43333 8.49337 3.43333 9.10004 2.38667L9.17337 2.26C9.48671 1.73333 10.1667 1.54667 10.6934 1.86L11.8467 2.52C12.4534 2.86667 12.66 3.64667 12.3134 4.24667C11.7067 5.29333 12.2 6.14667 13.4067 6.14667C14.1 6.14667 14.6734 6.71333 14.6734 7.41333V8.58667C14.6734 9.28 14.1067 9.85333 13.4067 9.85333C12.2 9.85333 11.7067 10.7067 12.3134 11.7533C12.66 12.36 12.4534 13.1333 11.8467 13.48L10.6934 14.14C10.1667 14.4533 9.48671 14.2667 9.17337 13.74L9.10004 13.6133C8.50004 12.5667 7.51337 12.5667 6.90671 13.6133L6.83337 13.74C6.52004 14.2667 5.84004 14.4533 5.31337 14.14L4.16004 13.48C3.55337 13.1333 3.34671 12.3533 3.69337 11.7533C4.30004 10.7067 3.80671 9.85333 2.60004 9.85333C1.90004 9.85333 1.33337 9.28 1.33337 8.58667Z"
+      stroke="#ACB5BB"
+      stroke-width="1.2"
+      stroke-miterlimit="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+export const AlertIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.01339 1.94C5.80673 1.94 4.01339 3.73334 4.01339 5.94V7.86667C4.01339 8.27334 3.84006 8.89334 3.63339 9.24L2.86673 10.5133C2.39339 11.3 2.72006 12.1733 3.58673 12.4667C6.46006 13.4267 9.56006 13.4267 12.4334 12.4667C13.2401 12.2 13.5934 11.2467 13.1534 10.5133L12.3867 9.24C12.1867 8.89334 12.0134 8.27334 12.0134 7.86667V5.94C12.0134 3.74 10.2134 1.94 8.01339 1.94Z"
+      stroke="white"
+      stroke-width="1.2"
+      stroke-miterlimit="10"
+      stroke-linecap="round"
+    />
+    <path
+      d="M9.2467 2.13333C9.04003 2.07333 8.8267 2.02667 8.6067 2C7.9667 1.92 7.35336 1.96667 6.78003 2.13333C6.97336 1.64 7.45336 1.29333 8.01336 1.29333C8.57336 1.29333 9.05336 1.64 9.2467 2.13333Z"
+      stroke="white"
+      stroke-width="1.2"
+      stroke-miterlimit="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M10.0133 12.7067C10.0133 13.8067 9.11331 14.7067 8.01331 14.7067C7.46664 14.7067 6.95997 14.48 6.59997 14.12C6.23997 13.76 6.01331 13.2533 6.01331 12.7067"
+      stroke="white"
+      stroke-width="1.2"
+      stroke-miterlimit="10"
+    />
+  </svg>
+);
+
+export const LogoIcon = () => (
+  <svg
+    width="34"
+    height="38"
+    viewBox="0 0 34 38"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g filter="url(#filter0_ddi_1297_46483)">
+      <rect
+        x="3"
+        y="2.14145"
+        width="27.7171"
+        height="27.7171"
+        rx="3.74556"
+        fill="#5350F2"
+      />
+      <rect
+        x="3.34646"
+        y="2.48791"
+        width="27.0242"
+        height="27.0242"
+        rx="3.39909"
+        stroke="white"
+        stroke-opacity="0.15"
+        stroke-width="0.692928"
+      />
+    </g>
+    <defs>
+      <filter
+        id="filter0_ddi_1297_46483"
+        x="0.228289"
+        y="0.75559"
+        width="33.2605"
+        height="36.7252"
+        filterUnits="userSpaceOnUse"
+        color-interpolation-filters="sRGB"
+      >
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feMorphology
+          radius="1.38586"
+          operator="dilate"
+          in="SourceAlpha"
+          result="effect1_dropShadow_1297_46483"
+        />
+        <feOffset />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 0.745098 0 0 0 0 0.792157 0 0 0 0 0.917647 0 0 0 0.03 0"
+        />
+        <feBlend
+          mode="normal"
+          in2="BackgroundImageFix"
+          result="effect1_dropShadow_1297_46483"
+        />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feMorphology
+          radius="4.15757"
+          operator="erode"
+          in="SourceAlpha"
+          result="effect2_dropShadow_1297_46483"
+        />
+        <feOffset dy="4.85049" />
+        <feGaussianBlur stdDeviation="3.46464" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 0.113725 0 0 0 0 0.117647 0 0 0 0 0.254902 0 0 0 0.7 0"
+        />
+        <feBlend
+          mode="normal"
+          in2="effect1_dropShadow_1297_46483"
+          result="effect2_dropShadow_1297_46483"
+        />
+        <feBlend
+          mode="normal"
+          in="SourceGraphic"
+          in2="effect2_dropShadow_1297_46483"
+          result="shape"
+        />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feOffset dy="2.77171" />
+        <feGaussianBlur stdDeviation="3.46464" />
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.11 0"
+        />
+        <feBlend
+          mode="normal"
+          in2="shape"
+          result="effect3_innerShadow_1297_46483"
+        />
+      </filter>
+    </defs>
+  </svg>
+);
