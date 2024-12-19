@@ -1,4 +1,4 @@
 export const config = {
-  SERVER_URL: import.meta.env.SERVER_URL || "http://localhost:5000",
+  VITE_SERVER_URL: import.meta.env.VITE_SERVER_URL || "http://localhost:5000",
   apiVersion: "v1",
 };
