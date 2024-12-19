@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AssetsTable } from "../components/AssetsPage/AssetsTable";
 import { VariableBox } from "../components/AssetsPage/VariableBox";
 import { AssetsData } from "../store/TestData/assetsData";
-import { Pagination } from "../components/AssetsPage/pagination";
+import { Pagination } from "../components/pagination";
 
 const Variable = {
   currentBalance: {

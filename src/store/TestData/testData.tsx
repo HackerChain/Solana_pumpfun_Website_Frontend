@@ -1,6 +1,5 @@
 import { Token } from "../../types/dashboard";
 import { Transaction } from "../../types/transactions";
-
 export const TestDataforDashboard: Token[] = [
   {
     name: "Token name 0",
@@ -582,6 +581,95 @@ export const TestDataforDashboard: Token[] = [
   },
 ];
 
+/*
+export const TestDataforDashboard: Token[] = [
+  {
+    name: "Token name 0",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+    tokenId: 0,
+    DEV: "Sell",
+    Age: "84h",
+    Price: 0.0383228,
+    MarketCap: 68997000,
+    FDV: 68671000,
+    ISToken: {
+      size: 47293000,
+      percent: 14,
+    },
+    CSToken: {
+      size: 78656000,
+      percent: 7,
+    },
+    TSToken: 100000000,
+    TXsPerHr: 51000,
+    VolPerHr: 9000000,
+    Degen: {
+      NoMint: true,
+      Blacklist: false,
+      Burnt: true,
+      Insiders: 1.3,
+    },
+  },
+  {
+    name: "Token name 1",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+    tokenId: 1,
+    DEV: "Sell All",
+    Age: "60h",
+    Price: 0.0154686,
+    MarketCap: 78365000,
+    FDV: 14668000,
+    ISToken: {
+      size: 59112000,
+      percent: 9,
+    },
+    CSToken: {
+      size: 41981000,
+      percent: 6,
+    },
+    TSToken: 1200000000,
+    TXsPerHr: 78100,
+    VolPerHr: 7000000,
+    Degen: {
+      NoMint: false,
+      Blacklist: false,
+      Burnt: false,
+      Social: true,
+      Top10: 21.2,
+      Insiders: 5,
+    },
+  },
+  {
+    name: "Token name 2",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+    tokenId: 2,
+    DEV: "Sell All",
+    Age: "19m",
+    Price: 0.0939741,
+    MarketCap: 98937000,
+    FDV: 27687000,
+    ISToken: {
+      size: 45936000,
+      percent: 10,
+    },
+    CSToken: {
+      size: 796000,
+      percent: 6,
+    },
+    TSToken: 1500000000,
+    TXsPerHr: 90900,
+    VolPerHr: 9000000,
+    Degen: {
+      NoMint: true,
+      Blacklist: false,
+      Burnt: true,
+      Social: true,
+      Top10: 44,
+      Insiders: 0.8,
+    },
+  },
+];
+*/
 export const TestDataforTXs: Transaction[] = [
   {
     id: 0,

@@ -1,7 +1,7 @@
 import React from "react";
 import { formatAddress, formatNumber } from "../../utils/utils";
 import { Logo1, Logo2, Logo3 } from "../../store/TestData/testData";
-import { ImgLink } from "../../assets";
+import { LinkIcon } from "../../assets";
 import { useNavigate } from "react-router-dom";
 
 interface TokenTableProps {
@@ -87,7 +87,7 @@ export const AssetsTable: React.FC<TokenTableProps> = ({ tokens }) => {
                         >
                           {formatAddress(token.contractAddress || "")}
                         </p>
-                        <ImgLink />
+                        <LinkIcon />
                       </div>
                     </div>
                   </div>

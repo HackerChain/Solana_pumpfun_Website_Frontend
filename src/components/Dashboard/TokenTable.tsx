@@ -1,8 +1,9 @@
 import React from "react";
 import { Token } from "../../types/dashboard";
-import { formatAddress, formatNumber } from "../../utils/utils";
+import { formatNumber } from "../../utils/utils";
 import { Logo1, Logo2, Logo3 } from "../../store/TestData/testData";
-import { FilledStar, ImgLink } from "../../assets";
+import { LinkIcon } from "../../assets";
+import CustomGaugeMeter from "../GaugeMeter";
 
 interface TokenTableProps {
   tokens: Token[];
@@ -12,10 +13,10 @@ const images = [<Logo1 />, <Logo2 />, <Logo3 />];
 
 const getDevColor = (dev: string) => {
   if (dev === "Buy" || dev === "HODL") {
-    return "text-color_green";
+    return "bg-success_dark_700 border-[1px]  border-success_default";
   }
   if (dev === "Sell" || dev === "Sell All") {
-    return "text-color_red";
+    return "bg-error_dark_700 border-[1px]  border-error_default";
   }
   return "";
 };
@@ -29,152 +30,195 @@ const getAgeColor = (age: string) => {
 
 export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
   return (
-    <div className="w-full h-full  shadow-md overflow-x-auto min-w-[1000px]">
+    <div className="w-full h-full px-[30px] shadow-md overflow-x-auto min-w-[1000px] overflow-y-auto flex flex-1 flex-col">
       <table className="w-full border-collapse">
-        <thead className="sticky top-0 bg-bg_gray/70 backdrop-blur-sm z-10">
-          <tr className="h-[60px] text-center items-center text-sm text-text_dark">
-            <th className="table-header-style">Token</th>
-            <th className="table-header-style">DEV</th>
-            <th className="table-header-style">Age</th>
-            <th className="table-header-style">Price, $</th>
-            <th className="table-header-style">MC, $</th>
-            <th className="table-header-style hidden xl:table-cell">FDV, $</th>
-            <th className="table-header-style hidden xl:table-cell">
-              iS, tokens
+        <thead className="sticky top-0 z-20 ">
+          <tr className="h-[40px] text-center items-center text-xs xl:text-sm 2xl:text-base text-text_dark ">
+            <th className="px-2 bg-secondary_dark_600 rounded-l-md">
+              <div className="flex items-center justify-start gap-2">
+                <input type="checkbox" /> Token
+              </div>
             </th>
-            <th className="table-header-style hidden 2xl:table-cell">
-              cS, tokens
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">DEV</div>
             </th>
-            <th className="table-header-style hidden 2xl:table-cell">
-              tS, tokens
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">Age</div>
             </th>
-            <th className="table-header-style">1h TXs</th>
-            <th className="table-header-style">1h Vol</th>
-            <th className="table-header-style">Degen Audit</th>
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">Price, $</div>
+            </th>
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">MC, $</div>
+            </th>
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">FDV, $</div>
+            </th>
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">iS, tokens</div>
+            </th>
+
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">cS, tokens</div>
+            </th>
+
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">tS, tokens</div>
+            </th>
+
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">1h TXs</div>
+            </th>
+
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">1h Vol</div>
+            </th>
+
+            <th className="bg-secondary_dark_600">
+              <div className="table-header-style">Degen Audit</div>
+            </th>
+
+            <th className="bg-secondary_dark_600 rounded-r-md">
+              <div className="table-header-style ">XScore</div>
+            </th>
           </tr>
         </thead>
+
         <tbody className="overflow-y-auto h-full">
           {tokens.map((token, index) => (
             <tr
               key={index}
-              className="border-b-[1px] border-bg_gray_light h-[88px] bg-bg_gray"
+              className="items-center h-[40px] xl:h-[50px] 2xl:h-[60px] text-xs xl:text-sm 2xl:text-base px-2"
             >
-              {/* TODO fix token name style for response */}
-              <td className="py-2 px-4 max-w-[200px]">
-                <div className="flex flex-row items-center justify-start gap-4">
-                  <FilledStar />
-                  <div className="flex flex-row gap-2 items-center justify-center">
-                    <div className="hidden xl:block">{images[index % 3]}</div>
+              <td className="table-data-style w-[180px] px-2">
+                <div className="flex flex-row justify-between items-center ">
+                  <div className="flex flex-row items-center gap-2">
+                    <input type="checkbox" />
+
+                    <div className="w-[22px] h-[22px] xl:w-[26px] xl:h-[26px] 2xl:w-[32px] 2xl:h-[32px] flex items-center">
+                      {images[index % 3]}
+                    </div>
+
                     <div className="flex flex-col justify-start">
-                      <p className="text-[#E7E0EC] font-medium text-lg">
-                        {token.name}
+                      <p className="font-medium line-clamp-1">{token.name}</p>
+
+                      <p className="text-text_dark text-start text-xxs xl:text-xs">
+                        Text1
                       </p>
-                      <div className="flex flex-row gap-2 items-center justify-start">
-                        <p className="text-sm text-text_dark">
-                          {formatAddress(token.contractAddress)}
-                        </p>
-                        <ImgLink />
-                      </div>
                     </div>
                   </div>
+                  <LinkIcon />
                 </div>
               </td>
-              <td className={`py-2 px-4 ${getDevColor(token.DEV)}`}>
-                {token.DEV}
+
+              <td className="table-data-style w-[80px]">
+                <p
+                  className={`w-fit rounded-full px-3 text-white ${getDevColor(
+                    token.DEV
+                  )}`}
+                >
+                  {token.DEV}
+                </p>
               </td>
-              {/* // TODO fix age style for response */}
+
               <td
-                className={`py-2 px-4 hover:font-bold hover:cursor-pointer transition-all duration-300 ease-in-out ${getAgeColor(
+                className={`table-data-style ${getAgeColor(
                   token.Age
-                )}`}
+                )} w-[60px]`}
               >
                 {token.Age}
               </td>
-              <td className="py-2 px-4">${formatNumber(token.Price)}</td>
-              <td className="py-2 px-4">${formatNumber(token.MarketCap)}</td>
-              <td className="hidden xl:table-cell py-2 px-4">
+
+              <td className="table-data-style w-[90px]">
+                ${formatNumber(token.Price)}
+              </td>
+
+              <td className="table-data-style w-[70px]">
+                ${formatNumber(token.MarketCap)}
+              </td>
+
+              <td className="table-data-style w-[70px]">
                 ${formatNumber(token.FDV)}
               </td>
-              <td className="hidden xl:table-cell py-2 px-4">
-                ${formatNumber(token.ISToken.size)}
+
+              <td className="table-data-style flex-col w-[100px]">
+                <p>${formatNumber(token.ISToken.size)}</p>
+                <p>({formatNumber(token.ISToken.percent)}%)</p>
               </td>
-              <td className="hidden 2xl:table-cell py-2 px-4">
-                ${formatNumber(token.CSToken.size)}
+
+              <td className="table-data-style flex-col w-[100px]">
+                <p>${formatNumber(token.CSToken.size)}</p>
+                <p>({formatNumber(token.CSToken.percent)}%)</p>
               </td>
-              <td className="hidden 2xl:table-cell py-2 px-4">
+
+              <td className="table-data-style w-[100px]">
                 ${formatNumber(token.TSToken)}
               </td>
-              <td className="py-2 px-4">{formatNumber(token.TXsPerHr)}</td>
-              <td className="py-2 px-4">${formatNumber(token.VolPerHr)}</td>
-              <td className="py-2 px-4  max-w-44">
-                <div className="flex flex-wrap gap-1 justify-between">
+
+              <td className="table-data-style w-[90px]">
+                {formatNumber(token.TXsPerHr)}
+              </td>
+
+              <td className="table-data-style w-[80px]">
+                ${formatNumber(token.VolPerHr)}
+              </td>
+
+              <td className="table-data-style w-[160px] flex-col">
+                <div className="flex flex-row gap-2 justify-start">
                   {token.Degen?.NoMint !== undefined && (
                     <span
-                      className={`px-2 py-0.5 text-xs ${
+                      className={`py-0.5 text-xxs 2xl:text-xs ${
                         token.Degen.NoMint
-                          ? "text-color_green"
-                          : "text-color_red"
+                          ? "text-success_base"
+                          : "text-error_base"
                       }`}
                     >
-                      NoMint
+                      ● NoMint
                     </span>
                   )}
+
                   {token.Degen?.Blacklist !== undefined && (
                     <span
-                      className={`px-2 py-0.5 text-xs ${
+                      className={`py-0.5 text-xxs 2xl:text-xs ${
                         token.Degen.Blacklist
-                          ? "text-color_green"
-                          : "text-color_red"
+                          ? "text-success_base"
+                          : "text-error_base"
                       }`}
                     >
-                      Blacklist
-                    </span>
-                  )}
-                  {token.Degen?.Burnt !== undefined && (
-                    <span
-                      className={`px-2 py-0.5 text-xs ${
-                        token.Degen.Burnt
-                          ? "text-color_green"
-                          : "text-color_red"
-                      }`}
-                    >
-                      Burnt
-                    </span>
-                  )}
-                  {token.Degen?.Social !== undefined && (
-                    <span
-                      className={`px-2 py-0.5 text-xs ${
-                        token.Degen.Social
-                          ? "text-color_green"
-                          : "text-color_red"
-                      }`}
-                    >
-                      Social
-                    </span>
-                  )}
-                  {token.Degen?.Top10 !== undefined && (
-                    <span
-                      className={`px-2 py-0.5 text-xs ${
-                        token.Degen.Top10 > 30
-                          ? "text-color_red"
-                          : "text-color_green"
-                      }`}
-                    >
-                      Top10: {token.Degen.Top10}%
-                    </span>
-                  )}
-                  {token.Degen?.Insiders !== undefined && (
-                    <span
-                      className={`px-2 py-0.5 text-xs ${
-                        token.Degen.Insiders > 2
-                          ? "text-color_red"
-                          : "text-color_green"
-                      }`}
-                    >
-                      Insiders: {token.Degen.Insiders}%
+                      ● Blacklist
                     </span>
                   )}
                 </div>
+
+                <div className="flex flex-row gap-2 justify-start">
+                  {token.Degen?.Insiders !== undefined && (
+                    <span
+                      className={`py-0.5 text-xxs 2xl:text-xs line-clamp-1 ${
+                        token.Degen.Insiders > 2
+                          ? "text-error_base"
+                          : "text-success_base"
+                      }`}
+                    >
+                      ● Insiders: {token.Degen.Insiders}%
+                    </span>
+                  )}
+
+                  {token.Degen?.Top10 !== undefined && (
+                    <span
+                      className={`py-0.5 text-xxs 2xl:text-xs line-clamp-1 ${
+                        token.Degen.Top10 > 30
+                          ? "text-error_base"
+                          : "text-success_base"
+                      }`}
+                    >
+                      ● Top10: {token.Degen.Top10}%
+                    </span>
+                  )}
+                </div>
+              </td>
+
+              <td className="table-data-style w-[100px] pr-2">
+                <CustomGaugeMeter value={970} />
               </td>
             </tr>
           ))}

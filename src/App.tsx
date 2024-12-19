@@ -1,5 +1,10 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import "./App.css";
 import { useState, useEffect } from "react";
 import Loading from "./components/Loading/Loading";
@@ -12,10 +17,23 @@ import { Dashboard } from "./page/Dashboard";
 import { Signin } from "./page/Signin";
 import Header from "./components/Header";
 import { TxHistory } from "./page/TxHistroy";
+import { AuthProvider, useAuth } from "./context/Auth";
 
 const LOADINGTIME = 200;
 
-function App() {
+function ProtectedRoute({ children }: { children: JSX.Element }) {
+  const { isAuthenticated } = useAuth();
+  const location = useLocation();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/signin" state={{ from: location }} replace />;
+  }
+
+  return children;
+}
+
+function AppRoutes() {
+  const { isAuthenticated } = useAuth();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -25,28 +43,67 @@ function App() {
     }, LOADINGTIME);
   }, []);
 
+  if (loading) {
+    return <Loading />;
+  }
+
+  const ProtectedRouteArray = [
+    {
+      path: "/",
+      element: <Dashboard />,
+    },
+    {
+      path: "/transactions",
+      element: <Transactions />,
+    },
+    {
+      path: "/assets",
+      element: <Assets />,
+    },
+    {
+      path: "/settings",
+      element: <Settings />,
+    },
+    {
+      path: "/assets/:ca",
+      element: <TxHistory />,
+    },
+  ];
+
+  return (
+    <div className="flex flex-col relative select-none w-full mb-6 min-w-[880px] px-[30px]">
+      <ReduxProvider store={store}>
+        {isAuthenticated && <Header />}
+        <div className="flex-1 w-full h-full bg-bg-gray rounded-2xl  border-[1px] border-bg_gray_light overflow-y-auto">
+          <Routes>
+            <Route
+              path="/signin"
+              element={
+                isAuthenticated ? <Navigate to="/" replace /> : <Signin />
+              }
+            />
+
+            {ProtectedRouteArray.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<ProtectedRoute>{route.element}</ProtectedRoute>}
+              />
+            ))}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </div>
+      </ReduxProvider>
+    </div>
+  );
+}
+
+function App() {
   return (
     <Router>
-      {loading ? (
-        <Loading />
-      ) : (
-        <div className="flex flex-col relative select-none w-full mb-6 min-w-[880px]">
-          <ReduxProvider store={store}>
-            <Header />
-            <div className="overflow-y-auto h-full">
-              <Routes>
-                <Route index element={<Dashboard />} />
-                <Route path="/transactions" element={<Transactions />} />
-                <Route path="/assets" element={<Assets />} />
-                <Route path="/assets/:ca" element={<TxHistory />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="/signin" element={<Signin />} />
-                <Route path="*" element={<Navigate to="/" replace />} />
-              </Routes>
-            </div>
-          </ReduxProvider>
-        </div>
-      )}
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
     </Router>
   );
 }

@@ -1,4 +1,6 @@
-import { NextIcon, PreviousIcon } from "../../assets";
+import { useState } from "react";
+import { NextIcon, PreviousIcon } from "../assets";
+import { PageUnitDropdown } from "./PageUnitDropdown";
 
 interface PaginationProps {
   currentPage: number;
@@ -11,7 +13,7 @@ export const Pagination = ({
   currentPage,
   totalPages,
   onPageChange,
-  maxVisible = 5,
+  maxVisible = 4,
 }: PaginationProps) => {
   const getPageNumbers = () => {
     const pages: (number | string)[] = [];
@@ -40,72 +42,69 @@ export const Pagination = ({
     return pages;
   };
 
+  const pageUnits = [10, 20, 50, 100];
+  const [selected, setSelected] = useState(pageUnits[0]);
+  const [sideSelected, setSideSelected] = useState(10);
   return (
-    <div className="flex items-center justify-center my-4">
-      <div className="w-[516px] flex items-center justify-center space-x-2 bg-gray-200 rounded-sm p-2">
+    <div className="flex items-center justify-between my-4 px-[30px]">
+      <div className="w-[272px] flex items-center justify-center">
         <div
           onClick={() => currentPage !== 1 && onPageChange(currentPage - 1)}
-          className={`flex flex-row gap-2 items-center justify-center px-2 ${
+          className={`flex flex-row gap-2 items-center justify-center px-2 rounded-lg border-[1px] w-[32px] h-[32px] mr-[24px] border-secondary_default ${
             currentPage === 1
               ? "opacity-50 cursor-not-allowed"
               : "hover:cursor-pointer"
           }`}
         >
           <PreviousIcon />
-          <p
-            className={`text-sm ${
-              currentPage === 1
-                ? "text-text_deactivate_light"
-                : "text-text_activate_dark"
-            }`}
-          >
-            Previous
-          </p>
         </div>
 
         {getPageNumbers().map((pageNum, idx) => (
-          <button
+          <div
             key={idx}
             onClick={() =>
-              typeof pageNum === "number" ? onPageChange(pageNum) : null
+              pageNum !== "..." && typeof pageNum === "number"
+                ? onPageChange(pageNum)
+                : undefined
             }
-            disabled={pageNum === "..."}
             className={`
-            min-w-[32px] h-8 px-3 rounded-md text-center justify-center items-center flex
-            ${typeof pageNum === "number" ? "hover:bg-gray-300" : ""}
+            w-[32px] h-[32px] rounded-lg text-center justify-center items-center flex
+            ${typeof pageNum === "number" ? "hover:bg-secondary_dark_500" : ""}
             ${
-              pageNum === currentPage
-                ? "bg-bg_black"
-                : "bg-gray-200 text-gray-700"
+              Number(pageNum) === Number(currentPage)
+                ? "bg-secondary_default"
+                : " text-gray-700"
             }
-            ${pageNum === "..." ? "cursor-default" : ""}
+            ${pageNum === "..." ? "cursor-default" : "cursor-pointer"}
           `}
           >
             {pageNum}
-          </button>
+          </div>
         ))}
 
         <div
           onClick={() =>
             currentPage !== totalPages && onPageChange(currentPage + 1)
           }
-          className={`flex flex-row gap-2 items-center justify-center px-2 ${
+          className={`flex flex-row gap-2 items-center justify-center px-2 rounded-lg border-[1px] w-[32px] h-[32px] ml-[24px] border-secondary_default ${
             currentPage === totalPages
               ? "opacity-50 cursor-not-allowed"
               : "hover:cursor-pointer"
           }`}
         >
-          <p
-            className={`text-sm ${
-              currentPage === totalPages
-                ? "text-text_deactivate_light"
-                : "text-text_activate_dark"
-            }`}
-          >
-            Next
-          </p>
           <NextIcon />
         </div>
+      </div>
+      <div className="flex flex-row gap-4 items-center">
+        <p className="text-xs text-[#6C7278]">
+          Showing {(currentPage - 1) * selected + 1} to {selected * currentPage}{" "}
+          of 68 entries
+        </p>
+        <PageUnitDropdown
+          options={pageUnits}
+          selected={sideSelected}
+          onSelect={setSideSelected}
+        />
       </div>
     </div>
   );
