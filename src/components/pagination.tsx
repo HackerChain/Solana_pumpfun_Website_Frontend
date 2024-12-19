@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { NextIcon, PreviousIcon } from "../assets";
+import { PageUnitDropdown } from "./PageUnitDropdown";
 
 interface PaginationProps {
   currentPage: number;
@@ -40,6 +42,9 @@ export const Pagination = ({
     return pages;
   };
 
+  const pageUnits = [10, 20, 50, 100];
+  const [selected, setSelected] = useState(pageUnits[0]);
+  const [sideSelected, setSideSelected] = useState(10);
   return (
     <div className="flex items-center justify-between my-4 px-[30px]">
       <div className="w-[272px] flex items-center justify-center">
@@ -90,7 +95,17 @@ export const Pagination = ({
           <NextIcon />
         </div>
       </div>
-      <div>Showing {currentPage}</div>
+      <div className="flex flex-row gap-4 items-center">
+        <p className="text-xs text-[#6C7278]">
+          Showing {(currentPage - 1) * selected + 1} to {selected * currentPage}{" "}
+          of 68 entries
+        </p>
+        <PageUnitDropdown
+          options={pageUnits}
+          selected={sideSelected}
+          onSelect={setSideSelected}
+        />
+      </div>
     </div>
   );
 };
