@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { format } from "date-fns";
 import { DayPicker, DateRange } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import { CalendarIcon } from "../../assets";
 
 interface SingleCalendarPickerProps {
   startDate: Date | undefined;
@@ -36,50 +37,61 @@ export const SingleCalendarPicker: React.FC<SingleCalendarPickerProps> = ({
 
   const formatDateRange = () => {
     if (startDate && endDate) {
-      return `${format(startDate, "MM/dd/yyyy")} - ${format(
+      return `${format(startDate, "d MMM yyyy")} - ${format(
         endDate,
-        "MM/dd/yyyy"
+        "d MMM yyyy"
       )}`;
     }
+
     if (startDate) {
-      return format(startDate, "MM/dd/yyyy");
+      return format(startDate, "d MMM yyyy");
     }
+
     return "Select date range";
   };
 
   return (
-    <div className="relative">
-      {/* TODO fix style */}
-      <button
+    <div className="relative ">
+      <div
         onClick={toggleCalendar}
-        className="w-full px-4 py-2 text-left bg-color_pink border border-gray-300 rounded-md shadow-sm focus:outline-none "
+        className="w-full px-3 h-[36px] flex items-center gap-3 text-left bg-bg_gray_light shadow-[inset_0_1px_1px_1px_#F6F7FA22] rounded-md focus:outline-none "
       >
-        <span className="flex items-center">
-          {formatDateRange()}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 ml-2 text-gray-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-            />
-          </svg>
-        </span>
-      </button>
+        <CalendarIcon />
+        <span className="flex items-center">{formatDateRange()}</span>
+      </div>
+      {/* // TODO: Add the calendar component here */}
       {isOpen && (
-        <div className="absolute mt-1 bg-color_pink border border-gray-300 rounded-md shadow-lg z-[20] text-sm">
+        <div className="absolute mt-[2px] bg-secondary_dark_500 border border-secondary_dark_600 rounded-md p-2 shadow-lg z-[100] text-sm">
           <DayPicker
             mode="range"
             defaultMonth={startDate}
             selected={selectedRange}
             onSelect={handleRangeSelect}
             numberOfMonths={2}
+            modifiers={{
+              selected: selectedRange,
+            }}
+            modifiersStyles={{
+              selected: {
+                backgroundColor: "#44444A", // primary_dark_500 from your theme
+                color: "#E7E0EC",
+                borderRadius: "50%",
+              },
+              range_start: {
+                backgroundColor: "red", // primary_dark_600
+                color: "white",
+              },
+              range_end: {
+                backgroundColor: "#3C3AD0", // primary_dark_600
+                color: "white",
+              },
+            }}
+            styles={{
+              day: { color: "#DCE4E8" }, // text_activate from your theme
+              caption: { color: "#E7E0EC" },
+              head_cell: { color: "#DCE4E8" }, // text_dark from your theme
+              nav_button: { color: "#DCE4E8" },
+            }}
           />
         </div>
       )}
