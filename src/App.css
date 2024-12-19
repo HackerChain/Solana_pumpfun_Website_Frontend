@@ -90,6 +90,3 @@
   background: #555;
 }
 
-.table-header-style {
-  @apply py-3 text-center hover:text-white hover:cursor-pointer transition-all duration-300 ease-in-out;
-}

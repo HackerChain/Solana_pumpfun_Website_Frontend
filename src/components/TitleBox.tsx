@@ -3,7 +3,7 @@ import { AlertIcon, SearchIcon, WalletIcon } from "../assets";
 export const TitleBox = ({ title, icon }: { title: string; icon: any }) => {
   return (
     <>
-      <div className="flex flex-row items-center justify-between gap-2 w-full h-[68px] px-[32px] border-b-[1px] border-bg_gray_light">
+      <div className="flex flex-row items-center justify-between gap-2 w-full h-[68px] px-[30px] border-b-[1px] border-bg_gray_light">
         <div className="flex flex-row items-center gap-2">
           {icon}
           {title}

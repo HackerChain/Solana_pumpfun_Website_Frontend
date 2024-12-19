@@ -1,4 +1,4 @@
-import { ImgLink } from "../../assets";
+import { LinkIcon } from "../../assets";
 import { Logo1 } from "../../store/TestData/testData";
 import { formatAddress } from "../../utils/utils";
 import { Metric } from "../AssetsPage/Metric";
@@ -19,7 +19,7 @@ export const TokenInfo = ({ ca }: { ca: string | undefined }) => {
                   <p className="text-sm text-text_dark">
                     {formatAddress(ca || "")}
                   </p>
-                  <ImgLink />
+                  <LinkIcon />
                 </div>
               </div>
             </div>

@@ -18,7 +18,7 @@ export default function Header() {
   const location = useLocation();
 
   return (
-    <div className="w-full items-center justify-between flex mb-6 h-[100px] px-[30px]">
+    <div className="w-full items-center justify-between flex mb-3 h-[60px]">
       <div className="flex flex-row gap-2 mt-2 items-center">
         <LogoIcon />
         Pumpfun

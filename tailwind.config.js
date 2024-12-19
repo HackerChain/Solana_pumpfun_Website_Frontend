@@ -13,7 +13,7 @@ export default {
         fadeouttopright: "fade-out-top-right 1s ease-in-out 0.25s 1",
       },
       fontFamily: {
-        lilita: ["Lilita One", "sans-serif"],
+        sans: ["TT Firs Neue", "sans-serif"],
       },
       fontSize: {
         "extra-small": "0.8rem",
@@ -23,6 +23,7 @@ export default {
         "extra-large": "2rem",
 
         // new
+        xxs: "9px",
         xs: "12px",
         sm: "14px",
         base: "16px",
@@ -73,6 +74,7 @@ export default {
         success_dark_700: "#097380",
         success_dark_600: "#0D9699",
         success_default: "#12D3A8",
+        success_base: "#22C55E",
 
         success_light_400: "#44D1BB",
         success_light_300: "#6AE8C9",
@@ -84,6 +86,7 @@ export default {
         error_dark_700: "#8E2A4E",
         error_dark_600: "#AA3D5A",
         error_default: "#C65468",
+        error_base: "#FF4747",
 
         error_light_400: "#DC7D85",
         error_light_300: "#ED9C9B",
@@ -117,8 +120,9 @@ export default {
         secondary_dark_700: "#0D1015",
         secondary_dark_600: "#2C2C30",
         secondary_dark_500: "#1A1C1E",
+        secondary_default: "#44444A",
 
-        secondary_light__400: "#6C7278",
+        secondary_light_400: "#6C7278",
         secondary_light_300: "#ACB5BB",
         secondary_light_200: "#DCE4E8",
         secondary_light_100: "#EDF1F3 ",

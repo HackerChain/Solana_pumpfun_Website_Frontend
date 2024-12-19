@@ -5,7 +5,7 @@ import {
   formatTimestamp,
 } from "../../utils/utils";
 import { Logo1, Logo2, Logo3 } from "../../store/TestData/testData";
-import { ImgLink } from "../../assets";
+import { LinkIcon } from "../../assets";
 import { Transaction } from "../../types/transactions";
 
 interface TxnTableProps {
@@ -61,7 +61,7 @@ export const TxnTable: React.FC<TxnTableProps> = ({ txns }) => {
                         <p className="text-sm text-text_dark">
                           {formatAddress(tx.contractAddress || "")}
                         </p>
-                        <ImgLink />
+                        <LinkIcon />
                       </div>
                     </div>
                   </div>
