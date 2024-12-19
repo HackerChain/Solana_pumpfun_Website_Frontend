@@ -1,12 +1,9 @@
 import React from "react";
-import {
-  formatAddress,
-  formatNumber,
-  formatTimestamp,
-} from "../../utils/utils";
+import { formatNumber, formatTimestamp } from "../../utils/utils";
 import { Logo1, Logo2, Logo3 } from "../../store/TestData/testData";
 import { LinkIcon } from "../../assets";
 import { Transaction } from "../../types/transactions";
+import { getDevColor } from "../Dashboard/TokenTable";
 
 interface TxnTableProps {
   txns: Transaction[];
@@ -40,18 +37,16 @@ export const TxnTable: React.FC<TxnTableProps> = ({ txns }) => {
               <div className="table-header-style">Side</div>
             </th>
             <th className="bg-secondary_dark_600">
-              <div className="table-header-style">MC</div>
+              <div className="table-header-style">MC, $</div>
             </th>
             <th className="bg-secondary_dark_600">
-              <div className="table-header-style">Price</div>
+              <div className="table-header-style">Price, $</div>
             </th>
             <th className="bg-secondary_dark_600">
-              <div className="table-header-style hidden xl:table-cell">
-                Token
-              </div>
+              <div className="table-header-style">Tokens</div>
             </th>
             <th className="bg-secondary_dark_600">
-              <div className="table-header-style hidden xl:table-cell">Fee</div>
+              <div className="table-header-style">Fee</div>
             </th>
             <th className="bg-secondary_dark_600">
               <div className="table-header-style">Total</div>
@@ -67,36 +62,59 @@ export const TxnTable: React.FC<TxnTableProps> = ({ txns }) => {
               key={index}
               className="items-center h-[40px] xl:h-[50px] 2xl:h-[60px] text-xs xl:text-sm 2xl:text-base px-2"
             >
-              {/* TODO fix token name style for response */}
-              <td className="py-2 px-4">{formatTimestamp(tx.time || 0)}</td>
-              <td className="py-2 px-4 max-w-[200px]">
-                <div className="flex flex-row items-center justify-start gap-4">
-                  <div className="flex flex-row gap-2 items-center justify-center">
-                    <div className="hidden xl:block">{images[index % 3]}</div>
+              <td className="table-data-style px-2">
+                {formatTimestamp(tx.time || 0)}
+              </td>
+              <td className="table-data-style max-w-[200px] pr-2">
+                <div className="flex flex-row justify-between items-center ">
+                  <div className="flex flex-row items-center gap-2">
+                    <div className="w-[22px] h-[22px] xl:w-[26px] xl:h-[26px] 2xl:w-[32px] 2xl:h-[32px] flex items-center">
+                      {images[index % 3]}
+                    </div>
+
                     <div className="flex flex-col justify-start">
-                      <p className="text-[#E7E0EC] font-medium text-lg">
-                        {tx.name}
+                      <p className="font-medium line-clamp-1">{tx.name}</p>
+
+                      <p className="text-text_dark text-start text-xxs xl:text-xs">
+                        Text1
                       </p>
-                      <div className="flex flex-row gap-2 items-center justify-start">
-                        <p className="text-sm text-text_dark">
-                          {formatAddress(tx.contractAddress || "")}
-                        </p>
-                        <LinkIcon />
-                      </div>
                     </div>
                   </div>
+                  <LinkIcon />
                 </div>
               </td>
-              <td className={`py-2 px-4 ${getSideColor(tx.profit || 0)}`}>
-                {tx.side}
+              <td className={`table-data-style `}>
+                <p
+                  className={`w-fit rounded-full px-3 text-white ${getDevColor(
+                    tx.side || ""
+                  )}`}
+                >
+                  {tx.side}
+                </p>
               </td>
-              <td className="py-2 px-4">${formatNumber(tx.MarketCap || 0)}</td>
-              <td className="py-2 px-4">${formatNumber(tx.Price || 0)}</td>
-              <td className="py-2 px-4">${formatNumber(tx.Tokens || 0)}</td>
-              <td className="py-2 px-4">{formatNumber(tx.Fee || 0)} SOL</td>
-              <td className="py-2 px-4">{formatNumber(tx.Total || 0)} USDT</td>
-              <td className={`py-2 px-4 ${getSideColor(tx.profit || 0)}`}>
-                {tx.profit ? `${formatNumber(tx.profit)} %` : "-"}
+              <td className="table-data-style">
+                ${formatNumber(tx.MarketCap || 0)}
+              </td>
+              <td className="table-data-style">
+                ${formatNumber(tx.Price || 0)}
+              </td>
+              <td className="table-data-style">
+                ${formatNumber(tx.Tokens || 0)}
+              </td>
+              <td className="table-data-style">
+                {formatNumber(tx.Fee || 0)} SOL
+              </td>
+              <td className="table-data-style">
+                {formatNumber(tx.Total || 0)} USDT
+              </td>
+              <td
+                className={`table-data-style ${getSideColor(
+                  tx.profit || 0
+                )} pr-2`}
+              >
+                {tx.profit
+                  ? `${tx.profit > 0 ? "+ " : ""}${formatNumber(tx.profit)} %`
+                  : "-"}
               </td>
             </tr>
           ))}

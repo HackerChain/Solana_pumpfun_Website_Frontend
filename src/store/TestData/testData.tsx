@@ -692,7 +692,7 @@ export const TestDataforTXs: Transaction[] = [
 
     time: 1734338802630,
     name: "Token name 1",
-    side: "Buy",
+    side: "Sell All",
     Price: 0.000954,
     MarketCap: 7700,
     Tokens: 297600,
@@ -721,7 +721,7 @@ export const TestDataforTXs: Transaction[] = [
 
     time: 1734338802630,
     name: "Token name 3",
-    side: "Buy",
+    side: "Sell",
     Price: 0.000325,
     MarketCap: 68300,
     Tokens: 8898500,

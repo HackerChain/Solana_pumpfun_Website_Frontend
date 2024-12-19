@@ -11,7 +11,7 @@ interface TokenTableProps {
 
 const images = [<Logo1 />, <Logo2 />, <Logo3 />];
 
-const getDevColor = (dev: string) => {
+export const getDevColor = (dev: string) => {
   if (dev === "Buy" || dev === "HODL") {
     return "bg-success_dark_700 border-[1px]  border-success_default";
   }
