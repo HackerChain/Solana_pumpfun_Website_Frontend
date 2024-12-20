@@ -19,7 +19,7 @@ import Header from "./components/Header";
 import { TxHistory } from "./page/TxHistroy";
 import { AuthProvider, useAuth } from "./context/Auth";
 
-const LOADINGTIME = 2000;
+const LOADINGTIME = 200;
 
 function ProtectedRoute({ children }: { children: JSX.Element }) {
   const { isAuthenticated } = useAuth();
@@ -49,7 +49,7 @@ function AppRoutes() {
 
   const ProtectedRouteArray = [
     {
-      path: "/",
+      path: "/dashboard",
       element: <Dashboard />,
     },
     {
@@ -96,7 +96,7 @@ function AppRoutes() {
                 element={<ProtectedRoute>{route.element}</ProtectedRoute>}
               />
             ))}
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </div>
       </ReduxProvider>
