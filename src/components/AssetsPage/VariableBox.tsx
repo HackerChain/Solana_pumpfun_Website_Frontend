@@ -12,8 +12,8 @@ export const VariableBox = ({
   feePaid,
 }: VariableBoxProps) => {
   return (
-    <div className="w-full rounded-lg px-52">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="w-full py-[24px] items-center flex justify-center px-[30px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mx-auto w-full">
         <Metric
           label="Current Balance"
           value={currentBalance?.value}
