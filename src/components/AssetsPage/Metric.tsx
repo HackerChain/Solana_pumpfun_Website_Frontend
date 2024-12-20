@@ -1,3 +1,4 @@
+import { ArrowUpIcon } from "../../assets";
 import { MetricProps } from "../../types/metric";
 
 export const Metric = ({
@@ -20,33 +21,37 @@ export const Metric = ({
   };
 
   return (
-    <div className="flex flex-col gap-1 p-4 items-start">
-      <div className="text-text_dark text-[16px]">{label}</div>
-      <div className="text-white text-[32px] font-semibold">
-        {formatValue(value)}
-      </div>
-      {(subValue !== undefined || percentage !== undefined) && (
-        <div className="flex gap-2 items-center justify-center">
-          {percentage !== undefined && (
-            <span
-              className={`text-sm ${
-                percentage >= 0
-                  ? "text-color_green bg-[#16790030]/20 rounded-md p-1"
-                  : "text-color_red"
-              }`}
-            >
-              {percentage > 0 ? "+" : ""}
-              {percentage}%
-            </span>
-          )}
-          {subValue !== undefined && (
-            <span className="text-sm text-color_green">
-              {formatValue(subValue)}
-              {subLabel && ` ${subLabel}`}
-            </span>
-          )}
+    <div className="h-[65px] md:h-[80px] lg:h-[100px] bg-[#1E1E20] rounded-md border-[1px] border-bg_gray_light hover:cursor-pointer hover:bg-bg_gray flex flex-col gap-1 p-4 items-start">
+      <div className="text-text_dark text-xs lg:text-sm">{label}</div>
+      <div className="flex flex-row items-start gap-3">
+        <div className="text-white text-lg_2 lg:text-xl font-semibold">
+          {formatValue(value)}
         </div>
-      )}
+        {(subValue !== undefined || percentage !== undefined) && (
+          <div className="flex xl:gap-2 items-center justify-left flex-col xl:flex-row">
+            {percentage !== undefined && (
+              <div className="flex flex-row  items-center justify-center">
+                <div className="-translate-y-[1px] -translate-x-1">
+                  <ArrowUpIcon />
+                </div>
+                <p
+                  className={`text-xxs lg:text-xs ${
+                    percentage >= 0 ? "text-success_base" : "text-color_red"
+                  }`}
+                >
+                  {percentage}%
+                </p>
+              </div>
+            )}
+            {subValue !== undefined && (
+              <p className="text-xxs lg:text-xs text-success_base line-clamp-1">
+                {formatValue(subValue)}
+                {subLabel && ` ${subLabel}`}
+              </p>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

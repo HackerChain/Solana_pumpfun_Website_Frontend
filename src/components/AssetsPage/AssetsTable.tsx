@@ -1,5 +1,5 @@
 import React from "react";
-import { formatAddress, formatNumber } from "../../utils/utils";
+import { formatNumber } from "../../utils/utils";
 import { Logo1, Logo2, Logo3 } from "../../store/TestData/testData";
 import { LinkIcon } from "../../assets";
 import { useNavigate } from "react-router-dom";
@@ -11,18 +11,18 @@ interface TokenTableProps {
 
 const images = [<Logo1 />, <Logo2 />, <Logo3 />];
 
-const getStateColor = (state: string) => {
-  if (state === "Sell") {
-    return "bg-color_green";
-  }
-  if (state === "Buy") {
-    return "bg-color_red";
-  }
-  if (state === "Raydium") {
-    return "bg-color_yellow_dark";
-  }
-  return "";
-};
+// const getStateColor = (state: string) => {
+//   if (state === "Sell") {
+//     return "bg-color_green";
+//   }
+//   if (state === "Buy") {
+//     return "bg-color_red";
+//   }
+//   if (state === "Raydium") {
+//     return "bg-color_yellow_dark";
+//   }
+//   return "";
+// };
 
 const getAgeColor = (age: string) => {
   if (age.slice(-1) === "h" || age.slice(-1) === "m") {
@@ -43,7 +43,7 @@ export const AssetsTable: React.FC<TokenTableProps> = ({ tokens }) => {
     navigate(`/assets/${ca}`);
   };
   return (
-    <div className="w-full h-full px-[30px] shadow-md overflow-x-auto min-w-[1000px] overflow-y-auto flex flex-1 flex-col">
+    <div className="w-full h-full px-[30px] shadow-md overflow-x-auto overflow-y-auto flex flex-1 flex-col min-h-[300px]">
       <table className="w-full border-collapse">
         <thead className="sticky top-0 z-20 ">
           <tr className="h-[40px] text-center items-center text-xs xl:text-sm 2xl:text-base text-text_dark ">

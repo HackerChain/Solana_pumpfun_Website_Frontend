@@ -30,7 +30,7 @@ export const Assets = () => {
   return (
     <div className="flex flex-col flex-1 overflow-y-auto h-full bg-bg_gray">
       <TitleBox title="Assets" icon={<AssetsIcon />} />
-      {/* <VariableBox {...Variable} /> */}
+      <VariableBox {...Variable} />
       <AssetsTable tokens={AssetsData} />
       <Pagination
         currentPage={currentPage}

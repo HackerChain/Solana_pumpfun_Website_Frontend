@@ -596,3 +596,30 @@ export const CalendarIcon = () => (
     />
   </svg>
 );
+
+export const ArrowUpIcon = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.5408 5.5825L7 2.04167L3.45917 5.5825"
+      stroke="#22C55E"
+      strokeWidth="1.5"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M7 11.9583V2.14083"
+      stroke="#22C55E"
+      strokeWidth="1.5"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
