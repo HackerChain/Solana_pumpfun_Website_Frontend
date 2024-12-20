@@ -48,8 +48,8 @@ export default function Header() {
   ];
 
   return (
-    <div className="w-full items-center justify-between flex mb-3 h-[60px]">
-      <div className="flex flex-row gap-2 mt-2 items-center">
+    <div className="w-full items-center justify-between flex mb-3 h-[60px] bg-bg_black">
+      <div className="flex flex-row gap-2 mt-2 items-center text-white">
         <LogoIcon />
         Pumpfun
       </div>
@@ -69,7 +69,10 @@ export default function Header() {
           </Link>
         ))}
       </div>
-      <div className="h-[40px] rounded-md bg-[#17172E] flex flex-row items-center p-2">
+      <div
+        className="h-[40px] rounded-md bg-[#17172E] flex flex-row items-center p-2 hover:cursor-pointer hover:text-white"
+        onClick={() => setIsOpen(!isOpen)}
+      >
         {/* // TODO: Add dropdown menu */}
         <div className="w-[26px] h-[26px] bg-amber-200 rounded-md"></div>
         <div className="flex flex-col items-start mr-[16px] ml-2">
@@ -78,18 +81,15 @@ export default function Header() {
             youremail@gmail.com
           </p>
         </div>
-        <div
-          onClick={() => setIsOpen(!isOpen)}
-          className="hover:cursor-pointer hover:scale-125"
-        >
+        <div className="hover:cursor-pointer hover:scale-125">
           <DropDownIcon />
         </div>
         {isOpen && (
-          <div className="absolute w-[200px] z-200 bg-[#17172E] border  border-secondary_dark_600 rounded-md shadow-lg transition translate-y-[64px] translate-x-3">
+          <div className="absolute w-[200px] z-200 bg-[#17172E] border border-secondary_dark_600 rounded-md shadow-lg transition translate-y-[64px] translate-x-3">
             {UserBtns.map((btn, idx) => (
               <div
                 key={idx}
-                className="px-4 py-2 cursor-pointer hover:bg-bg_gray rounded-md text-end"
+                className="px-4 py-2 cursor-pointer hover:bg-[#25254b] rounded-md text-start"
                 onClick={() => {
                   btn.action();
                   setIsOpen(false);

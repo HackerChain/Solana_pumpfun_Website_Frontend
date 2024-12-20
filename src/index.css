@@ -3,18 +3,18 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'TT Firs Neue';
-  src: url('../src/assets/TTFirsNeueTrialRegular.ttf') format('truetype');
+  font-family: "TT Firs Neue";
+  src: url("../src/assets/TTFirsNeueTrialRegular.ttf") format("truetype");
 }
 
 :root {
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   line-height: 1.5;
   font-weight: 400;
-  background-color: #0A0A1B;
-  color: #ACB5BB;
-  ;
-  color-scheme: light dark;
+  background-color: #0a0a1b;
+  color: #acb5bb;
+  /* color-scheme: light dark; */
+  color-scheme: dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -128,5 +128,5 @@ button:focus-visible {
 }
 
 .rdp-root {
-  --rdp-accent-color: #2A28AE; /* Use blue as the accent color. */
+  --rdp-accent-color: #2a28ae; /* Use blue as the accent color. */
 }
