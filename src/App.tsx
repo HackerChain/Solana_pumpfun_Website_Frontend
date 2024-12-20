@@ -50,7 +50,7 @@ function AppRoutes() {
   const ProtectedRouteArray = [
     {
       path: "/",
-      element: <TxHistory />,
+      element: <Dashboard />,
     },
     {
       path: "/transactions",
