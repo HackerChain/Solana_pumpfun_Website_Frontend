@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   AssetsIcon,
   DashboardIcon,
@@ -7,6 +7,9 @@ import {
   SettingsIcon,
   TransactionIcon,
 } from "../../assets";
+import { useState } from "react";
+import api from "../../utils/api";
+import { useAuth } from "../../context/Auth";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: <DashboardIcon /> },
@@ -17,6 +20,32 @@ const navigation = [
 
 export default function Header() {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logout();
+    api.post("/auth/logout").then((res) => {
+      if (res.status === 200) {
+        navigate("/signin");
+      }
+    });
+  };
+
+  const UserBtns = [
+    {
+      title: "My Account",
+      icon: <DropDownIcon />,
+      action: () => {
+        console.log("My Account");
+      },
+    },
+    {
+      title: "Sign Out",
+      icon: <DropDownIcon />,
+      action: handleLogout,
+    },
+  ];
 
   return (
     <div className="w-full items-center justify-between flex mb-3 h-[60px]">
@@ -49,7 +78,25 @@ export default function Header() {
             youremail@gmail.com
           </p>
         </div>
-        <DropDownIcon />
+        <div onClick={() => setIsOpen(!isOpen)}>
+          <DropDownIcon />
+        </div>
+        {isOpen && (
+          <div className="absolute w-[200px] z-200 bg-[#17172E] border  border-secondary_dark_600 rounded-md shadow-lg transition translate-y-[64px] translate-x-3">
+            {UserBtns.map((btn, idx) => (
+              <div
+                key={idx}
+                className="px-4 py-2 cursor-pointer hover:bg-bg_gray rounded-md text-end"
+                onClick={() => {
+                  btn.action();
+                  setIsOpen(false);
+                }}
+              >
+                {btn.title}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
