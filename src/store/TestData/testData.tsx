@@ -1,3 +1,4 @@
+import { TokenTxs } from "../../types/assetsTx";
 import { Token } from "../../types/dashboard";
 import { Transaction } from "../../types/transactions";
 export const TestDataforDashboard: Token[] = [
@@ -581,95 +582,6 @@ export const TestDataforDashboard: Token[] = [
   },
 ];
 
-/*
-export const TestDataforDashboard: Token[] = [
-  {
-    name: "Token name 0",
-    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
-    tokenId: 0,
-    DEV: "Sell",
-    Age: "84h",
-    Price: 0.0383228,
-    MarketCap: 68997000,
-    FDV: 68671000,
-    ISToken: {
-      size: 47293000,
-      percent: 14,
-    },
-    CSToken: {
-      size: 78656000,
-      percent: 7,
-    },
-    TSToken: 100000000,
-    TXsPerHr: 51000,
-    VolPerHr: 9000000,
-    Degen: {
-      NoMint: true,
-      Blacklist: false,
-      Burnt: true,
-      Insiders: 1.3,
-    },
-  },
-  {
-    name: "Token name 1",
-    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
-    tokenId: 1,
-    DEV: "Sell All",
-    Age: "60h",
-    Price: 0.0154686,
-    MarketCap: 78365000,
-    FDV: 14668000,
-    ISToken: {
-      size: 59112000,
-      percent: 9,
-    },
-    CSToken: {
-      size: 41981000,
-      percent: 6,
-    },
-    TSToken: 1200000000,
-    TXsPerHr: 78100,
-    VolPerHr: 7000000,
-    Degen: {
-      NoMint: false,
-      Blacklist: false,
-      Burnt: false,
-      Social: true,
-      Top10: 21.2,
-      Insiders: 5,
-    },
-  },
-  {
-    name: "Token name 2",
-    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
-    tokenId: 2,
-    DEV: "Sell All",
-    Age: "19m",
-    Price: 0.0939741,
-    MarketCap: 98937000,
-    FDV: 27687000,
-    ISToken: {
-      size: 45936000,
-      percent: 10,
-    },
-    CSToken: {
-      size: 796000,
-      percent: 6,
-    },
-    TSToken: 1500000000,
-    TXsPerHr: 90900,
-    VolPerHr: 9000000,
-    Degen: {
-      NoMint: true,
-      Blacklist: false,
-      Burnt: true,
-      Social: true,
-      Top10: 44,
-      Insiders: 0.8,
-    },
-  },
-];
-*/
 export const TestDataforTXs: Transaction[] = [
   {
     id: 0,
@@ -918,3 +830,236 @@ export const Logo3 = () => (
     </defs>
   </svg>
 );
+
+export const TestDataforTokenTxs: TokenTxs[] = [
+  {
+    name: "Token name 0",
+    contractAddress: "97Mbx6Jym1iEkQdVfLf5PMWL5tARGnQ5na5jhR9Lpump",
+    symbol: "MEM",
+    profit: {
+      realised: 714.67,
+      unRealised: 167.75,
+    },
+    feePaid: 4.61,
+    age: "74m",
+    currentPrice: 0.0066147,
+    marketCap: 44295000,
+    FDV: 53667000,
+    avgInvestPrice: 2240.94,
+    totalInvest: 6383.39,
+    Holdings: {
+      size: 89.691,
+      percent: 8.71,
+    },
+    txns: [
+      {
+        time: 1734678849226,
+        side: "Buy",
+        marketCap: 35515000,
+        price: 0.064209,
+        tokens: 75988,
+        fee: 0.8429,
+        total: 6047400000,
+        profit: {
+          size: -62035,
+          percent: 48.7,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "HODL",
+        marketCap: 47261000,
+        price: 0.0185459,
+        tokens: 84122,
+        fee: 0.38062,
+        total: 912500000,
+        profit: {
+          size: 12653,
+          percent: 15,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "Sell",
+        marketCap: 28045000,
+        price: 0.0016827,
+        tokens: 45179,
+        fee: 0.85502,
+        total: 9594900000,
+        profit: {
+          size: -73965,
+          percent: 44.6,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "Sell All",
+        marketCap: 25666000,
+        price: 0.0669717,
+        tokens: 29935,
+        fee: 0.78589,
+        total: 3093700000,
+        profit: {
+          size: -28832,
+          percent: 2.7,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "Sell",
+        marketCap: 9563000,
+        price: 0.0304182,
+        tokens: 81797,
+        fee: 0.18627,
+        total: 3529700000,
+        profit: {
+          size: 21432,
+          percent: 12.2,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "HODL",
+        marketCap: 64067000,
+        price: 0.0152514,
+        tokens: 82864,
+        fee: 0.48371,
+        total: 4707900000,
+        profit: {
+          size: 6529,
+          percent: 17.3,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "Buy",
+        marketCap: 49845000,
+        price: 0.0449362,
+        tokens: 74667,
+        fee: 0.30966,
+        total: 8144900000,
+        profit: {
+          size: 29248,
+          percent: 54.1,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "Sell All",
+        marketCap: 81920000,
+        price: 0.0520888,
+        tokens: 77589,
+        fee: 0.10504,
+        total: 1645200000,
+        profit: {
+          size: -34546,
+          percent: 54.8,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "HODL",
+        marketCap: 19804000,
+        price: 0.0784175,
+        tokens: 51780,
+        fee: 0.77439,
+        total: 4763900000,
+        profit: {
+          size: -70323,
+          percent: 56.7,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "Sell All",
+        marketCap: 77734000,
+        price: 0.0235379,
+        tokens: 62528,
+        fee: 0.51497,
+        total: 1723000000,
+        profit: {
+          size: -61258,
+          percent: 14.6,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "Sell",
+        marketCap: 40732000,
+        price: 0.0523619,
+        tokens: 4847,
+        fee: 0.10716,
+        total: 6764400000,
+        profit: {
+          size: 25491,
+          percent: 16.2,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "Sell",
+        marketCap: 13514000,
+        price: 0.0636283,
+        tokens: 25352,
+        fee: 0.6705,
+        total: 4205600000,
+        profit: {
+          size: 69127,
+          percent: 48.2,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "Sell",
+        marketCap: 67758000,
+        price: 0.0904589,
+        tokens: 35206,
+        fee: 0.2978,
+        total: 9161100000,
+        profit: {
+          size: -95230,
+          percent: 34.7,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "Sell",
+        marketCap: 29260000,
+        price: 0.0264008,
+        tokens: 70846,
+        fee: 0.14059,
+        total: 9300300000,
+        profit: {
+          size: 17742,
+          percent: 41.1,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "HODL",
+        marketCap: 51882000,
+        price: 0.0099632,
+        tokens: 82170,
+        fee: 0.52898,
+        total: 7834900000,
+        profit: {
+          size: 92642,
+          percent: 52.7,
+        },
+      },
+      {
+        time: 1734678849226,
+        side: "Sell All",
+        marketCap: 10737000,
+        price: 0.07604,
+        tokens: 59050,
+        fee: 0.26746,
+        total: 6469100000,
+        profit: {
+          size: -50938,
+          percent: 17.2,
+        },
+      },
+    ],
+  },
+];
