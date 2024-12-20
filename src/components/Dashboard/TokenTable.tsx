@@ -18,6 +18,9 @@ export const getDevColor = (dev: string) => {
   if (dev === "Sell" || dev === "Sell All") {
     return "bg-error_dark_700 border-[1px]  border-error_default";
   }
+  if (dev === "Raydium") {
+    return "bg-[#A96E18] border-[1px]  border-[#ECAC31]";
+  }
   return "";
 };
 

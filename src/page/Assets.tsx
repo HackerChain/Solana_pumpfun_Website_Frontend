@@ -3,6 +3,8 @@ import { AssetsTable } from "../components/AssetsPage/AssetsTable";
 import { VariableBox } from "../components/AssetsPage/VariableBox";
 import { AssetsData } from "../store/TestData/assetsData";
 import { Pagination } from "../components/pagination";
+import { TitleBox } from "../components/TitleBox";
+import { AssetsIcon } from "../assets";
 
 const Variable = {
   currentBalance: {
@@ -26,15 +28,15 @@ export const Assets = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 68;
   return (
-    <div className="flex flex-col w-full h-full px-[30px]">
-      <VariableBox {...Variable} />
-      <hr className="w-full border-bg_gray_light border-t my-12" />
+    <div className="flex flex-col flex-1 overflow-y-auto h-full bg-bg_gray">
+      <TitleBox title="Assets" icon={<AssetsIcon />} />
+      {/* <VariableBox {...Variable} /> */}
       <AssetsTable tokens={AssetsData} />
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={setCurrentPage}
-        maxVisible={5}
+        maxVisible={4}
       />
     </div>
   );
