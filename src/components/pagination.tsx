@@ -25,18 +25,17 @@ export const Pagination = ({
     // Always show first page
     pages.push(1);
 
-    let start = Math.max(2, currentPage - Math.floor(maxVisible / 2));
+    let start = Math.max(
+      2,
+      Math.min(currentPage - Math.floor(maxVisible / 2) + 1, 8)
+    );
     let end = Math.min(totalPages - 1, start + maxVisible - 3);
-
     if (start > 2) pages.push("...");
 
     for (let i = start; i <= end; i++) {
       pages.push(i);
     }
-
     if (end < totalPages - 1) pages.push("...");
-
-    // Always show last page
     pages.push(totalPages);
 
     return pages;
