@@ -451,6 +451,32 @@ export const DropupIcon = () => (
   </svg>
 );
 
+export const DropDownIcon = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.99999 12.8333C10.2217 12.8333 12.8333 10.2217 12.8333 7C12.8333 3.77834 10.2217 1.16667 6.99999 1.16667C3.77833 1.16667 1.16666 3.77834 1.16666 7C1.16666 10.2217 3.77833 12.8333 6.99999 12.8333Z"
+      stroke="#6C7278"
+      strokeWidth="1.5"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M4.94083 6.265L6.99999 8.31833L9.05916 6.265"
+      stroke="#6C7278"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 export const ExportIcon = () => (
   <svg
     width="17"
