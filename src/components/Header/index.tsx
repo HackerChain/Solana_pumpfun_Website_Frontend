@@ -41,6 +41,7 @@ export default function Header() {
         ))}
       </div>
       <div className="h-[40px] rounded-md bg-[#17172E] flex flex-row items-center p-2">
+        {/* // TODO: Add dropdown menu */}
         <div className="w-[26px] h-[26px] bg-amber-200 rounded-md"></div>
         <div className="flex flex-col items-start mr-[16px] ml-2">
           <p className="text-mx">Abdullayev Alisher</p>
