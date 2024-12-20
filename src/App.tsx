@@ -19,7 +19,7 @@ import Header from "./components/Header";
 import { TxHistory } from "./page/TxHistroy";
 import { AuthProvider, useAuth } from "./context/Auth";
 
-const LOADINGTIME = 200;
+const LOADINGTIME = 2000;
 
 function ProtectedRoute({ children }: { children: JSX.Element }) {
   const { isAuthenticated } = useAuth();

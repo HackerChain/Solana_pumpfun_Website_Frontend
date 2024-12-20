@@ -3,7 +3,7 @@ import { Token } from "../../types/dashboard";
 import { formatNumber } from "../../utils/utils";
 import { Logo1, Logo2, Logo3 } from "../../store/TestData/testData";
 import { LinkIcon } from "../../assets";
-import CustomGaugeMeter from "../GaugeMeter";
+import CustomGaugeMeter from "./GaugeMeter";
 
 interface TokenTableProps {
   tokens: Token[];
