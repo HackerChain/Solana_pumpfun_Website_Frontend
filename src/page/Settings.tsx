@@ -1,162 +1,58 @@
 import { useState } from "react";
-import { CustomInputInterface } from "../types/setting";
-import { CustomInput } from "../components/Settings/CustomInput";
-import { CustomTogglebtn } from "../components/CustomTogglebtn";
-import { DegenAuditBox } from "../components/Settings/DegenAuditBox";
-interface TimeRange {
-  from: string;
-  to: string;
-}
+import { SettingsIcon } from "../assets";
+import { TitleBox } from "../components/TitleBox";
+import { MainSettingContent } from "../components/Settings/MainSettingContent";
+import { BuySettingContent } from "../components/Settings/BuySettingContent";
 
 export const Settings = () => {
-  const [workingHours, setWorkingHours] = useState<TimeRange>({
-    from: "05:00",
-    to: "21:30",
-  });
-  const BuyInputs: CustomInputInterface[] = [
+  const menu = [
     {
-      label: "MC min limit, $",
-      value: 1000,
-      unit: "$",
+      title: "Main",
+      link: "/settings/main",
+      item: <MainSettingContent />,
     },
     {
-      label: "MC max limit, $",
-      value: 10000,
-      unit: "$",
+      title: "Buy",
+      link: "/settings/buy",
+      item: <BuySettingContent />,
     },
     {
-      label: "Slippage, %",
-      value: 1,
-      unit: "%",
+      title: "Sell",
+      link: "/settings/sell",
+      item: <div>Sell</div>,
     },
     {
-      label: "Max GAS prise",
-      value: 5,
-      unit: "$",
-    },
-    {
-      label: "Investment per token",
-      value: 20,
-      unit: "$",
+      title: "Degen Audit",
+      link: "/settings/audit",
+      item: <div>Degen Audit</div>,
     },
   ];
-  const SellInputs: CustomInputInterface[] = [
-    {
-      label: "Sale 1: % from Investment amount",
-      value: 25,
-      unit: "%",
-    },
-    {
-      label: "Revenue",
-      value: 2,
-      unit: "X",
-    },
-    {
-      label: "Sale 2: % from Investment amount",
-      value: 25,
-      unit: "%",
-    },
-    {
-      label: "Revenue",
-      value: 10,
-      unit: "X",
-    },
-    {
-      label: "Sale 3: % from Investment amount",
-      value: 25,
-      unit: "%",
-    },
-    {
-      label: "Revenue",
-      value: 50,
-      unit: "X",
-    },
-    {
-      label: "Sale 4: % from Investment amount",
-      value: 25,
-      unit: "%",
-    },
-    {
-      label: "Revenue",
-      value: 100,
-      unit: "X",
-    },
-  ];
-  const StopsellMC = {
-    label: "Stop sell MC (token will migrate to the Radium, manual sale",
-    value: 80000,
-    unit: "$",
+  const [selected, setSelected] = useState(menu[0].title);
+  const handleClick = (idx: number) => {
+    setSelected(menu[idx].title);
   };
-  const LosslinkitMC = {
-    label: "Loss limit MC (sell all)",
-    value: 500,
-    unit: "$",
-  };
-
   return (
-    <div className="min-h-screen p-8">
-      <div className="max-w-2xl mx-auto space-y-12">
-        {/* Run the Bot Section */}
-        <div className="space-y-8">
-          <h2 className="text-4xl font-medium text-start">Run the Bot</h2>
-          <div className="flex items-center gap-2 relative">
-            <CustomTogglebtn label="On / Off" />
-          </div>
-        </div>
-
-        {/* Working Hours Section */}
-        <div className="space-y-8">
-          <h2 className="text-4xl font-medium text-start">Working hours</h2>
-          <div className="flex gap-4">
-            <div className="space-y-2">
-              <label className="text-sm text-gray-400">From</label>
-              <input
-                type="time"
-                value={workingHours.from}
-                onChange={(e) =>
-                  setWorkingHours({ ...workingHours, from: e.target.value })
-                }
-                className="bg-gray-800 rounded px-4 py-2 w-28"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm text-gray-400">To</label>
-              <input
-                type="time"
-                value={workingHours.to}
-                onChange={(e) =>
-                  setWorkingHours({ ...workingHours, to: e.target.value })
-                }
-                className="bg-gray-800 rounded px-4 py-2 w-28"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Buy Section */}
-        <div className="space-y-8">
-          <h2 className="text-4xl font-medium text-start">Buy</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {BuyInputs.map((item, index) => (
-              <CustomInput key={index} {...item} />
+    <div className="flex flex-col flex-1 overflow-y-auto h-full bg-bg_gray ">
+      <TitleBox title="Settings" icon={<SettingsIcon />} />
+      <div className="flex-1 w-full h-full p-[30px] ">
+        <div className="rounded-2xl h-full border-[1px] border-bg_gray_light flex flex-row">
+          <div className="flex flex-col w-[300px] border-r-[1px] border-bg_gray_light p-[24px] items-start">
+            <p className="text-secondary_light_400 mb-2">SETTINGS MENU</p>
+            {menu.map((item, idx) => (
+              <div
+                key={idx}
+                className={`flex w-full h-[38px] rounded-md items-center p-2 ${
+                  selected === item.title
+                    ? "bg-bg_gray_ligh shadow-[inset_0_-5px_20px_10px_#2C2C30]"
+                    : "hover:shadow-[inset_0_-3px_8px_2px_#2C2C30]"
+                }`}
+                onClick={() => handleClick(idx)}
+              >
+                {item.title}
+              </div>
             ))}
           </div>
-        </div>
-
-        {/* Sell Section */}
-        <div className="space-y-8">
-          <h2 className="text-4xl font-medium text-start">Sell</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {SellInputs.map((item, index) => (
-              <CustomInput key={index} {...item} />
-            ))}
-          </div>
-          <CustomInput {...StopsellMC} />
-          <CustomInput {...LosslinkitMC} />
-        </div>
-        <DegenAuditBox />
-        <div className="bg-color_green_dark text-color_gray_white rounded-md p-3 text-3xl w-52 hover:bg-green-700 hover:cursor-pointer transition-all duration-300">
-          Save
+          {menu[menu.findIndex((item) => item.title === selected)].item}
         </div>
       </div>
     </div>

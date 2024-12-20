@@ -68,7 +68,7 @@ export const TokenInfo: React.FC<TokenTxsProps> = ({ data }) => {
             </div>
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full border-b-[1px] border-bg_gray_light">
           <table className="w-full border-collapse">
             <thead className="sticky top-0 z-20 ">
               <tr className="h-[32px] text-center items-center text-xs xl:text-sm 2xl:text-base text-text_dark ">
