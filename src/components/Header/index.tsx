@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   AssetsIcon,
   DashboardIcon,
+  DropDownIcon,
   LogoIcon,
   SettingsIcon,
   TransactionIcon,
@@ -38,6 +39,16 @@ export default function Header() {
             {item.name}
           </Link>
         ))}
+      </div>
+      <div className="h-[40px] rounded-md bg-[#17172E] flex flex-row items-center p-2">
+        <div className="w-[26px] h-[26px] bg-amber-200 rounded-md"></div>
+        <div className="flex flex-col items-start mr-[16px] ml-2">
+          <p className="text-mx">Abdullayev Alisher</p>
+          <p className="text-xxs text-secondary_light_400">
+            youremail@gmail.com
+          </p>
+        </div>
+        <DropDownIcon />
       </div>
     </div>
   );
