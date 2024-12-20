@@ -78,7 +78,10 @@ export default function Header() {
             youremail@gmail.com
           </p>
         </div>
-        <div onClick={() => setIsOpen(!isOpen)}>
+        <div
+          onClick={() => setIsOpen(!isOpen)}
+          className="hover:cursor-pointer hover:scale-125"
+        >
           <DropDownIcon />
         </div>
         {isOpen && (
