@@ -127,3 +127,6 @@ button:focus-visible {
   @apply py-2 text-start hover:cursor-pointer transition-all duration-300 ease-in-out;
 }
 
+.rdp-root {
+  --rdp-accent-color: #2A28AE; /* Use blue as the accent color. */
+}

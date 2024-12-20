@@ -77,14 +77,6 @@ export const SingleCalendarPicker: React.FC<SingleCalendarPickerProps> = ({
                 color: "#E7E0EC",
                 borderRadius: "50%",
               },
-              range_start: {
-                backgroundColor: "red", // primary_dark_600
-                color: "white",
-              },
-              range_end: {
-                backgroundColor: "#3C3AD0", // primary_dark_600
-                color: "white",
-              },
             }}
             styles={{
               day: { color: "#DCE4E8" }, // text_activate from your theme
