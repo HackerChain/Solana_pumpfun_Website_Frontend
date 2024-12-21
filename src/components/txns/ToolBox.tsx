@@ -35,10 +35,10 @@ export const ToolBox = () => {
           </div>
         </div>
         <div className="flex flex-row justify-end  items-center w-[250px] gap-4">
-          <div className="w-8 h-8 bg-secondary_dark_600 flex items-center justify-center rounded-md">
+          <div className="w-8 h-8 bg-secondary_dark_600 flex items-center justify-center rounded-md hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out">
             <FilterIcon />
           </div>
-          <div className="w-[127px] h-[40px] flex items-center gap-2 justify-center bg-primary_dark_700 shadow-[inset_0_0px_30px_10px_#F6F7FA33] rounded-md">
+          <div className="w-[127px] h-[40px] flex items-center gap-2 justify-center bg-primary_dark_700 shadow-[inset_0_0px_30px_10px_#F6F7FA33] rounded-md hover:cursor-pointer hover:bg-primary_dark_900 transition duration-300 ease-in-out">
             <ExportIcon />
             <p className="text-sm text-white font-bold">Export</p>
           </div>

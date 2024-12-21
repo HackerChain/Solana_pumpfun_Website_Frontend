@@ -98,7 +98,7 @@ export const AssetsTable: React.FC<TokenTableProps> = ({ tokens }) => {
             >
               <td className="table-data-style w-[180px] xl:w-[220px] 2xl:w-[260px] px-2">
                 <div
-                  className="flex flex-row justify-between items-center pr-2 xl:pr-4"
+                  className="flex flex-row justify-between items-center pr-2 xl:pr-4 hover:text-white"
                   onClick={() =>
                     handleClick({ ca: token.contractAddress || "" })
                   }

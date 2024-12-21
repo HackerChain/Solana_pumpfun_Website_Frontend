@@ -44,7 +44,7 @@ export const TxHistoryTable: React.FC<TokenTxsProps> = ({ data }) => {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center justify-center rounded-lg bg-bg_gray_light w-[40px] h-[40px]">
+              <div className="flex items-center justify-center rounded-lg bg-bg_gray_light w-[36px] h-[36px] hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out">
                 <FilterIcon />
               </div>
             </div>

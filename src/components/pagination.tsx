@@ -53,7 +53,7 @@ export const Pagination = ({
           className={`flex flex-row gap-2 items-center justify-center px-2 rounded-lg border-[1px] w-[32px] h-[32px] mr-[24px] border-secondary_default ${
             currentPage === 1
               ? "opacity-50 cursor-not-allowed"
-              : "hover:cursor-pointer"
+              : "hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out"
           }`}
         >
           <PreviousIcon />
@@ -89,7 +89,7 @@ export const Pagination = ({
           className={`flex flex-row gap-2 items-center justify-center px-2 rounded-lg border-[1px] w-[32px] h-[32px] ml-[24px] border-secondary_default ${
             currentPage === totalPages
               ? "opacity-50 cursor-not-allowed"
-              : "hover:cursor-pointer"
+              : "hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out"
           }`}
         >
           <NextIcon />
