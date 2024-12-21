@@ -71,7 +71,7 @@ function AppRoutes() {
   ];
 
   return (
-    <div className="flex flex-col relative select-none w-full pb-6 min-w-[880px] px-[30px] bg-bg_black text-[#acb5bb]">
+    <div className="flex flex-col relative select-none w-full pb-6 px-[30px] bg-bg_black text-[#acb5bb]">
       <ReduxProvider store={store}>
         {isAuthenticated && <Header />}
         <div

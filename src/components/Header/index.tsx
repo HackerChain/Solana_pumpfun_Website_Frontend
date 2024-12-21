@@ -48,12 +48,15 @@ export default function Header() {
   ];
 
   return (
-    <div className="w-full items-center justify-between flex mb-3 h-[60px] bg-bg_black">
-      <div className="flex flex-row gap-2 mt-2 items-center text-white hover:cursor-pointer">
+    <div className="flex w-full items-center justify-between mb-3 h-[60px] bg-bg_black">
+      <div
+        className="flex flex-row gap-2 mt-2 items-center text-white hover:cursor-pointer"
+        onClick={() => navigate("/")}
+      >
         <LogoIcon />
         Pumpfun
       </div>
-      <div className="flex justify-between w-[475px] h-[40px]">
+      <div className="justify-between lg:w-[475px] h-[40px] flex">
         {navigation.map((item) => (
           <Link
             key={item.name}
@@ -65,7 +68,7 @@ export default function Header() {
             }`}
           >
             {item.icon}
-            {item.name}
+            <div className="hidden lg:flex">{item.name}</div>
           </Link>
         ))}
       </div>
@@ -73,9 +76,11 @@ export default function Header() {
         className="h-[40px] rounded-md bg-[#17172E] flex flex-row items-center p-2 hover:cursor-pointer "
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="w-[26px] h-[26px] bg-amber-200 rounded-md"></div>
-        <div className="flex flex-col items-start mr-[16px] ml-2">
-          <p className="text-mx hover:text-white">Abdullayev Alisher</p>
+        <div className="w-[26px] h-[26px] bg-amber-200 rounded-md mr-2"></div>
+        <div className="hidden sm:flex flex-col items-start mr-[16px]">
+          <p className="text-xs md:text-sm xl:text-mx hover:text-white">
+            Abdullayev Alisher
+          </p>
           <p className="text-xxs text-secondary_light_400 hover:text-white">
             youremail@gmail.com
           </p>

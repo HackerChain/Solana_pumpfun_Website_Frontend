@@ -16,12 +16,13 @@ export const PageUnitDropdown: React.FC<PageUnitDropdownProps> = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative w-[100px]">
+    <div className="relative sm:w-[100px]">
       <div
         onClick={() => setIsOpen(!isOpen)}
         className="w-full bg-secondary_dark_500 border border-secondary_dark_600 rounded-md p-2 text-left text-xs flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-color_pink hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out"
       >
-        <div>Show {selected}</div>
+        <div className="sm:hidden mr-1">{selected}</div>
+        <div className="hidden sm:block">Show {selected}</div>
         <DropupIcon />
       </div>
 

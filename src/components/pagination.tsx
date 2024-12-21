@@ -96,7 +96,7 @@ export const Pagination = ({
         </div>
       </div>
       <div className="flex flex-row gap-4 items-center">
-        <p className="text-xs text-[#6C7278]">
+        <p className="hidden md:block text-xs text-[#6C7278]">
           Showing {(currentPage - 1) * selected + 1} to {selected * currentPage}{" "}
           of 68 entries
         </p>
