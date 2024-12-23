@@ -82,7 +82,9 @@ export default function Header() {
         ))}
       </div>
       <div
-        className="h-[40px] rounded-md bg-[#17172E] flex flex-row items-center p-2 hover:cursor-pointer "
+        className={`h-[40px] rounded-md ${
+          isOpen ? "bg-bg_gray" : "bg-[#17172E]"
+        } flex flex-row items-center p-2 hover:cursor-pointer transition duration-300`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="w-[26px] h-[26px] bg-amber-200 rounded-md mr-2"></div>
@@ -97,25 +99,27 @@ export default function Header() {
         <div className="hover:cursor-pointer hover:scale-125">
           <DropDownIcon />
         </div>
-        {isOpen && (
-          <div className="absolute w-[180px] z-200 bg-[#17172E] border border-secondary_dark_600 rounded-lg transition duration-300 translate-y-[84px] translate-x-3.5 p-1">
-            {UserBtns.map((btn, idx) => (
-              <div
-                key={idx}
-                className="flex flex-row items-center gap-3 text-sm p-2 cursor-pointer hover:bg-secondary_dark_900 rounded-md text-start h-[52px] text-secondary_light_100 group "
-                onClick={() => {
-                  btn.action();
-                  setIsOpen(false);
-                }}
-              >
-                <div className="p-2 rounded-md  bg-bg_gray_light group-hover:bg-primary_dark_700 transition duration-300 ease-in-out">
-                  {btn.icon}
+        <div className="relative">
+          {isOpen && (
+            <div className="absolute w-[180px] z-200 bg-bg_gray border border-secondary_dark_600 shadow-[-10px_20px_15px_10px_#04070E55] rounded-lg transition duration-300 translate-y-[30px] -translate-x-[170px] p-1">
+              {UserBtns.map((btn, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-row items-center gap-3 text-sm p-2 cursor-pointer hover:bg-secondary_dark_900 rounded-md text-start h-[52px] text-secondary_light_100 group "
+                  onClick={() => {
+                    btn.action();
+                    setIsOpen(false);
+                  }}
+                >
+                  <div className="p-2 rounded-md  bg-bg_gray_light group-hover:bg-primary_dark_700 transition duration-300 ease-in-out">
+                    {btn.icon}
+                  </div>
+                  {btn.title}
                 </div>
-                {btn.title}
-              </div>
-            ))}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
