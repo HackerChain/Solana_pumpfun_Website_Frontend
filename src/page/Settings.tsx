@@ -35,6 +35,7 @@ export const Settings = () => {
     setSelected(menu[idx].title);
     navigate(menu[idx].link);
   };
+  
 
   return (
     <div className="flex flex-col flex-1 overflow-y-auto h-full bg-bg_gray">

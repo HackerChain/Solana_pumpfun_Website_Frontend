@@ -13,6 +13,8 @@ import { useState } from "react";
 import api from "../../utils/api";
 import { useAuth } from "../../context/Auth";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: <DashboardIcon /> },
@@ -26,6 +28,9 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { logout } = useAuth();
   const navigate = useNavigate();
+
+  const userData = useSelector((state: RootState) => state.user);
+
   const handleLogout = () => {
     logout();
     toast.success("Logout successful");
@@ -83,10 +88,10 @@ export default function Header() {
         <div className="w-[26px] h-[26px] bg-amber-200 rounded-md mr-2"></div>
         <div className="hidden sm:flex flex-col items-start mr-[16px]">
           <p className="text-xs md:text-sm xl:text-mx hover:text-white">
-            Abdullayev Alisher
+            {userData.fullName || "Guest User"}
           </p>
           <p className="text-xxs text-secondary_light_400 hover:text-white">
-            youremail@gmail.com
+            {userData.email || "email@example.com"}
           </p>
         </div>
         <div className="hover:cursor-pointer hover:scale-125">

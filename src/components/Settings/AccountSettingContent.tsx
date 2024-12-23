@@ -7,6 +7,8 @@ import {
   RemoveIcon,
   UserIcon,
 } from "../../assets";
+import { RootState } from "../../store";
+import { useSelector } from "react-redux";
 
 interface AccountFormData {
   fullName: string;
@@ -20,9 +22,10 @@ export const AccountSettingContent = () => {
   const [showPwdIcon, setShowPwdIcon] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
+  const userData = useSelector((state: RootState) => state.user);
   const [formData, setFormData] = useState<AccountFormData>({
-    fullName: "",
-    email: "",
+    fullName: userData.fullName,
+    email: userData.email,
     location: "",
     password: "",
   });

@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import api from "../utils/api";
 import { useAuth } from "../context/Auth";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../store/reducers/userSlice";
 
 export const Signin: React.FC = () => {
   const { login } = useAuth();
+  const dispatch = useDispatch();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted", email, pwd);
@@ -12,15 +15,18 @@ export const Signin: React.FC = () => {
       email: email,
       password: pwd,
     };
-    setEmail("");
-    setPwd("");
+
     api.post("/auth/login", body).then((res) => {
       if (res.status === 200) {
-        // Store the token in localStorage
         const { token } = res.data;
-
-        // If login successful, call login with the token
         login(token);
+
+        dispatch(
+          setUserData({
+            fullName: "John Doe",
+            email: email,
+          })
+        );
         toast.success("Login successful");
       } else if (res.status === 401) {
         toast.error("Invalid email or password");
@@ -28,6 +34,8 @@ export const Signin: React.FC = () => {
         toast.error("Something went wrong");
       }
     });
+    setEmail("");
+    setPwd("");
   };
 
   const [email, setEmail] = useState("");
