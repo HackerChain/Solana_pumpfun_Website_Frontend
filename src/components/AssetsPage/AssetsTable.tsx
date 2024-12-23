@@ -43,7 +43,7 @@ export const AssetsTable: React.FC<TokenTableProps> = ({ tokens }) => {
     navigate(`/assets/${ca}`);
   };
   return (
-    <div className="w-full h-full px-[30px] shadow-md overflow-x-auto overflow-y-auto flex flex-1 flex-col min-h-[300px]">
+    <div className="w-full h-full px-[30px] shadow-md overflow-x-auto overflow-y-auto flex flex-1 flex-col">
       <table className="w-full border-collapse">
         <thead className="sticky top-0 z-20 ">
           <tr className="h-[40px] text-center items-center text-xs xl:text-sm 2xl:text-base text-text_dark ">

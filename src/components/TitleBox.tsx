@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 import { AlertIcon, SearchIcon, WalletIcon } from "../assets";
+import { shortenAddress } from "../utils/utils";
 
 export const TitleBox = ({ title, icon }: { title: string; icon: any }) => {
   const handleWalletbtn = () => {
@@ -48,7 +49,12 @@ export const TitleBox = ({ title, icon }: { title: string; icon: any }) => {
               onClick={handleWalletbtn}
             >
               <WalletIcon />
-              <p className="hidden md:block">8 020 USD</p>
+              <p className="hidden md:block">
+                {shortenAddress(
+                  "CEzN7mqP9xoxn8RyqPqJGGmU5Sn3ZdP6HpcJdVYXbendo",
+                  9
+                )}
+              </p>
             </div>
           </div>
         </div>
