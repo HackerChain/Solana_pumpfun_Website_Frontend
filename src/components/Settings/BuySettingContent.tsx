@@ -31,9 +31,6 @@ export const BuySettingContent = () => {
         </div>
         <div className="flex flex-col gap-[24px] p-[24px]">
           <div className="flex flex-row justify-between items-center">
-            <div className="flex flex-col items-start">
-              <p className="text-lg">Working hours</p>
-            </div>
             <div className="flex gap-4">
               <div className="flex flex-col items-start ">
                 <p className="text-xs text-secondary_light_300">MCminlimit,$</p>
@@ -60,9 +57,6 @@ export const BuySettingContent = () => {
             </div>
           </div>
           <div className="flex flex-row justify-between items-center">
-            <div className="flex flex-col items-start">
-              <p className="text-lg">Working hours</p>
-            </div>
             <div className="flex gap-4">
               <div className="flex flex-col items-start ">
                 <p className="text-xs text-secondary_light_300">Slippage, %</p>
@@ -89,9 +83,6 @@ export const BuySettingContent = () => {
             </div>
           </div>
           <div className="flex flex-row justify-between items-center">
-            <div className="flex flex-col items-start">
-              <p className="text-lg">Working hours</p>
-            </div>
             <div className="flex gap-4">
               <div className="flex flex-col items-start ">
                 <p className="text-xs text-secondary_light_300">

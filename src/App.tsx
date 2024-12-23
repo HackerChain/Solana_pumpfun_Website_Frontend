@@ -18,8 +18,13 @@ import { Signin } from "./page/Signin";
 import Header from "./components/Header";
 import { TxHistory } from "./page/TxHistroy";
 import { AuthProvider, useAuth } from "./context/Auth";
+import { MainSettingContent } from "./components/Settings/MainSettingContent";
+import { BuySettingContent } from "./components/Settings/BuySettingContent";
+import { SellSettingContent } from "./components/Settings/SellSettingContent";
+import { AuditSettingContent } from "./components/Settings/AuditSettingContent";
+import { AccountSettingContent } from "./components/Settings/AccountSettingContent";
 
-const LOADINGTIME = 200;
+const LOADINGTIME = 20;
 
 function ProtectedRoute({ children }: { children: JSX.Element }) {
   const { isAuthenticated } = useAuth();
@@ -61,8 +66,34 @@ function AppRoutes() {
       element: <Assets />,
     },
     {
-      path: "/settings",
+      path: "/settings/*",
       element: <Settings />,
+      children: [
+        {
+          path: "main",
+          element: <MainSettingContent />,
+        },
+        {
+          path: "buy",
+          element: <BuySettingContent />,
+        },
+        {
+          path: "sell",
+          element: <SellSettingContent />,
+        },
+        {
+          path: "audit",
+          element: <AuditSettingContent />,
+        },
+        {
+          path: "account",
+          element: <AccountSettingContent />,
+        },
+        {
+          path: "",
+          element: <Navigate to="main" replace />,
+        },
+      ],
     },
     {
       path: "/assets/:ca",
@@ -94,7 +125,15 @@ function AppRoutes() {
                 key={route.path}
                 path={route.path}
                 element={<ProtectedRoute>{route.element}</ProtectedRoute>}
-              />
+              >
+                {route.children?.map((child) => (
+                  <Route
+                    key={child.path}
+                    path={child.path}
+                    element={child.element}
+                  />
+                ))}
+              </Route>
             ))}
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
