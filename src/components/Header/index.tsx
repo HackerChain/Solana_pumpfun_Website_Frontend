@@ -41,7 +41,7 @@ export default function Header() {
       title: "Profile",
       icon: <UserIcon />,
       action: () => {
-        console.log("My Account");
+        navigate("/settings/account");
       },
     },
     {
