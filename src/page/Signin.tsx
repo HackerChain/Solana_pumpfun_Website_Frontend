@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import api from "../utils/api";
 import { useAuth } from "../context/Auth";
+import { toast } from "react-toastify";
 
 export const Signin: React.FC = () => {
   const { login } = useAuth();
@@ -20,6 +21,11 @@ export const Signin: React.FC = () => {
 
         // If login successful, call login with the token
         login(token);
+        toast.success("Login successful");
+      } else if (res.status === 401) {
+        toast.error("Invalid email or password");
+      } else {
+        toast.error("Something went wrong");
       }
     });
   };

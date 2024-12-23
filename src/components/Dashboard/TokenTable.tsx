@@ -91,7 +91,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
           {tokens.map((token, index) => (
             <tr
               key={index}
-              className="items-center h-[40px] xl:h-[50px] 2xl:h-[60px] text-xs xl:text-sm 2xl:text-base px-2 hover:text-primary_dark_500 transition duration-100 ease-in-out"
+              className="items-center h-[40px] xl:h-[50px] 2xl:h-[60px] text-xs xl:text-sm 2xl:text-base px-2 border-b-[1px] border-bg_gray_light hover:bg-gray-900 transition duration-100 ease-in-out"
             >
               <td className="table-data-style w-[180px] px-2">
                 <div className="flex flex-row justify-between items-center ">

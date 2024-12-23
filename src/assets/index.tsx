@@ -623,3 +623,60 @@ export const ArrowUpIcon = () => (
     />
   </svg>
 );
+
+export const ExitIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M5.93335 5.03991C6.14002 2.63991 7.37335 1.65991 10.0733 1.65991H10.16C13.14 1.65991 14.3334 2.85325 14.3334 5.83325V10.1799C14.3334 13.1599 13.14 14.3532 10.16 14.3532H10.0733C7.39335 14.3532 6.16002 13.3866 5.94002 11.0266"
+      stroke="#DCE4E8"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M10 8H2.41333"
+      stroke="#DCE4E8"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M3.89996 5.7666L1.66663 7.99994L3.89996 10.2333"
+      stroke="#DCE4E8"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+export const UserIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M7.99996 7.99992C9.84091 7.99992 11.3333 6.50753 11.3333 4.66658C11.3333 2.82564 9.84091 1.33325 7.99996 1.33325C6.15901 1.33325 4.66663 2.82564 4.66663 4.66658C4.66663 6.50753 6.15901 7.99992 7.99996 7.99992Z"
+      stroke="#DCE4E8"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M13.7266 14.6667C13.7266 12.0867 11.16 10 7.99998 10C4.83998 10 2.27332 12.0867 2.27332 14.6667"
+      stroke="#DCE4E8"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
