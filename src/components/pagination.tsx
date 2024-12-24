@@ -6,7 +6,6 @@ interface PaginationProps {
   currentPage: number;
   setCurrentPage: (page: number) => void;
   totalPages: number;
-  onPageChange: (page: number) => void;
   pageUnit: number;
   setPageUnit: (pageUnit: number) => void;
 }
@@ -16,7 +15,6 @@ export const Pagination = ({
   currentPage,
   setCurrentPage,
   totalPages,
-  onPageChange,
   pageUnit,
   setPageUnit,
 }: PaginationProps) => {
@@ -53,7 +51,7 @@ export const Pagination = ({
     <div className="flex items-center justify-between my-4 px-[30px]">
       <div className="w-[272px] flex items-center justify-center">
         <div
-          onClick={() => currentPage !== 1 && onPageChange(currentPage - 1)}
+          onClick={() => currentPage !== 1 && setCurrentPage(currentPage - 1)}
           className={`flex flex-row gap-2 items-center justify-center px-2 rounded-lg border-[1px] w-[32px] h-[32px] mr-[24px] border-secondary_default ${
             currentPage === 1
               ? "opacity-50 cursor-not-allowed"
@@ -68,7 +66,7 @@ export const Pagination = ({
             key={idx}
             onClick={() =>
               pageNum !== "..." && typeof pageNum === "number"
-                ? onPageChange(pageNum)
+                ? setCurrentPage(pageNum)
                 : undefined
             }
             className={`
@@ -88,7 +86,7 @@ export const Pagination = ({
 
         <div
           onClick={() =>
-            currentPage !== totalPages && onPageChange(currentPage + 1)
+            currentPage !== totalPages && setCurrentPage(currentPage + 1)
           }
           className={`flex flex-row gap-2 items-center justify-center px-2 rounded-lg border-[1px] w-[32px] h-[32px] ml-[24px] border-secondary_default ${
             currentPage === totalPages

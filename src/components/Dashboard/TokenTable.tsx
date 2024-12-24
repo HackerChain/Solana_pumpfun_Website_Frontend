@@ -31,7 +31,7 @@ const getAgeColor = (age: string) => {
 };
 
 export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
-  const { loading } = useSelector((state: RootState) => state.token);
+  // const { loading } = useSelector((state: RootState) => state.token);
   return (
     <div className="w-full h-full px-[30px] shadow-md overflow-x-auto min-w-[1000px] overflow-y-auto flex flex-1 flex-col">
       <table className="w-full border-collapse">
@@ -86,9 +86,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
             </th>
           </tr>
         </thead>
-        {loading ? (
-          <TableLoading />
-        ) : (
+        {
           <tbody className="overflow-y-auto h-full">
             {tokens.map((token, index) => (
               <tr
@@ -228,7 +226,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
               </tr>
             ))}
           </tbody>
-        )}
+        }
       </table>
     </div>
   );

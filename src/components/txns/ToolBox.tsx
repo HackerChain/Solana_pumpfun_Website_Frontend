@@ -2,8 +2,9 @@ import { useState } from "react";
 import { SingleCalendarPicker } from "./SingleCalendarPicker";
 import { TimeToolBox } from "../Dashboard/TimeToolBox";
 import { ExportIcon, FilterIcon } from "../../assets";
+import { ToolBoxProps } from "../../types";
 
-export const ToolBox = () => {
+export const ToolBox = ({during, setDuring}:ToolBoxProps) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const [startDate, setStartDate] = useState<Date | undefined>(new Date());
   const [endDate, setEndDate] = useState<Date | undefined>(new Date());
@@ -12,7 +13,7 @@ export const ToolBox = () => {
     <>
       <div className="flex flex-row justify-between items-center gap-5 px-[30px] my-[24px]">
         <div className="flex flex-row justify-start items-center gap-5">
-          <TimeToolBox />
+          <TimeToolBox during={during} setDuring={setDuring} />
           <SingleCalendarPicker
             startDate={startDate}
             endDate={endDate}

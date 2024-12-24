@@ -8,28 +8,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { setError, setLoading, setTokens } from "../store/reducers/tokenSlice";
 import api from "../utils/api";
+import { FETCH_CYCLE } from "../config";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
   const { tokens } = useSelector((state: RootState) => state.token);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageUnit, setPageUnit] = useState(10);
+  const [pageUnit, setPageUnit] = useState(10); // 10, 20, 50
   const [totalPages, setTotalPages] = useState(10);
   const [totalCount, setTotalCount] = useState(0);
+  const [during, setDuring] = useState("15m"); // 15m, 3h, 3h
 
   const fetchTokens = async () => {
     try {
       dispatch(setLoading(true));
       const offset = (currentPage - 1) * pageUnit;
-      const response = await api.get(
-        `/token/15m?limit=${pageUnit}&offset=${offset}`
-      );
 
-      // console.log("data =>", response.data);
+      const response = await api.get(
+        `/token/${during}?limit=${pageUnit}&offset=${offset}`
+      );
       setTotalCount(response.data.total);
       setTotalPages(Math.ceil(response.data.total / pageUnit));
 
+      // Dispatch the new tokens data to Redux store
       dispatch(setTokens(response.data.data));
+      dispatch(setLoading(false));
     } catch (err: any) {
       dispatch(setError(err.message));
     }
@@ -37,24 +40,27 @@ export const Dashboard = () => {
 
   useEffect(() => {
     fetchTokens();
-  }, [currentPage, pageUnit]);
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
+    // Set up interval for subsequent fetches
+    const interval = setInterval(() => {
+      fetchTokens();
+    }, FETCH_CYCLE);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, [currentPage, pageUnit, during]);
 
   return (
     <>
       <div className="flex flex-col flex-1 overflow-y-auto h-full bg-bg_gray">
         <TitleBox title="Dashboard" icon={<DashboardIcon />} />
-        <ToolBox />
+        <ToolBox during={during} setDuring={setDuring} />
         <TokenTable tokens={tokens} />
         <Pagination
           totaldata={totalCount}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           totalPages={totalPages}
-          onPageChange={handlePageChange}
           pageUnit={pageUnit}
           setPageUnit={setPageUnit}
         />

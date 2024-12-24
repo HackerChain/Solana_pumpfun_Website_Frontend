@@ -26,22 +26,19 @@ const Variable = {
 
 export const Assets = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageUnit, setPageUnit] = useState(10);
+  const [pageUnit, setPageUnit] = useState(10); // 10, 20, 50
   const [totalPages] = useState(10);
-  const [totalTokens] = useState(0);
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
+  const [totalCount] = useState(0);
   return (
     <div className="flex flex-col flex-1 overflow-y-auto h-full bg-bg_gray">
       <TitleBox title="Assets" icon={<AssetsIcon />} />
       <VariableBox {...Variable} />
       <AssetsTable tokens={AssetsData} />
       <Pagination
-        totaldata={totalTokens}
+        totaldata={totalCount}
         currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
         totalPages={totalPages}
-        onPageChange={handlePageChange}
         pageUnit={pageUnit}
         setPageUnit={setPageUnit}
       />
