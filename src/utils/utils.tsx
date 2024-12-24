@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export const formatNumber = (num: number): string => {
   const absNum = Math.abs(num);
 
@@ -48,4 +50,17 @@ export const getTimeDelta = (timestamp: number): string => {
   if (hours > 0) return `${hours}h`;
   if (minutes > 0) return `${minutes}m`;
   return "now";
+};
+
+export const copyToClipboard = async (text: string) => {
+  try {
+    await navigator.clipboard.writeText(text);
+    toast.success("Copied to clipboard");
+  } catch (error) {
+    toast.error("Failed to copy to clipboard");
+  }
+};
+
+export const getPumpfunUrlForToken = (mint: string) => {
+  return `https://pump.fun/${mint}`;
 };

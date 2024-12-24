@@ -1,11 +1,13 @@
 import React from "react";
-import { formatNumber, getTimeDelta } from "../../utils/utils";
+import {
+  copyToClipboard,
+  formatNumber,
+  getPumpfunUrlForToken,
+  getTimeDelta,
+} from "../../utils/utils";
 import { LinkIcon } from "../../assets";
 import CustomGaugeMeter from "./GaugeMeter";
 import { Token } from "../../types/dashboard/token";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store";
-import { TableLoading } from "../Loading/TableLoading";
 
 interface TokenTableProps {
   tokens: Token[];
@@ -116,7 +118,12 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center justify-end w-[32px]">
+                    <div
+                      className="flex items-center justify-end w-[32px]"
+                      onClick={() => {
+                        copyToClipboard(getPumpfunUrlForToken(token.mint));
+                      }}
+                    >
                       <LinkIcon />
                     </div>
                   </div>
