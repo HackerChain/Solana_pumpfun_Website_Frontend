@@ -14,7 +14,33 @@ export const formatNumber = (num: number): string => {
   if (absNum >= 1000) {
     return (num / 1000).toFixed(1) + "K";
   }
+  if (absNum < 1) {
+    const str = num.toString();
+    const [, decimal] = str.split(".");
+    let zeroCount = 0;
 
+    for (const char of decimal) {
+      if (char === "0") {
+        zeroCount++;
+      } else {
+        break;
+      }
+    }
+
+    if (zeroCount >= 3) {
+      const subscript = zeroCount
+        .toString()
+        .split("")
+        .map((n) => String.fromCharCode(0x2080 + parseInt(n)))
+        .join("");
+
+      const remainingDigits = parseFloat(
+        `0.${decimal.slice(zeroCount)}`
+      ).toFixed(4);
+      return `0.0${subscript}${remainingDigits.slice(2)}`;
+    }
+    return num.toFixed(4);
+  }
   return num.toString();
 };
 
@@ -54,7 +80,24 @@ export const getTimeDelta = (timestamp: number): string => {
 
 export const copyToClipboard = async (text: string) => {
   try {
-    await navigator.clipboard.writeText(text);
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text);
+    } else {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      textArea.style.top = "-999999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand("copy");
+      } finally {
+        textArea.remove();
+      }
+    }
+
     toast.success("Copied to clipboard");
   } catch (error) {
     toast.error("Failed to copy to clipboard");

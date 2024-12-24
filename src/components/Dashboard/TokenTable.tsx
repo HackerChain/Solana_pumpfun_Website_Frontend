@@ -148,7 +148,10 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                 </td>
 
                 <td className="table-data-style w-[90px]">
-                  ${formatNumber(0.0056)}
+                  $
+                  {formatNumber(
+                    token.market_cap / (token.total_supply / 1000000000)
+                  )}
                 </td>
 
                 <td className="table-data-style w-[70px]">
