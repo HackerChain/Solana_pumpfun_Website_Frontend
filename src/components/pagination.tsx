@@ -4,6 +4,7 @@ import { PageUnitDropdown } from "./PageUnitDropdown";
 interface PaginationProps {
   totaldata: number;
   currentPage: number;
+  setCurrentPage: (page: number) => void;
   totalPages: number;
   onPageChange: (page: number) => void;
   pageUnit: number;
@@ -13,6 +14,7 @@ interface PaginationProps {
 export const Pagination = ({
   totaldata,
   currentPage,
+  setCurrentPage,
   totalPages,
   onPageChange,
   pageUnit,
@@ -45,7 +47,7 @@ export const Pagination = ({
     return pages;
   };
 
-  const pageUnits = [10, 20, 50, 100];
+  const pageUnits = [10, 20, 50];
 
   return (
     <div className="flex items-center justify-between my-4 px-[30px]">
@@ -107,6 +109,7 @@ export const Pagination = ({
           options={pageUnits}
           selected={pageUnit}
           onSelect={setPageUnit}
+          setCurrentPage={setCurrentPage}
         />
       </div>
     </div>

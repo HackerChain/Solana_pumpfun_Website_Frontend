@@ -24,7 +24,7 @@ export const getDevColor = (dev: string) => {
 };
 
 const getAgeColor = (age: string) => {
-  if (age.slice(-1) === "h" || age.slice(-1) === "m") {
+  if (age.slice(-1) === "m") {
     return "text-color_green";
   }
   return "";
@@ -86,27 +86,26 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
             </th>
           </tr>
         </thead>
-
-        <tbody className="overflow-y-auto h-full">
-          {loading ? (
-            <TableLoading />
-          ) : (
-            tokens.map((token, index) => (
+        {loading ? (
+          <TableLoading />
+        ) : (
+          <tbody className="overflow-y-auto h-full">
+            {tokens.map((token, index) => (
               <tr
                 key={index}
                 className="items-center h-[40px] xl:h-[50px] 2xl:h-[60px] text-xs xl:text-sm 2xl:text-base px-2 border-b-[1px] border-bg_gray_light hover:bg-gray-900 transition duration-100 ease-in-out"
               >
-                <td className="table-data-style w-[180px] px-2">
+                <td className="table-data-style w-[200px] px-2">
                   <div className="flex flex-row justify-between items-center ">
                     <div className="flex flex-row items-center gap-2">
                       <input type="checkbox" />
 
-                      <div className="w-[22px] h-[22px] xl:w-[26px] xl:h-[26px] 2xl:w-[32px] 2xl:h-[32px] flex items-center">
+                      <div className="aspect-square w-[22px] h-[22px] xl:w-[26px] xl:h-[26px] 2xl:w-[32px] 2xl:h-[32px] flex items-center">
                         {token.image_uri && (
                           <img
                             src={token.image_uri}
                             alt={token.name}
-                            className="w-full h-full object-cover rounded-full"
+                            className=" object-cover rounded-full w-[22px] h-[22px] xl:w-[26px] xl:h-[26px] 2xl:w-[32px] 2xl:h-[32px] flex items-center"
                           />
                         )}
                       </div>
@@ -119,7 +118,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                         </p>
                       </div>
                     </div>
-                    <LinkIcon />
+                    <div className="flex items-center justify-end w-[32px]">
+                      <LinkIcon />
+                    </div>
                   </div>
                 </td>
 
@@ -134,7 +135,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                 </td>
 
                 <td
-                  className={`table-data-style ${getAgeColor("1d")} w-[60px]`}
+                  className={`table-data-style ${getAgeColor(
+                    getTimeDelta(token.created_timestamp)
+                  )} w-[60px]`}
                 >
                   {getTimeDelta(token.created_timestamp)}
                 </td>
@@ -223,9 +226,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                   <CustomGaugeMeter value={970} />
                 </td>
               </tr>
-            ))
-          )}
-        </tbody>
+            ))}
+          </tbody>
+        )}
       </table>
     </div>
   );

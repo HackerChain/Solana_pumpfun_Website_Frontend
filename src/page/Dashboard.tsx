@@ -15,7 +15,7 @@ export const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageUnit, setPageUnit] = useState(10);
   const [totalPages, setTotalPages] = useState(10);
-  const [totalTokens, setTotalTokens] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
 
   const fetchTokens = async () => {
     try {
@@ -26,7 +26,7 @@ export const Dashboard = () => {
       );
 
       // console.log("data =>", response.data);
-      setTotalTokens(response.data.total);
+      setTotalCount(response.data.total);
       setTotalPages(Math.ceil(response.data.total / pageUnit));
 
       dispatch(setTokens(response.data.data));
@@ -50,8 +50,9 @@ export const Dashboard = () => {
         <ToolBox />
         <TokenTable tokens={tokens} />
         <Pagination
-          totaldata={totalTokens}
+          totaldata={totalCount}
           currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
           pageUnit={pageUnit}

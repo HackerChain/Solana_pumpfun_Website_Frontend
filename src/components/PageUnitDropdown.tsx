@@ -5,6 +5,7 @@ interface PageUnitDropdownProps {
   options: number[];
   selected: number;
   onSelect: (option: number) => void;
+  setCurrentPage: (page: number) => void;
   label?: string;
 }
 
@@ -12,6 +13,7 @@ export const PageUnitDropdown: React.FC<PageUnitDropdownProps> = ({
   options,
   selected,
   onSelect,
+  setCurrentPage,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,7 +29,7 @@ export const PageUnitDropdown: React.FC<PageUnitDropdownProps> = ({
       </div>
 
       {isOpen && (
-        <div className="absolute z-20 w-full mt-1 bg-secondary_dark_500 border border-secondary_dark_600 rounded-md shadow-lg transition -translate-y-[202px]">
+        <div className="absolute z-20 w-full mt-1 bg-secondary_dark_500 border border-secondary_dark_600 rounded-md shadow-lg transition -translate-y-[166px]">
           {options.map((option) => (
             <div
               key={option}
@@ -35,6 +37,7 @@ export const PageUnitDropdown: React.FC<PageUnitDropdownProps> = ({
               onClick={() => {
                 onSelect(option);
                 setIsOpen(false);
+                setCurrentPage(1);
               }}
             >
               {option}
