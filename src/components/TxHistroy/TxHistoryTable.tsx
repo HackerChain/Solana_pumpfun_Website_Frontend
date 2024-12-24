@@ -21,7 +21,12 @@ const getSideColor = (profit: number) => {
 
 export const TxHistoryTable: React.FC<TokenTxsProps> = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 10;
+  const [pageUnit, setPageUnit] = useState(10);
+  const [totalPages] = useState(10);
+  const [totalTokens] = useState(0);
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
   return (
     <div className="w-full overflow-y-auto flex flex-1 px-[30px] pb-[30px]">
       <div className="flex flex-1 flex-col rounded-2xl border-[1px] border-bg_gray_light overflow-y-auto">
@@ -141,11 +146,13 @@ export const TxHistoryTable: React.FC<TokenTxsProps> = ({ data }) => {
           </div>
         </div>
         <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={setCurrentPage}
-          maxVisible={4}
-        />
+        totaldata={totalTokens}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        pageUnit={pageUnit}
+        setPageUnit={setPageUnit}
+      />
       </div>
     </div>
   );

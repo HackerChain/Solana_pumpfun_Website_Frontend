@@ -1,21 +1,25 @@
-import { useState } from "react";
 import { NextIcon, PreviousIcon } from "../assets";
 import { PageUnitDropdown } from "./PageUnitDropdown";
 
 interface PaginationProps {
+  totaldata: number;
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-  maxVisible?: number;
+  pageUnit: number;
+  setPageUnit: (pageUnit: number) => void;
 }
 
 export const Pagination = ({
+  totaldata,
   currentPage,
   totalPages,
   onPageChange,
-  maxVisible = 4,
+  pageUnit,
+  setPageUnit,
 }: PaginationProps) => {
   const getPageNumbers = () => {
+    const maxVisible = 4;
     const pages: (number | string)[] = [];
 
     if (totalPages <= maxVisible) {
@@ -42,8 +46,6 @@ export const Pagination = ({
   };
 
   const pageUnits = [10, 20, 50, 100];
-  const [selected] = useState(pageUnits[0]);
-  const [sideSelected, setSideSelected] = useState(10);
 
   return (
     <div className="flex items-center justify-between my-4 px-[30px]">
@@ -97,13 +99,14 @@ export const Pagination = ({
       </div>
       <div className="flex flex-row gap-4 items-center">
         <p className="hidden md:block text-xs text-[#6C7278]">
-          Showing {(currentPage - 1) * selected + 1} to {selected * currentPage}{" "}
-          of 68 entries
+          Showing {(currentPage - 1) * pageUnit + 1} to{" "}
+          {Math.min(pageUnit * currentPage, totaldata)}
+          of {totaldata} entries
         </p>
         <PageUnitDropdown
           options={pageUnits}
-          selected={sideSelected}
-          onSelect={setSideSelected}
+          selected={pageUnit}
+          onSelect={setPageUnit}
         />
       </div>
     </div>

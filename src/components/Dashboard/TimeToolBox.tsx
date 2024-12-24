@@ -2,32 +2,24 @@ import { useState } from "react";
 
 const Tools = [
   {
-    title: "1m",
+    title: "15m",
     value: "1",
   },
   {
-    title: "5m",
+    title: "3h",
     value: "2",
   },
   {
-    title: "1h",
-    value: "3",
-  },
-  {
     title: "6h",
-    value: "4",
-  },
-  {
-    title: "24h",
-    value: "5",
+    value: "3",
   },
 ];
 
 export const TimeToolBox = () => {
-  const [selected, setSelected] = useState(Tools[1].value);
+  const [selected, setSelected] = useState(Tools[0].value);
   return (
     <>
-      <div className="flex flex-row bg-secondary_dark_600 p-2 rounded-md  shadow-[inset_0_1px_1px_1px_#F6F7FA22] h-[36px] w-[185px] items-center justify-between">
+      <div className="flex flex-row bg-secondary_dark_600 p-2 rounded-md  shadow-[inset_0_1px_1px_1px_#F6F7FA22] h-[36px] w-[125px] items-center justify-between">
         {Tools.map((item, idx) => (
           <div
             key={idx}
