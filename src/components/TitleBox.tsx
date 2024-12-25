@@ -2,7 +2,19 @@ import { toast } from "react-toastify";
 import { AlertIcon, SearchIcon, WalletIcon } from "../assets";
 import { shortenAddress } from "../utils/utils";
 
-export const TitleBox = ({ title, icon }: { title: string; icon: any }) => {
+interface TitleBoxProps {
+  title: string;
+  icon: any;
+  keyword: string;
+  setKeyword: (value:string) => void;
+}
+
+export const TitleBox: React.FC<TitleBoxProps> = ({
+  title,
+  icon,
+  keyword,
+  setKeyword,
+}) => {
   const handleWalletbtn = () => {
     // Success notification
     toast.success("Operation completed successfully!");
@@ -28,6 +40,8 @@ export const TitleBox = ({ title, icon }: { title: string; icon: any }) => {
             <div className="relative">
               <input
                 type="text"
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
                 placeholder={"Search anything..."}
                 className="w-full h-[40px] bg-[#17172E] text-white placeholder-secondary_light_400 
         border border-secondary_dark_600 rounded-md pl-10 pr-4 py-2

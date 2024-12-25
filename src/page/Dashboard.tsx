@@ -10,6 +10,7 @@ import { setError, setLoading, setTokens } from "../store/reducers/tokenSlice";
 import api from "../utils/api";
 import { FETCH_CYCLE } from "../config";
 import { TableLoading } from "../components/Loading/TableLoading";
+import { useSearch } from "../hooks/useDebounce";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
@@ -19,15 +20,19 @@ export const Dashboard = () => {
   const [totalPages, setTotalPages] = useState(10);
   const [totalCount, setTotalCount] = useState(0);
   const [during, setDuring] = useState("15m"); // 15m, 3h, 3h
+  const { searchTerm, setSearchTerm } = useSearch("");
 
   const fetchTokens = async () => {
     try {
       dispatch(setLoading(true));
       const offset = (currentPage - 1) * pageUnit;
 
-      const response = await api.get(
-        `/token/${during}?limit=${pageUnit}&offset=${offset}`
-      );
+      let url = `/token/${during}?limit=${pageUnit}&offset=${offset}`;
+
+      if (searchTerm.trim()) url += `&search=${searchTerm}`;
+      console.log("url => ", url);
+
+      const response = await api.get(url);
       setTotalCount(response.data.total);
       setTotalPages(Math.ceil(response.data.total / pageUnit));
       console.log("token data => ", response.data.data);
@@ -47,12 +52,17 @@ export const Dashboard = () => {
       fetchTokens();
     }, FETCH_CYCLE);
     return () => clearInterval(interval);
-  }, [currentPage, pageUnit, during]);
+  }, [currentPage, pageUnit, during, searchTerm]);
   const { loading } = useSelector((state: RootState) => state.token);
   return (
     <>
       <div className="flex flex-col flex-1 overflow-y-auto h-full bg-bg_gray w-full relative">
-        <TitleBox title="Dashboard" icon={<DashboardIcon />} />
+        <TitleBox
+          title="Dashboard"
+          icon={<DashboardIcon />}
+          keyword={searchTerm}
+          setKeyword={setSearchTerm}
+        />
         <ToolBox during={during} setDuring={setDuring} />
         <TokenTable tokens={tokens} />
         <Pagination
