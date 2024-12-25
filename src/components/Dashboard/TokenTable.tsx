@@ -5,11 +5,14 @@ import {
   getPumpfunUrlForToken,
   getTimeDelta,
 } from "../../utils/utils";
-import { LinkIcon } from "../../assets";
+import { DownSortIcon, LinkIcon, UpSortIcon } from "../../assets";
 import CustomGaugeMeter from "./GaugeMeter";
 import { Token } from "../../types/dashboard/token";
+import { SortConfig, SortField } from "../../types";
 interface TokenTableProps {
   tokens: Token[];
+  sortConfig: SortConfig;
+  handleSort: (field: SortField) => void;
 }
 export const getDevColor = (dev: string) => {
   if (dev === "Buy" || dev === "HODL") {
@@ -31,7 +34,11 @@ const getAgeColor = (age: string) => {
   return "";
 };
 
-export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
+export const TokenTable: React.FC<TokenTableProps> = ({
+  tokens,
+  sortConfig,
+  handleSort,
+}) => {
   return (
     <div className="w-full h-full px-[30px] shadow-md overflow-x-auto min-w-[1000px] overflow-y-auto flex flex-1 flex-col relative">
       <table className="w-full border-collapse">
@@ -45,14 +52,36 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
             <th className="bg-secondary_dark_600">
               <div className="table-header-style">DEV</div>
             </th>
-            <th className="bg-secondary_dark_600">
-              <div className="table-header-style">Age</div>
+            <th
+              className="bg-secondary_dark_600"
+              onClick={() => handleSort("age" as SortField)}
+            >
+              <div className="table-header-style gap-2">
+                Age{" "}
+                {sortConfig.field === "age" && sortConfig.order === "desc" ? (
+                  <UpSortIcon />
+                ) : (
+                  <DownSortIcon />
+                )}
+              </div>
             </th>
             <th className="bg-secondary_dark_600">
               <div className="table-header-style">Price, $</div>
             </th>
-            <th className="bg-secondary_dark_600">
-              <div className="table-header-style">MC, $</div>
+            {/* market cap */}
+            <th
+              className="bg-secondary_dark_600"
+              onClick={() => handleSort("market_cap" as SortField)}
+            >
+              <div className="table-header-style gap-2">
+                MC, ${" "}
+                {sortConfig.field === "market_cap" &&
+                sortConfig.order === "desc" ? (
+                  <UpSortIcon />
+                ) : (
+                  <DownSortIcon />
+                )}
+              </div>
             </th>
             <th className="bg-secondary_dark_600">
               <div className="table-header-style">FDV, $</div>
@@ -91,8 +120,8 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
             key={index}
             className="items-center h-[40px] xl:h-[50px] 2xl:h-[60px] text-xs xl:text-sm 2xl:text-base px-2 border-b-[1px] border-bg_gray_light hover:bg-gray-900 transition duration-100 ease-in-out"
           >
-            <td className="table-data-style w-[180px] px-2">
-              <div className="flex flex-row justify-between items-center">
+            <td className="table-data-style min-w-[180px] xl:w-[240px] px-2">
+              <div className="flex flex-row justify-between items-center w-full">
                 <div className="flex flex-row items-center gap-2">
                   <input type="checkbox" />
 
@@ -126,7 +155,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
             </td>
 
             {/* dev state */}
-            <td className="table-data-style w-[85px]">
+            <td className="table-data-style w-[85px] xl:w-[110px]">
               <div className="flex items-center justify-start w-[80px]">
                 <p
                   className={`w-fit rounded-full px-3 text-white ${getDevColor(
@@ -141,31 +170,31 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
             <td
               className={`table-data-style ${getAgeColor(
                 getTimeDelta(token.created_timestamp)
-              )} w-[60px]`}
+              )} w-[60px] xl:w-[80px]`}
             >
               {getTimeDelta(token.created_timestamp)}
             </td>
             {/* price */}
-            <td className="table-data-style w-[90px]">
+            <td className="table-data-style w-[120px] xl:w-[140px]">
               ${formatNumber(token.price)}
             </td>
             {/* market cap */}
-            <td className="table-data-style w-[70px]">
+            <td className="table-data-style w-[90px] xl:w-[110px]">
               ${formatNumber(token.usd_market_cap)}
             </td>
             {/* fdv */}
-            <td className="table-data-style w-[90px]">
+            <td className="table-data-style w-[90px] xl:w-[110px]">
               ${formatNumber(token.fdv ?? 1234)}
             </td>
 
             {/* initial supply tokens */}
-            <td className="table-data-style flex-col w-[100px]">
+            <td className="table-data-style flex-col w-[140px] xl:w-[160px]">
               <p>{formatNumber(token.total_supply)}</p>
               <p>({formatNumber(12)}%)</p>
             </td>
 
             {/* circul supply */}
-            <td className="table-data-style flex-col w-[100px]">
+            <td className="table-data-style flex-col w-[100px] xl:w-[120px]">
               <p>{formatNumber(token.circul_supply)}</p>
               <p>({formatNumber(32)}%)</p>
             </td>
@@ -176,16 +205,16 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
             </td>
 
             {/* 1h txs */}
-            <td className="table-data-style w-[90px]">
+            <td className="table-data-style w-[100px] xl:w-[120px]">
               {formatNumber(123546789)}
             </td>
             {/* 1d vol */}
-            <td className="table-data-style w-[80px]">
+            <td className="table-data-style w-[100px] xl:w-[120px]">
               ${formatNumber(987654)}
             </td>
             {/* degen audit */}
-            <td className="table-data-style flex-col w-[180px]">
-              <div className="flex flex-row gap-2 justify-start">
+            <td className="table-data-style flex-col w-[220px]">
+              <div className="flex flex-row gap-2 justify-start w-full">
                 {token.mint_auth !== undefined && (
                   <span
                     className={`py-0.5 text-xxs 2xl:text-xs ${
@@ -207,7 +236,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                 )}
               </div>
 
-              <div className="flex flex-row gap-2 justify-start">
+              <div className="flex flex-row gap-2 justify-start w-full">
                 {"token.Degen?.Insiders" !== undefined && (
                   <span
                     className={`py-0.5 text-xxs 2xl:text-xs line-clamp-1 ${
@@ -221,7 +250,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
                 {token.top10_percent !== undefined && (
                   <span
                     className={`py-0.5 text-xxs 2xl:text-xs line-clamp-1 ${
-                      true ? "text-error_base" : "text-success_base"
+                      token.top10_percent > 30.0
+                        ? "text-error_base"
+                        : "text-success_base"
                     }`}
                   >
                     ● Top10: {formatNumber(token.top10_percent ?? 0)}%
@@ -230,7 +261,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({ tokens }) => {
               </div>
             </td>
 
-            <td className="table-data-style w-[100px] pr-2">
+            <td className="table-data-style pr-2">
               <CustomGaugeMeter value={970} />
             </td>
           </tr>

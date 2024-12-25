@@ -35,7 +35,7 @@ export const formatNumber = (num: number): string => {
       ).toFixed(4);
       return `0.0${subscript}${remainingDigits.slice(2)}`;
     }
-    return num.toFixed(4);
+    return num.toFixed(2);
   }
   return num.toFixed(2);
 };

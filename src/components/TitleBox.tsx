@@ -5,8 +5,8 @@ import { shortenAddress } from "../utils/utils";
 interface TitleBoxProps {
   title: string;
   icon: any;
-  keyword: string;
-  setKeyword: (value:string) => void;
+  keyword?: string;
+  setKeyword?: (value: string) => void;
 }
 
 export const TitleBox: React.FC<TitleBoxProps> = ({
@@ -40,8 +40,10 @@ export const TitleBox: React.FC<TitleBoxProps> = ({
             <div className="relative">
               <input
                 type="text"
-                value={keyword}
-                onChange={(e) => setKeyword(e.target.value)}
+                value={keyword || ""}
+                onChange={(e) =>
+                  setKeyword ? setKeyword(e.target.value) : null
+                }
                 placeholder={"Search anything..."}
                 className="w-full h-[40px] bg-[#17172E] text-white placeholder-secondary_light_400 
         border border-secondary_dark_600 rounded-md pl-10 pr-4 py-2
