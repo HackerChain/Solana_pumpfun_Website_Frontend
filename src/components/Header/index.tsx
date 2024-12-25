@@ -101,7 +101,7 @@ export default function Header() {
         </div>
         <div className="relative">
           {isOpen && (
-            <div className="absolute w-[180px] z-200 bg-bg_gray border border-secondary_dark_600 shadow-[-10px_20px_15px_10px_#04070E55] rounded-lg transition duration-300 translate-y-[30px] -translate-x-[170px] p-1">
+            <div className="absolute w-[180px] z-50 bg-bg_gray border border-secondary_dark_600 shadow-[-10px_20px_15px_10px_#04070E55] rounded-lg transition duration-300 translate-y-[30px] -translate-x-[170px] p-1">
               {UserBtns.map((btn, idx) => (
                 <div
                   key={idx}

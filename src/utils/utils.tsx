@@ -2,23 +2,19 @@ import { toast } from "react-toastify";
 
 export const formatNumber = (num: number): string => {
   const absNum = Math.abs(num);
-
   if (absNum >= 1000000000) {
-    return (num / 1000000000).toFixed(1) + "B";
+    return (Math.floor(absNum / 10000000) / 100).toFixed(2) + "B";
+  } else if (absNum >= 1000000) {
+    return (Math.floor(absNum / 10000) / 100).toFixed(2) + "M";
+  } else if (absNum >= 1000) {
+    return (Math.floor(absNum / 10) / 100).toFixed(2) + "K";
   }
 
-  if (absNum >= 1000000) {
-    return (num / 1000000).toFixed(1) + "M";
-  }
-
-  if (absNum >= 1000) {
-    return (num / 1000).toFixed(1) + "K";
-  }
   if (absNum < 1) {
     const str = num.toString();
     const [, decimal] = str.split(".");
     let zeroCount = 0;
-
+    if (!decimal) return num.toFixed(2);
     for (const char of decimal) {
       if (char === "0") {
         zeroCount++;
@@ -41,7 +37,7 @@ export const formatNumber = (num: number): string => {
     }
     return num.toFixed(4);
   }
-  return num.toString();
+  return num.toFixed(2);
 };
 
 export const formatAddress = (address: string): string => {

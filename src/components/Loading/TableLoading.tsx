@@ -1,8 +1,10 @@
+import LoadingComponent from "./LoadingComponent";
+
 export const TableLoading: React.FC = () => {
   return (
     <>
-      <div className="flex items-center justify-center h-full w-full">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      <div className="flex flex-col items-center justify-center flex-1 w-full h-full absolute z-1">
+        <LoadingComponent />
       </div>
     </>
   );

@@ -9,6 +9,7 @@ import { RootState } from "../store";
 import { setError, setLoading, setTokens } from "../store/reducers/tokenSlice";
 import api from "../utils/api";
 import { FETCH_CYCLE } from "../config";
+import { TableLoading } from "../components/Loading/TableLoading";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export const Dashboard = () => {
       );
       setTotalCount(response.data.total);
       setTotalPages(Math.ceil(response.data.total / pageUnit));
-
+      console.log("token data => ", response.data.data);
       // Dispatch the new tokens data to Redux store
       dispatch(setTokens(response.data.data));
       dispatch(setLoading(false));
@@ -45,14 +46,12 @@ export const Dashboard = () => {
     const interval = setInterval(() => {
       fetchTokens();
     }, FETCH_CYCLE);
-
-    // Cleanup interval on component unmount
     return () => clearInterval(interval);
   }, [currentPage, pageUnit, during]);
-
+  const { loading } = useSelector((state: RootState) => state.token);
   return (
     <>
-      <div className="flex flex-col flex-1 overflow-y-auto h-full bg-bg_gray">
+      <div className="flex flex-col flex-1 overflow-y-auto h-full bg-bg_gray w-full relative">
         <TitleBox title="Dashboard" icon={<DashboardIcon />} />
         <ToolBox during={during} setDuring={setDuring} />
         <TokenTable tokens={tokens} />
@@ -64,6 +63,7 @@ export const Dashboard = () => {
           pageUnit={pageUnit}
           setPageUnit={setPageUnit}
         />
+        {loading && <TableLoading />}
       </div>
     </>
   );
