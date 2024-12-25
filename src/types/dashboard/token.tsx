@@ -15,8 +15,9 @@ export interface Token {
   circul_supply: number;
   mint_auth?: boolean;
   freeze_auth?: boolean;
-  price:number;
-  fdv:number;
+  price: number;
+  fdv: number;
+  x_score: number;
 }
 
 export interface TokenState {

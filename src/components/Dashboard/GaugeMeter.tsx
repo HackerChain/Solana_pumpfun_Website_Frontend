@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { formatNumber } from "../../utils/utils";
 
 interface GaugeMeterProps {
   value: number;
@@ -10,7 +11,7 @@ interface GaugeMeterProps {
 const CustomGaugeMeter: React.FC<GaugeMeterProps> = ({
   value,
   min = 0,
-  max = 3000,
+  max = 1500,
   label = "Normal",
 }) => {
   const [percentage, setPercentage] = useState(0);
@@ -22,9 +23,21 @@ const CustomGaugeMeter: React.FC<GaugeMeterProps> = ({
 
   return (
     <div className="rounded-lg w-full">
-      <div className="flex flex-row justify-start gap-2 items-center text-center">
-        <p className="text-xxs xl:text-xs text-gray-300">{value}</p>
-        <p className="text-xxs xl:text-xs text-yellow-500">{label}</p>
+      <div className="flex flex-row justify-between px-3 gap-2 items-center text-center">
+        <p className="text-xxs xl:text-xs text-gray-300">
+          {formatNumber(value)}
+        </p>
+        <p
+          className={`text-xxs xl:text-xs ${
+            value < 100
+              ? "text-red-500"
+              : value < 500
+              ? "text-yellow-500"
+              : "text-green-500"
+          }`}
+        >
+          {value < 100 ? "Week" : value < 500 ? "Normal" : "Strong"}
+        </p>
       </div>
       <div className="relative h-4  overflow-hidden ">
         <div className="absolute h-1 translate-y-[5px] rounded-full inset-0 bg-gradient-to-r from-red-700 via-yellow-500 to-green-700" />

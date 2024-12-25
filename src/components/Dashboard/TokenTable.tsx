@@ -262,7 +262,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
             </td>
 
             <td className="table-data-style pr-2">
-              <CustomGaugeMeter value={970} />
+              <CustomGaugeMeter value={token.x_score} />
             </td>
           </tr>
         ))}
