@@ -120,7 +120,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
             key={index}
             className="items-center h-[40px] xl:h-[50px] 2xl:h-[60px] text-xs xl:text-sm 2xl:text-base px-2 border-b-[1px] border-bg_gray_light hover:bg-gray-900 transition duration-100 ease-in-out"
           >
-            <td className="table-data-style min-w-[180px] xl:w-[240px] px-2">
+            <td className="table-data-style min-w-[220px] xl:w-[300px] px-2">
               <div className="flex flex-row justify-between items-center w-full">
                 <div className="flex flex-row items-center gap-2">
                   <input type="checkbox" />
@@ -213,7 +213,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
               ${formatNumber(987654)}
             </td>
             {/* degen audit */}
-            <td className="table-data-style flex-col w-[220px]">
+            <td className="table-data-style flex-col w-[200px] xl:w-[220px]">
               <div className="flex flex-row gap-2 justify-start w-full">
                 {token.mint_auth !== undefined && (
                   <span
@@ -237,16 +237,6 @@ export const TokenTable: React.FC<TokenTableProps> = ({
               </div>
 
               <div className="flex flex-row gap-2 justify-start w-full">
-                {"token.Degen?.Insiders" !== undefined && (
-                  <span
-                    className={`py-0.5 text-xxs 2xl:text-xs line-clamp-1 ${
-                      false ? "text-error_base" : "text-success_base"
-                    }`}
-                  >
-                    ● Insiders: 3%
-                  </span>
-                )}
-
                 {token.top10_percent !== undefined && (
                   <span
                     className={`py-0.5 text-xxs 2xl:text-xs line-clamp-1 ${
@@ -261,7 +251,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
               </div>
             </td>
 
-            <td className="table-data-style pr-2">
+            <td className="table-data-style pr-2 w-[96px] xl:w-[120px]">
               <CustomGaugeMeter value={token.x_score} />
             </td>
           </tr>

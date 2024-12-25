@@ -9,7 +9,7 @@ import { RootState } from "../store";
 import { setError, setLoading, setTokens } from "../store/reducers/tokenSlice";
 import api from "../utils/api";
 import { FETCH_CYCLE } from "../config";
-import { TableLoading } from "../components/Loading/TableLoading";
+// import { TableLoading } from "../components/Loading/TableLoading";
 import { useSearch } from "../hooks/useDebounce";
 import { SortConfig, SortField } from "../types";
 
@@ -38,13 +38,13 @@ export const Dashboard = () => {
       if (sortConfig.field.trim())
         url += `&sort_field=${sortConfig.field}&sort_order=${sortConfig.order}`;
 
-      console.log("url => ", url);
+      // console.log("url => ", url);
 
       const response = await api.get(url);
       setTotalCount(response.data.total);
       setTotalPages(Math.ceil(response.data.total / pageUnit));
 
-      console.log("token data => ", response.data.data);
+      // console.log("token data => ", response.data.data);
       // Dispatch the new tokens data to Redux store
       dispatch(setTokens(response.data.data));
       dispatch(setLoading(false));
@@ -70,7 +70,7 @@ export const Dashboard = () => {
     });
   }, [during]);
 
-  const { loading } = useSelector((state: RootState) => state.token);
+  // const { loading } = useSelector((state: RootState) => state.token);
 
   const handleSort = (field: SortField) => {
     setSortConfig((prev) => ({
@@ -101,7 +101,7 @@ export const Dashboard = () => {
           pageUnit={pageUnit}
           setPageUnit={setPageUnit}
         />
-        {loading && <TableLoading />}
+        {/* {loading && <TableLoading />} */}
       </div>
     </>
   );

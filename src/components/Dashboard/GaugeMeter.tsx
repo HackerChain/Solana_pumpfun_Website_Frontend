@@ -5,14 +5,12 @@ interface GaugeMeterProps {
   value: number;
   min?: number;
   max?: number;
-  label?: string;
 }
 
 const CustomGaugeMeter: React.FC<GaugeMeterProps> = ({
   value,
   min = 0,
   max = 1500,
-  label = "Normal",
 }) => {
   const [percentage, setPercentage] = useState(0);
 
@@ -23,7 +21,7 @@ const CustomGaugeMeter: React.FC<GaugeMeterProps> = ({
 
   return (
     <div className="rounded-lg w-full">
-      <div className="flex flex-row justify-between px-3 gap-2 items-center text-center">
+      <div className="flex flex-row justify-start px-1 gap-2 items-center text-center">
         <p className="text-xxs xl:text-xs text-gray-300">
           {formatNumber(value)}
         </p>
@@ -39,12 +37,14 @@ const CustomGaugeMeter: React.FC<GaugeMeterProps> = ({
           {value < 100 ? "Week" : value < 500 ? "Normal" : "Strong"}
         </p>
       </div>
-      <div className="relative h-4  overflow-hidden ">
-        <div className="absolute h-1 translate-y-[5px] rounded-full inset-0 bg-gradient-to-r from-red-700 via-yellow-500 to-green-700" />
-        <div
-          className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-lg transform -translate-x-1/2 transition-all duration-300 ease-in-out border-[2px] border-gray-300"
-          style={{ left: `${percentage}%` }}
-        />
+      <div className="relative h-4 overflow-hidden px-[7px]">
+        <div className="absolute h-[6px] translate-y-[5px] rounded-full inset-0 bg-gradient-to-r from-red-700 via-yellow-500 to-green-700" />
+        <div className="relative h-full w-full">
+          <div
+            className="absolute translate-y-[1px] w-[14px] h-[14px] bg-white rounded-full shadow-lg transform -translate-x-1/2 transition-all duration-300 ease-in-out border-[2px] border-gray-400"
+            style={{ left: `${percentage}%` }}
+          />
+        </div>
       </div>
     </div>
   );

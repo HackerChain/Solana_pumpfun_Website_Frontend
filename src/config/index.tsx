@@ -3,4 +3,4 @@ export const config = {
   apiVersion: "v1",
 };
 
-export const FETCH_CYCLE = 10 * 1000;
+export const FETCH_CYCLE = 5 * 60 * 1000;
