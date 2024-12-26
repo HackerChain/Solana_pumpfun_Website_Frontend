@@ -23,7 +23,6 @@ import { AuthProvider, useAuth } from "./context/Auth";
 import { MainSettingContent } from "./components/Settings/MainSettingContent";
 import { BuySettingContent } from "./components/Settings/BuySettingContent";
 import { SellSettingContent } from "./components/Settings/SellSettingContent";
-import { AuditSettingContent } from "./components/Settings/AuditSettingContent";
 import { AccountSettingContent } from "./components/Settings/AccountSettingContent";
 
 const LOADINGTIME = 20;
@@ -82,10 +81,6 @@ function AppRoutes() {
         {
           path: "sell",
           element: <SellSettingContent />,
-        },
-        {
-          path: "audit",
-          element: <AuditSettingContent />,
         },
         {
           path: "account",

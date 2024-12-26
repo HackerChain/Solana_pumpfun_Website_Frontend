@@ -20,10 +20,6 @@ export const Settings = () => {
       link: "/settings/sell",
     },
     {
-      title: "Degen Audit",
-      link: "/settings/audit",
-    },
-    {
       title: "Account",
       link: "/settings/account",
     },
@@ -35,13 +31,12 @@ export const Settings = () => {
     setSelected(menu[idx].title);
     navigate(menu[idx].link);
   };
-  
 
   return (
-    <div className="flex flex-col flex-1 overflow-y-auto h-full bg-bg_gray">
+    <div className="flex flex-col overflow-y-auto h-full bg-bg_gray">
       <TitleBox title="Settings" icon={<SettingsIcon />} />
-      <div className="flex-1 w-full h-full p-[30px]">
-        <div className="rounded-2xl h-full border-[1px] border-bg_gray_light flex flex-row">
+      <div className="flex-1 w-full h-full p-[30px] overflow-y-auto">
+        <div className="rounded-2xl h-full border-[1px] border-bg_gray_light flex flex-row overflow-y-auto">
           <div className="flex flex-col w-[300px] border-r-[1px] border-bg_gray_light p-[24px] items-start">
             <p className="text-secondary_light_400 mb-2">SETTINGS MENU</p>
             {menu.map((item, idx) => (
@@ -58,7 +53,7 @@ export const Settings = () => {
               </div>
             ))}
           </div>
-          <div className="flex-1">
+          <div className="flex-1 overflow-y-auto">
             <Outlet />
           </div>
         </div>
