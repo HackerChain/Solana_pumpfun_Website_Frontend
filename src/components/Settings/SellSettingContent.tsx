@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CloseIcon4SellInput } from "../../assets";
 
 interface SaleMilstone {
   salePercent: number;
@@ -47,10 +48,6 @@ export const SellSettingContent = () => {
       <div className="flex flex-row items-center justify-between p-[24px] border-b-[1px] border-bg_gray_light h-[88px]">
         <div className="flex flex-col items-start">
           <p className="text-lg">Sell</p>
-          <p className="text-secondary_light_400 text-sm line-clamp-1">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla
-          </p>
         </div>
         <div className="flex flex-row gap-2">
           <div className="flex items-center justify-center rounded-md bg-bg_gray_light shadow-[inset_0_-3px_5px_1px_#F6F7FA33] p-2 h-[46px] w-[120px] hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out">
@@ -72,7 +69,7 @@ export const SellSettingContent = () => {
               key={idx}
             >
               <div className="flex flex-row justify-between w-full gap-4">
-                <div className="flex flex-col items-start w-[50%] flex-1">
+                <div className="flex flex-col items-start w-[50%] flex-1 relative">
                   <p className="text-xs text-secondary_light_300">
                     {item.lable[0]}
                   </p>
@@ -93,10 +90,16 @@ export const SellSettingContent = () => {
                         setManualValue(newManualValue);
                       }
                     }}
-                    className="bg-bg_gray_light rounded px-4 py-2 w-full h-[46px] hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out"
+                    className="account-input-style !pl-8"
                   />
+                  <span className="absolute left-4 top-4 translate-y-1/2 text-secondary_light_100">
+                    %
+                  </span>
+                  <div className="absolute right-3 top-6 translate-y-1/2 hover:cursor-pointer">
+                    <CloseIcon4SellInput />
+                  </div>
                 </div>
-                <div className="flex flex-col items-start w-[50%] flex-1">
+                <div className="flex flex-col items-start w-[50%] flex-1 relative">
                   <p className="text-xs text-secondary_light_300">
                     {item.lable[1]}
                   </p>
@@ -117,8 +120,18 @@ export const SellSettingContent = () => {
                         setManualValue(newManualValue);
                       }
                     }}
-                    className="bg-bg_gray_light rounded px-4 py-2 w-full h-[46px] hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out"
+                    className={`account-input-style !pl-8 ${
+                      idx !== 4 ? "!pr-6" : ""
+                    }`}
                   />
+                  <span className="absolute left-4 top-4 translate-y-1/2 text-secondary_light_100">
+                    x
+                  </span>
+                  {idx === 4 && (
+                    <div className="absolute right-3 top-6 translate-y-1/2 hover:cursor-pointer">
+                      <CloseIcon4SellInput />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

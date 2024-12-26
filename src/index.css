@@ -132,7 +132,7 @@ button:focus-visible {
 }
 
 .account-input-style {
-  @apply w-full h-[46px] bg-[#17172E] text-white placeholder-secondary_light_400 
+  @apply w-full h-[46px] bg-bg_gray_light text-white placeholder-secondary_light_400 
   border border-secondary_dark_600 rounded-md pl-10 pr-10 py-2
   focus:outline-none focus:ring-2 focus:ring-primary_dark_700
   transition duration-300 ease-in-out;
