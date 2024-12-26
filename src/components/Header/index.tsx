@@ -3,16 +3,21 @@ import {
   AssetsIcon,
   DashboardIcon,
   DropDownIcon,
+  ExitIcon,
   LogoIcon,
   SettingsIcon,
   TransactionIcon,
+  UserIcon,
 } from "../../assets";
 import { useState } from "react";
 import api from "../../utils/api";
 import { useAuth } from "../../context/Auth";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: <DashboardIcon /> },
+  { name: "Dashboard", href: "/dashboard", icon: <DashboardIcon /> },
   { name: "Transaction", href: "/transactions", icon: <TransactionIcon /> },
   { name: "Assets", href: "/assets", icon: <AssetsIcon /> },
   { name: "Settings", href: "/settings", icon: <SettingsIcon /> },
@@ -23,8 +28,12 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { logout } = useAuth();
   const navigate = useNavigate();
+
+  const userData = useSelector((state: RootState) => state.user);
+
   const handleLogout = () => {
     logout();
+    toast.success("Logout successful");
     api.post("/auth/logout").then((res) => {
       if (res.status === 200) {
         navigate("/signin");
@@ -34,72 +43,83 @@ export default function Header() {
 
   const UserBtns = [
     {
-      title: "My Account",
-      icon: <DropDownIcon />,
+      title: "Profile",
+      icon: <UserIcon />,
       action: () => {
-        console.log("My Account");
+        navigate("/settings/account");
       },
     },
     {
-      title: "Sign Out",
-      icon: <DropDownIcon />,
+      title: "Exit",
+      icon: <ExitIcon />,
       action: handleLogout,
     },
   ];
 
   return (
-    <div className="w-full items-center justify-between flex mb-3 h-[60px]">
-      <div className="flex flex-row gap-2 mt-2 items-center">
+    <div className="flex w-full items-center justify-between mb-3 h-[60px] bg-bg_black">
+      <div
+        className="flex flex-row gap-2 mt-2 items-center text-white hover:cursor-pointer"
+        onClick={() => navigate("/")}
+      >
         <LogoIcon />
         Pumpfun
       </div>
-      <div className="flex justify-between w-[475px] h-[40px]">
+      <div className="justify-between lg:w-[475px] h-[40px] flex">
         {navigation.map((item) => (
           <Link
             key={item.name}
             to={item.href}
             className={`px-4 inline-flex text-sm text-secondary_light_300 hover:text-white transition-all duration-300 ease-in-out text-center items-center gap-2 justify-center ${
-              location.pathname === item.href
-                ? "bg-primary_dark_700 shadow-[inset_0_-3px_5px_1px_#F6F7FA33] rounded-md "
+              location.pathname.includes(item.href)
+                ? "bg-primary_dark_700 shadow-[inset_0_-3px_5px_1px_#F6F7FA33] rounded-md"
                 : ""
             }`}
           >
             {item.icon}
-            {item.name}
+            <div className="hidden lg:flex">{item.name}</div>
           </Link>
         ))}
       </div>
-      <div className="h-[40px] rounded-md bg-[#17172E] flex flex-row items-center p-2">
-        {/* // TODO: Add dropdown menu */}
-        <div className="w-[26px] h-[26px] bg-amber-200 rounded-md"></div>
-        <div className="flex flex-col items-start mr-[16px] ml-2">
-          <p className="text-mx">Abdullayev Alisher</p>
-          <p className="text-xxs text-secondary_light_400">
-            youremail@gmail.com
+      <div
+        className={`h-[40px] rounded-md ${
+          isOpen ? "bg-bg_gray" : "bg-[#17172E]"
+        } flex flex-row items-center p-2 hover:cursor-pointer transition duration-300`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <div className="w-[26px] h-[26px] bg-amber-200 rounded-md mr-2"></div>
+        <div className="hidden sm:flex flex-col items-start mr-[16px]">
+          <p className="text-xs md:text-sm xl:text-mx hover:text-white">
+            {userData.fullName || "Guest User"}
+          </p>
+          <p className="text-xxs text-secondary_light_400 hover:text-white">
+            {userData.email || "email@example.com"}
           </p>
         </div>
-        <div
-          onClick={() => setIsOpen(!isOpen)}
-          className="hover:cursor-pointer hover:scale-125"
-        >
+        <div className="hover:cursor-pointer hover:scale-125">
           <DropDownIcon />
         </div>
-        {isOpen && (
-          <div className="absolute w-[200px] z-200 bg-[#17172E] border  border-secondary_dark_600 rounded-md shadow-lg transition translate-y-[64px] translate-x-3">
-            {UserBtns.map((btn, idx) => (
-              <div
-                key={idx}
-                className="px-4 py-2 cursor-pointer hover:bg-bg_gray rounded-md text-end"
-                onClick={() => {
-                  btn.action();
-                  setIsOpen(false);
-                }}
-              >
-                {btn.title}
-              </div>
-            ))}
-          </div>
-        )}
+        <div className="relative">
+          {isOpen && (
+            <div className="absolute w-[180px] z-50 bg-bg_gray border border-secondary_dark_600 shadow-[-10px_20px_15px_10px_#04070E55] rounded-lg transition duration-300 translate-y-[30px] -translate-x-[170px] p-1">
+              {UserBtns.map((btn, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-row items-center gap-3 text-sm p-2 cursor-pointer hover:bg-secondary_dark_900 rounded-md text-start h-[52px] text-secondary_light_100 group "
+                  onClick={() => {
+                    btn.action();
+                    setIsOpen(false);
+                  }}
+                >
+                  <div className="p-2 rounded-md  bg-bg_gray_light group-hover:bg-primary_dark_700 transition duration-300 ease-in-out">
+                    {btn.icon}
+                  </div>
+                  {btn.title}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

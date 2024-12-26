@@ -54,10 +54,12 @@ export const SingleCalendarPicker: React.FC<SingleCalendarPickerProps> = ({
     <div className="relative ">
       <div
         onClick={toggleCalendar}
-        className="w-full px-3 h-[36px] flex items-center gap-3 text-left bg-bg_gray_light shadow-[inset_0_1px_1px_1px_#F6F7FA22] rounded-md focus:outline-none "
+        className="w-full px-3 h-[36px] flex items-center gap-3 text-left bg-bg_gray_light shadow-[inset_0_1px_1px_1px_#F6F7FA22] rounded-md focus:outline-none hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out"
       >
         <CalendarIcon />
-        <span className="flex items-center">{formatDateRange()}</span>
+        <p className="flex items-center text-xxs lg:text-xs xl:text-sm line-clamp-1">
+          {formatDateRange()}
+        </p>
       </div>
       {/* // TODO: Add the calendar component here */}
       {isOpen && (

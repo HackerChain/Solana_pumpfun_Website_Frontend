@@ -8,18 +8,23 @@ import { TestDataforTXs } from "../store/TestData/testData";
 
 export const Transactions = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 10;
+  const [pageUnit, setPageUnit] = useState(10); // 10, 20, 50
+  const [totalPages] = useState(10);
+  const [totalCount] = useState(0);
+  const [during, setDuring] = useState("15m"); // 15m, 3h, 3h
   return (
     <>
       <div className="flex flex-col flex-1 overflow-y-auto h-full bg-bg_gray">
         <TitleBox title="Transaction" icon={<TransactionIcon />} />
-        <ToolBox />
+        <ToolBox during={during} setDuring={setDuring}/>
         <TxnTable txns={TestDataforTXs} />
         <Pagination
+          totaldata={totalCount}
           currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
           totalPages={totalPages}
-          onPageChange={setCurrentPage}
-          maxVisible={4}
+          pageUnit={pageUnit}
+          setPageUnit={setPageUnit}
         />
       </div>
     </>

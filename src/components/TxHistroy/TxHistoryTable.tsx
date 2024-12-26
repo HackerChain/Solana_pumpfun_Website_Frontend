@@ -21,7 +21,9 @@ const getSideColor = (profit: number) => {
 
 export const TxHistoryTable: React.FC<TokenTxsProps> = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 10;
+  const [pageUnit, setPageUnit] = useState(10); // 10, 20, 50
+  const [totalPages] = useState(10);
+  const [totalCount] = useState(0);
   return (
     <div className="w-full overflow-y-auto flex flex-1 px-[30px] pb-[30px]">
       <div className="flex flex-1 flex-col rounded-2xl border-[1px] border-bg_gray_light overflow-y-auto">
@@ -29,11 +31,22 @@ export const TxHistoryTable: React.FC<TokenTxsProps> = ({ data }) => {
           <div className="flex flex-row justify-between items-center">
             <p className="text-base">Transaction</p>
             <div className="flex flex-row gap-4 items-center">
-              <div className="flex flex-row items-center gap-2 py-2 px-4 rounded-lg w-[200px] border-[1px] border-bg_gray_light ">
-                <SearchIcon />
-                <p className="text-secondary_light_300">Search anything...</p>
+              <div className="flex items-center gap-2 pr-6 border-r-[1px] border-bg_gray_light ">
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder={"Search anything..."}
+                    className="w-full h-[36px] bg-[#17172E] text-white placeholder-secondary_light_400 
+        border border-secondary_dark_600 rounded-md pl-10 pr-4 py-1
+        focus:outline-none focus:ring-2 focus:ring-primary_dark_700
+        transition duration-300 ease-in-out"
+                  />
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2">
+                    <SearchIcon />
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center justify-center rounded-lg bg-bg_gray_light w-[40px] h-[40px]">
+              <div className="flex items-center justify-center rounded-lg bg-bg_gray_light w-[36px] h-[36px] hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out">
                 <FilterIcon />
               </div>
             </div>
@@ -130,10 +143,12 @@ export const TxHistoryTable: React.FC<TokenTxsProps> = ({ data }) => {
           </div>
         </div>
         <Pagination
+          totaldata={totalCount}
           currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
           totalPages={totalPages}
-          onPageChange={setCurrentPage}
-          maxVisible={4}
+          pageUnit={pageUnit}
+          setPageUnit={setPageUnit}
         />
       </div>
     </div>

@@ -21,10 +21,10 @@ export const MainSettingContent = () => {
             </p>
           </div>
           <div className="flex flex-row gap-2 ">
-            <div className="flex items-center justify-center rounded-md bg-bg_gray_light shadow-[inset_0_-3px_5px_1px_#F6F7FA33] p-2 h-[46px] w-[120px]">
+            <div className="flex items-center justify-center rounded-md bg-bg_gray_light shadow-[inset_0_-3px_5px_1px_#F6F7FA33] p-2 h-[46px] w-[120px] hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out">
               Cancel
             </div>
-            <div className="flex items-center justify-center rounded-md bg-primary_dark_700 shadow-[inset_0_-3px_5px_1px_#F6F7FA33] p-2 h-[46px] w-[120px]">
+            <div className="flex items-center justify-center rounded-md bg-primary_dark_700 shadow-[inset_0_-3px_5px_1px_#F6F7FA33] p-2 h-[46px] w-[120px] hover:cursor-pointer hover:bg-primary_dark_800 transition duration-300 ease-in-out">
               Update
             </div>
           </div>
@@ -67,7 +67,7 @@ export const MainSettingContent = () => {
                   onChange={(e) =>
                     setWorkingHours({ ...workingHours, from: e.target.value })
                   }
-                  className="bg-bg_gray_light rounded px-4 py-2 w-[160px] h-[46px]"
+                  className="bg-bg_gray_light rounded px-4 py-2 w-[160px] h-[46px] hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out"
                 />
               </div>
               <div className="flex flex-col items-start">
@@ -78,7 +78,7 @@ export const MainSettingContent = () => {
                   onChange={(e) =>
                     setWorkingHours({ ...workingHours, to: e.target.value })
                   }
-                  className="bg-bg_gray_light rounded px-4 py-2 w-[160px] h-[46px]"
+                  className="bg-bg_gray_light rounded px-4 py-2 w-[160px] h-[46px] hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out"
                 />
               </div>
             </div>

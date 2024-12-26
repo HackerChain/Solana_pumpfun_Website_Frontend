@@ -15,7 +15,6 @@
     "@pixi/react": "^7.1.2",
     "@radix-ui/react-switch": "^1.1.2",
     "@reduxjs/toolkit": "^2.2.5",
-    "@telegram-apps/sdk": "^1.1.3",
     "@tonconnect/ui-react": "^2.0.5",
     "@twa-dev/sdk": "^7.0.0",
     "@types/react-datepicker": "^7.0.0",
@@ -35,7 +34,7 @@
     "react-icons": "^5.2.1",
     "react-redux": "^9.1.2",
     "react-router-dom": "^6.23.1",
-    "react-toastify": "^10.0.5",
+    "react-toastify": "^10.0.6",
     "redux-persist": "^6.0.0",
     "tailwindcss-animate": "^1.0.7"
   },

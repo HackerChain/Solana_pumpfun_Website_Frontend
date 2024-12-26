@@ -1,21 +1,25 @@
-import { useState } from "react";
 import { NextIcon, PreviousIcon } from "../assets";
 import { PageUnitDropdown } from "./PageUnitDropdown";
 
 interface PaginationProps {
+  totaldata: number;
   currentPage: number;
+  setCurrentPage: (page: number) => void;
   totalPages: number;
-  onPageChange: (page: number) => void;
-  maxVisible?: number;
+  pageUnit: number;
+  setPageUnit: (pageUnit: number) => void;
 }
 
 export const Pagination = ({
+  totaldata,
   currentPage,
+  setCurrentPage,
   totalPages,
-  onPageChange,
-  maxVisible = 4,
+  pageUnit,
+  setPageUnit,
 }: PaginationProps) => {
   const getPageNumbers = () => {
+    const maxVisible = 4;
     const pages: (number | string)[] = [];
 
     if (totalPages <= maxVisible) {
@@ -25,36 +29,33 @@ export const Pagination = ({
     // Always show first page
     pages.push(1);
 
-    let start = Math.max(2, currentPage - Math.floor(maxVisible / 2));
+    let start = Math.max(
+      2,
+      Math.min(currentPage - Math.floor(maxVisible / 2) + 1, 8)
+    );
     let end = Math.min(totalPages - 1, start + maxVisible - 3);
-
     if (start > 2) pages.push("...");
 
     for (let i = start; i <= end; i++) {
       pages.push(i);
     }
-
     if (end < totalPages - 1) pages.push("...");
-
-    // Always show last page
     pages.push(totalPages);
 
     return pages;
   };
 
-  const pageUnits = [10, 20, 50, 100];
-  const [selected] = useState(pageUnits[0]);
-  const [sideSelected, setSideSelected] = useState(10);
+  const pageUnits = [10, 20, 50];
 
   return (
     <div className="flex items-center justify-between my-4 px-[30px]">
       <div className="w-[272px] flex items-center justify-center">
         <div
-          onClick={() => currentPage !== 1 && onPageChange(currentPage - 1)}
+          onClick={() => currentPage !== 1 && setCurrentPage(currentPage - 1)}
           className={`flex flex-row gap-2 items-center justify-center px-2 rounded-lg border-[1px] w-[32px] h-[32px] mr-[24px] border-secondary_default ${
             currentPage === 1
               ? "opacity-50 cursor-not-allowed"
-              : "hover:cursor-pointer"
+              : "hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out"
           }`}
         >
           <PreviousIcon />
@@ -65,7 +66,7 @@ export const Pagination = ({
             key={idx}
             onClick={() =>
               pageNum !== "..." && typeof pageNum === "number"
-                ? onPageChange(pageNum)
+                ? setCurrentPage(pageNum)
                 : undefined
             }
             className={`
@@ -85,26 +86,28 @@ export const Pagination = ({
 
         <div
           onClick={() =>
-            currentPage !== totalPages && onPageChange(currentPage + 1)
+            currentPage !== totalPages && setCurrentPage(currentPage + 1)
           }
           className={`flex flex-row gap-2 items-center justify-center px-2 rounded-lg border-[1px] w-[32px] h-[32px] ml-[24px] border-secondary_default ${
             currentPage === totalPages
               ? "opacity-50 cursor-not-allowed"
-              : "hover:cursor-pointer"
+              : "hover:cursor-pointer hover:bg-primary_dark_700 transition duration-300 ease-in-out"
           }`}
         >
           <NextIcon />
         </div>
       </div>
       <div className="flex flex-row gap-4 items-center">
-        <p className="text-xs text-[#6C7278]">
-          Showing {(currentPage - 1) * selected + 1} to {selected * currentPage}{" "}
-          of 68 entries
+        <p className="hidden md:block text-xs text-[#6C7278]">
+          Showing {(currentPage - 1) * pageUnit + 1} to{" "}
+          {Math.min(pageUnit * currentPage, totaldata)}
+          of {totaldata} entries
         </p>
         <PageUnitDropdown
           options={pageUnits}
-          selected={sideSelected}
-          onSelect={setSideSelected}
+          selected={pageUnit}
+          onSelect={setPageUnit}
+          setCurrentPage={setCurrentPage}
         />
       </div>
     </div>

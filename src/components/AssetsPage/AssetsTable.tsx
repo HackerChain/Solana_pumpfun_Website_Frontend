@@ -11,19 +11,6 @@ interface TokenTableProps {
 
 const images = [<Logo1 />, <Logo2 />, <Logo3 />];
 
-// const getStateColor = (state: string) => {
-//   if (state === "Sell") {
-//     return "bg-color_green";
-//   }
-//   if (state === "Buy") {
-//     return "bg-color_red";
-//   }
-//   if (state === "Raydium") {
-//     return "bg-color_yellow_dark";
-//   }
-//   return "";
-// };
-
 const getAgeColor = (age: string) => {
   if (age.slice(-1) === "h" || age.slice(-1) === "m") {
     return "text-color_green";
@@ -42,8 +29,9 @@ export const AssetsTable: React.FC<TokenTableProps> = ({ tokens }) => {
   const handleClick = ({ ca }: { ca: string }) => {
     navigate(`/assets/${ca}`);
   };
+  console.log(tokens);
   return (
-    <div className="w-full h-full px-[30px] shadow-md overflow-x-auto overflow-y-auto flex flex-1 flex-col min-h-[300px]">
+    <div className="w-full h-full px-[30px] shadow-md overflow-x-auto overflow-y-auto flex flex-1 flex-col">
       <table className="w-full border-collapse">
         <thead className="sticky top-0 z-20 ">
           <tr className="h-[40px] text-center items-center text-xs xl:text-sm 2xl:text-base text-text_dark ">
@@ -98,7 +86,7 @@ export const AssetsTable: React.FC<TokenTableProps> = ({ tokens }) => {
             >
               <td className="table-data-style w-[180px] xl:w-[220px] 2xl:w-[260px] px-2">
                 <div
-                  className="flex flex-row justify-between items-center pr-2 xl:pr-4"
+                  className="flex flex-row justify-between items-center pr-2 xl:pr-4 hover:text-white"
                   onClick={() =>
                     handleClick({ ca: token.contractAddress || "" })
                   }
@@ -126,20 +114,20 @@ export const AssetsTable: React.FC<TokenTableProps> = ({ tokens }) => {
               >
                 {token.Age}
               </td>
-              <td className="table-data-style  w-[120px] xl:w-[140px] 2xl:w-[160px]">
-                ${formatNumber(token.currentPrice || 0)}
+              <td className="table-data-style w-[120px] xl:w-[140px] 2xl:w-[160px]">
+                ${formatNumber(token.currentPrice)}
               </td>
               <td className="table-data-style w-[80px] xl:w-[100px] 2xl:w-[120px]">
-                ${formatNumber(token.MarketCap || 0)}
+                ${formatNumber(token.MarketCap)}
               </td>
               <td className="table-data-style w-[80px] xl:w-[100px] 2xl:w-[120px]">
-                ${formatNumber(token.FDV || 0)}
+                ${formatNumber(token.FDV)}
               </td>
               <td className="table-data-style w-[130px] xl:w-[150px] 2xl:w-[170px]">
-                ${formatNumber(token.avgInvestPrice || 0)}
+                ${formatNumber(token.avgInvestPrice)}
               </td>
               <td className="table-data-style w-[80px] xl:w-[100px] 2xl:w-[120px]">
-                ${formatNumber(token.totalInvested || 0)}
+                ${formatNumber(token.totalInvested)}
               </td>
               <td className="table-data-style flex-col w-[80px] xl:w-[100px] 2xl:w-[120px]">
                 <p

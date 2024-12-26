@@ -11,7 +11,7 @@ export const TokenInfo: React.FC<TokenTxsProps> = ({ data }) => {
   return (
     <>
       <div className="flex flex-col justify-between items-center gap-5 px-[30px] my-[24px]">
-        <div className="flex flex-row justify-between w-full rounded-md border-[1px] border-bg_gray_light gap-1 pl-4 py-4 items-start">
+        <div className="flex flex-col md:flex-row  justify-between w-full rounded-md border-[1px] border-bg_gray_light md:pl-4 md:py-4 pl-2 py-2 items-start gap-2">
           <div className="flex flex-row items-center gap-2">
             <div className="w-[22px] h-[22px] xl:w-[26px] xl:h-[26px] 2xl:w-[32px] 2xl:h-[32px] flex items-center">
               <Logo1 />
@@ -42,7 +42,7 @@ export const TokenInfo: React.FC<TokenTxsProps> = ({ data }) => {
             </div>
           </div>
           <div className="flex flex-row">
-            <div className="flex flex-col items-center justify-center px-10 ">
+            <div className="flex flex-col items-center justify-center pr-10">
               <p className="text-text_dark text-start text-xxs lg:text-xs">
                 Realised Profit
               </p>
