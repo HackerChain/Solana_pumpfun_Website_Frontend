@@ -190,13 +190,19 @@ export const TokenTable: React.FC<TokenTableProps> = ({
             {/* initial supply tokens */}
             <td className="table-data-style flex-col w-[140px] xl:w-[160px]">
               <p>{formatNumber(token.total_supply)}</p>
-              <p>({formatNumber(12)}%)</p>
+              <p>({formatNumber(100.0)}%)</p>
             </td>
 
             {/* circul supply */}
             <td className="table-data-style flex-col w-[100px] xl:w-[120px]">
               <p>{formatNumber(token.circul_supply)}</p>
-              <p>({formatNumber(32)}%)</p>
+              <p>
+                (
+                {formatNumber(
+                  (token.circul_supply / token.total_supply) * 100.0
+                )}
+                %)
+              </p>
             </td>
 
             {/* total supply tokens */}
