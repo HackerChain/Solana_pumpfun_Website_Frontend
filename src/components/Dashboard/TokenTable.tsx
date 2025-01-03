@@ -97,14 +97,14 @@ export const TokenTable: React.FC<TokenTableProps> = ({
             <th className="bg-secondary_dark_600">
               <div className="table-header-style">tS, tokens</div>
             </th>
-
+            {/* 
             <th className="bg-secondary_dark_600">
               <div className="table-header-style">1h TXs</div>
             </th>
 
             <th className="bg-secondary_dark_600">
               <div className="table-header-style">1h Vol</div>
-            </th>
+            </th> */}
 
             <th className="bg-secondary_dark_600">
               <div className="table-header-style">Degen Audit</div>
@@ -211,13 +211,13 @@ export const TokenTable: React.FC<TokenTableProps> = ({
             </td>
 
             {/* 1h txs */}
-            <td className="table-data-style w-[100px] xl:w-[120px]">
+            {/* <td className="table-data-style w-[100px] xl:w-[120px]">
               {formatNumber(123546789)}
-            </td>
+            </td> */}
             {/* 1d vol */}
-            <td className="table-data-style w-[100px] xl:w-[120px]">
+            {/* <td className="table-data-style w-[100px] xl:w-[120px]">
               ${formatNumber(987654)}
-            </td>
+            </td> */}
             {/* degen audit */}
             <td className="table-data-style flex-col w-[200px] xl:w-[220px]">
               <div className="flex flex-row gap-2 justify-start w-full">
